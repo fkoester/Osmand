@@ -1284,4 +1284,12 @@
 	<string name="edit_filter_create_message">Filter {0} has been created</string>
 	<string name="default_buttons_selectall">Select All</string>
 	<string name="email">email</string>
+	
+	<string name="map_widget_vehiclediagnostics_speed">Vehicle speed</string>
+	<string name="map_widget_vehiclediagnostics_engineload">Engine load</string>
+	<string name="map_widget_vehiclediagnostics_enginerpm">Engine RPM</string>
+	<string name="map_widget_vehiclediagnostics_fuelvolume">Fuel Volume</string>
+	<string name="map_widget_vehiclediagnostics_fuelconsumptionperhour">Fuel consumption per hour</string>
+	<string name="map_widget_vehiclediagnostics_fuelconsumptionper100km">Fuel consumption per 100km</string>
+	<string name="map_widget_vehiclediagnostics_range">Range</string>
 </resources>
