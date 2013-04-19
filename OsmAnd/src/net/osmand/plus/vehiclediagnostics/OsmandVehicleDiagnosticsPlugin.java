@@ -19,6 +19,7 @@ import net.osmand.plus.OsmandPlugin;
 import net.osmand.plus.OsmandSettings;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
+import net.osmand.plus.vehiclediagnostics.widgets.FuelConsumptionWidget;
 import net.osmand.plus.views.MapInfoLayer;
 import net.osmand.plus.views.mapwidgets.TextInfoWidget;
 
@@ -66,14 +67,15 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 	private TextInfoWidget engineLoadWidget;
 	
 	private TextInfoWidget fuelVolumeWidget;
-	private TextInfoWidget currentFuelConsumptionPerHourWidget;
-	private TextInfoWidget currentFuelConsumptionPer100kmWidget;
+	private FuelConsumptionWidget fuelConsumptionWidget;
 	private TextInfoWidget rangeWidget;
 	
 	private TextInfoWidget tourFuelConsumptionWidget;
 	private TextInfoWidget tourFuelCostsWidget;
 
 	private double costsPerLiter = 1.618; 
+	
+	private VehicleModel vehicleModel;
 	
 	private CSVWriter csvWriter;
 	
@@ -139,10 +141,16 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 				} else if(AvailableCommandNames.ENGINE_LOAD.getValue().equals(cmdName) && (System.currentTimeMillis() - last_load_update) >= 1000) {
 					engineLoadWidget.setText(cmdFormattedResult, "");
 					last_load_update = System.currentTimeMillis();
+					
+					int tempValue = job.getCommand().getBuffer().get(2);
+					vehicleModel.setCurrentEngineLoad(tempValue);
+					fuelConsumptionWidget.valueChanged();
 				}
 			
 			}
 		};
+		
+		vehicleModel = new VehicleModel(FuelType.SUPER_E10, 50);
 		
 		/*
 		 * Prepare service and its connection
@@ -234,37 +242,43 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 					EnumSet.allOf(ApplicationMode.class),
 					EnumSet.noneOf(ApplicationMode.class), 22);
 			
-			fuelVolumeWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
-			fuelVolumeWidget.setText("-", "l");
-			setRecordListener(fuelVolumeWidget, activity);
-			mapInfoLayer.getMapInfoControls().registerSideWidget(fuelVolumeWidget,
-					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_fuelvolume, "fuelvolume", true,
-					EnumSet.allOf(ApplicationMode.class),
-					EnumSet.noneOf(ApplicationMode.class), 23);
+//			fuelVolumeWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
+//			fuelVolumeWidget.setText("-", "l");
+//			setRecordListener(fuelVolumeWidget, activity);
+//			mapInfoLayer.getMapInfoControls().registerSideWidget(fuelVolumeWidget,
+//					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_fuelvolume, "fuelvolume", true,
+//					EnumSet.allOf(ApplicationMode.class),
+//					EnumSet.noneOf(ApplicationMode.class), 23);
 			
-			currentFuelConsumptionPerHourWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
-			currentFuelConsumptionPerHourWidget.setText("-", "l/h");
-			setRecordListener(currentFuelConsumptionPerHourWidget, activity);
-			mapInfoLayer.getMapInfoControls().registerSideWidget(currentFuelConsumptionPerHourWidget,
+//			currentFuelConsumptionPerHourWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
+//			currentFuelConsumptionPerHourWidget.setText("-", "l/h");
+//			setRecordListener(currentFuelConsumptionPerHourWidget, activity);
+//			mapInfoLayer.getMapInfoControls().registerSideWidget(currentFuelConsumptionPerHourWidget,
+//					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_fuelconsumptionperhour, "fuelconsumptionperhour", true,
+//					EnumSet.allOf(ApplicationMode.class),
+//					EnumSet.noneOf(ApplicationMode.class), 24);
+//			
+//			currentFuelConsumptionPer100kmWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
+//			currentFuelConsumptionPer100kmWidget.setText("-", "l/100km");
+//			setRecordListener(currentFuelConsumptionPer100kmWidget, activity);
+//			mapInfoLayer.getMapInfoControls().registerSideWidget(currentFuelConsumptionPer100kmWidget,
+//					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_fuelconsumptionper100km, "fuelconsumptionper100km", true,
+//					EnumSet.allOf(ApplicationMode.class),
+//					EnumSet.noneOf(ApplicationMode.class), 25);
+//			
+//			rangeWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
+//			rangeWidget.setText("-", "km");
+//			setRecordListener(rangeWidget, activity);
+//			mapInfoLayer.getMapInfoControls().registerSideWidget(rangeWidget,
+//					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_range, "range", true,
+//					EnumSet.allOf(ApplicationMode.class),
+//					EnumSet.noneOf(ApplicationMode.class), 26);
+			
+			fuelConsumptionWidget = new FuelConsumptionWidget(activity, vehicleModel);
+			mapInfoLayer.getMapInfoControls().registerSideWidget(fuelConsumptionWidget,
 					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_fuelconsumptionperhour, "fuelconsumptionperhour", true,
 					EnumSet.allOf(ApplicationMode.class),
-					EnumSet.noneOf(ApplicationMode.class), 24);
-			
-			currentFuelConsumptionPer100kmWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
-			currentFuelConsumptionPer100kmWidget.setText("-", "l/100km");
-			setRecordListener(currentFuelConsumptionPer100kmWidget, activity);
-			mapInfoLayer.getMapInfoControls().registerSideWidget(currentFuelConsumptionPer100kmWidget,
-					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_fuelconsumptionper100km, "fuelconsumptionper100km", true,
-					EnumSet.allOf(ApplicationMode.class),
-					EnumSet.noneOf(ApplicationMode.class), 25);
-			
-			rangeWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
-			rangeWidget.setText("-", "km");
-			setRecordListener(rangeWidget, activity);
-			mapInfoLayer.getMapInfoControls().registerSideWidget(rangeWidget,
-					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_range, "range", true,
-					EnumSet.allOf(ApplicationMode.class),
-					EnumSet.noneOf(ApplicationMode.class), 26);
+					EnumSet.noneOf(ApplicationMode.class), 23);
 			
 			mapInfoLayer.recreateControls();
 			

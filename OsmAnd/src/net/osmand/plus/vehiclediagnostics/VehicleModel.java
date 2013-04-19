@@ -81,18 +81,18 @@ public class VehicleModel {
 		this.currentVelocity = currentVelocity;
 	}
 	
-	public int getCurrentFuelConsumptionPerHour() {
+	public double getCurrentFuelConsumptionPerHour() {
 		
 		// TODO find real formula
-		return getCurrentEngineLoad() / 10;
+		return getCurrentEngineLoad() * 0.10383581980169852;
 	}
 	
-	public int getCurrentFuelConsumptionPer100km() {
+	public double getCurrentFuelConsumptionPer100km() {
 		
 		return getCurrentFuelConsumptionPerHour() / (getCurrentVelocity() * 100);
 	}
 	
-	public int getCurrentRange() {
+	public double getCurrentRange() {
 		
 		return getCurrentFuelVolume() / getCurrentFuelConsumptionPerHour() * getCurrentVelocity();
 	}
