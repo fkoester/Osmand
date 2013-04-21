@@ -39,11 +39,25 @@ public class FuelConsumptionWidget extends TextInfoWidget {
 	
 	public void valueChanged() {
 		
-		double value = mode == CONSUMPTION_PER_HOUR ? vehicleModel.getCurrentFuelConsumptionPerHour() : vehicleModel.getCurrentFuelConsumptionPer100km();
-		float rounded = Math.round(value * 100) / 100;
+		double value;
+		String suffix;
 		
-		String suffix = mode == CONSUMPTION_PER_HOUR ? "l/h" : "l/100km";
+		switch(mode) {
 		
-		setText(String.valueOf(rounded), suffix);
+			case CONSUMPTION_PER_100KM:		
+				double fuelConsumptionPer100km = vehicleModel.getCurrentFuelConsumptionPer100km();
+			
+				if(!Double.isInfinite(fuelConsumptionPer100km)) {
+					value = fuelConsumptionPer100km;
+					suffix = "l/100km";
+					break;
+				}
+			case CONSUMPTION_PER_HOUR:
+			default:
+				value = vehicleModel.getCurrentFuelConsumptionPerHour();
+				suffix = "l/h";
+		}
+		
+		setText(String.format("%.2f%n", value), suffix);
 	}
 }
