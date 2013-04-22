@@ -120,7 +120,7 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 						cmdName != null ? cmdName : "UNKNOWN",
 						cmdResult != null ? cmdResult : "NORESULT"};
 				
-			    csvWriter.writeNext(entries);
+			    //csvWriter.writeNext(entries);
 			    
 //			    if((System.currentTimeMillis() - last_csv_update) >= 10000) {
 //				    try {
@@ -135,16 +135,15 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 					last_rpm_update = System.currentTimeMillis();
 				} else if (AvailableCommandNames.SPEED.getValue().equals(
 						cmdName)  && (System.currentTimeMillis() - last_speed_update) >= 1000) {
-					vehicleSpeedWidget.setText(String.valueOf(((SpeedObdCommand) job.getCommand())
-							.getMetricSpeed()), "km/h");
+					vehicleSpeedWidget.setText(job.getCommand().getFormattedResult(), "");
 					last_speed_update = System.currentTimeMillis();
 				} else if(AvailableCommandNames.ENGINE_LOAD.getValue().equals(cmdName) && (System.currentTimeMillis() - last_load_update) >= 1000) {
 					engineLoadWidget.setText(cmdFormattedResult, "");
 					last_load_update = System.currentTimeMillis();
-				
-					fuelConsumptionWidget.valueChanged();
-					tourWidget.valueChanged();
 				}
+				
+				fuelConsumptionWidget.valueChanged();
+				tourWidget.valueChanged();
 			
 			}
 		};
@@ -306,9 +305,18 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 //				tvMpg.setText("" + liters100km);
 //				
 //			}
+			
+			boolean dummyData = true;
 
-			if (serviceConnection.isRunning())
-				queueCommands();
+			if(dummyData) {				
+				postListener.stateUpdate(new ObdCommandJob(new DummyObdCommand(AvailableCommandNames.ENGINE_LOAD.getValue())));
+				postListener.stateUpdate(new ObdCommandJob(new DummyObdCommand(AvailableCommandNames.SPEED.getValue())));
+				
+				
+			} else {
+				if (serviceConnection.isRunning())
+					queueCommands();
+			}
 
 			// run again in 50ms
 			handler.postDelayed(mQueueCommands, 50);

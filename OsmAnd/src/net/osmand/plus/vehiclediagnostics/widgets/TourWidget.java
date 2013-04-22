@@ -62,7 +62,7 @@ public class TourWidget extends TextInfoWidget {
 			suffix = "€";
 			break;
 		case DURATION:
-			value = vehicleModel.getTourDuration() / 1000 / 60;
+			value = (double)vehicleModel.getTourDuration() / ((double)1000 * 60);
 			suffix = "min";
 			break;
 		case DISTANCE:
