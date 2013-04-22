@@ -3,14 +3,12 @@
  */
 package net.osmand.plus.vehiclediagnostics;
 
-import java.util.LinkedList;
-
 import eu.lighthouselabs.obd.enums.AvailableCommandNames;
 import eu.lighthouselabs.obd.reader.IPostListener;
 import eu.lighthouselabs.obd.reader.io.ObdCommandJob;
 
 /**
- * @author fabian
+ * @author Fabian Köster <f.koester@tarent.de>
  *
  */
 public class VehicleModel implements IPostListener {
@@ -31,32 +29,28 @@ public class VehicleModel implements IPostListener {
 	/*
 	 * Dynamic values read from vehicle
 	 */
-	//private int currentEngineLoad;
-	private int currentEngineRpm;
-	//private int currentVelocity;
+	private Sample<Integer> currentEngineLoad;
+	private Sample<Integer> currentEngineRpm;
+	private Sample<Integer> currentVelocity;
 	
 	/*
 	 * Dynamic derived values
 	 */
+	private Sample<Double> currentFuelConsumptionPerHour;
+	
 	private Sample<Double> tourAverageVelocity;
 	private Sample<Double> tourAverageEngineLoad;
 	private Sample<Double> tourAverageConsumption;
-	
-	/*
-	 * Storage of sample histories
-	 */
-	private LinkedList<Sample<Integer>> velocityHistory;
-	private LinkedList<Sample<Integer>> engineLoadHistory;
-	private LinkedList<Sample<Double>> consumptionHistory;
 	
 	public VehicleModel(FuelType fuelType, int tankCapacity) {
 		
 		this.fuelType = fuelType;
 		this.tankCapacity = tankCapacity;
 		
-		velocityHistory = new LinkedList<Sample<Integer>>();
-		engineLoadHistory = new LinkedList<Sample<Integer>>();
-		consumptionHistory = new LinkedList<Sample<Double>>();
+		this.currentEngineLoad = new Sample<Integer>(0);
+		this.currentEngineRpm = new Sample<Integer>(0);
+		this.currentVelocity = new Sample<Integer>(0);
+		this.currentFuelConsumptionPerHour = new Sample<Double>(Double.valueOf(0));
 		
 		resetTour();
 	}
@@ -86,33 +80,22 @@ public class VehicleModel implements IPostListener {
 	}
 
 	public int getCurrentEngineLoad() {
-		if(!engineLoadHistory.isEmpty())
-			return engineLoadHistory.getLast().getValue();
 		
-		return 0;
+		return currentEngineLoad.getValue();
 	}
 
 	public int getCurrentEngineRpm() {
-		return currentEngineRpm;
-	}
-
-	public void setCurrentEngineRpm(int currentEngineRpm) {
-		this.currentEngineRpm = currentEngineRpm;
+		return currentEngineRpm.getValue();
 	}
 
 	public int getCurrentVelocity() {
-		if(!velocityHistory.isEmpty())
-			return velocityHistory.getLast().getValue();
 		
-		return 0;
+		return currentVelocity.getValue();
 	}
 	
 	public double getCurrentFuelConsumptionPerHour() {
 		
-		if(!consumptionHistory.isEmpty())
-			return consumptionHistory.getLast().getValue();
-		
-		return 0;
+		return currentFuelConsumptionPerHour.getValue();
 	}
 	
 	public double getCurrentFuelConsumptionPer100km() {
@@ -166,6 +149,8 @@ public class VehicleModel implements IPostListener {
 	public void stateUpdate(ObdCommandJob job) {
 		
 		String cmdName = job.getCommand().getName();
+		
+		long timestamp = System.currentTimeMillis();
 
 		if(AvailableCommandNames.ENGINE_LOAD.getValue().equals(cmdName)) {
 			
@@ -175,12 +160,15 @@ public class VehicleModel implements IPostListener {
 				engineLoad = job.getCommand().getBuffer().get(2);
 			else
 				engineLoad = 0;
-			
-			updateAverage(tourAverageEngineLoad, engineLoad, engineLoadHistory);
+						
+			currentEngineLoad = new Sample<Integer>(timestamp, engineLoad);
+			updateAverage(tourAverageEngineLoad, currentEngineLoad);
 
 			// TODO find real formula	
 			Double consumptionPerHour = engineLoad * 0.05351558818533617;
-			updateAverage(tourAverageConsumption, consumptionPerHour, consumptionHistory);
+			
+			currentFuelConsumptionPerHour = new Sample<Double>(timestamp, consumptionPerHour);
+			updateAverage(tourAverageConsumption, currentFuelConsumptionPerHour);
 			
 		} else if (AvailableCommandNames.SPEED.getValue().equals(cmdName)) {
 			int velocity;
@@ -189,22 +177,14 @@ public class VehicleModel implements IPostListener {
 			else
 				velocity = 0;
 			
-			updateAverage(tourAverageVelocity, velocity, velocityHistory);
+			currentVelocity = new Sample<Integer>(timestamp, velocity);
+			updateAverage(tourAverageVelocity, currentVelocity);
 		}
 	}
 	
-	private <T extends Number> void updateAverage(Sample<Double> average, T newValue, LinkedList<Sample<T>> history) {
+	private <T extends Number> void updateAverage(Sample<Double> average, Sample<T> newSample) {		
 		
-		long timestamp = System.currentTimeMillis();
-		
-		if(history.isEmpty()) {
-			average.setValue(newValue.doubleValue());
-		}
-		else {
-			average.setValue((average.getValue() * (history.getLast().getTimestamp() - tourStartTimestamp) + newValue.doubleValue() * (timestamp-history.getLast().getTimestamp())) / (timestamp - tourStartTimestamp));
-		}
-		
-		average.setTimestamp(timestamp);
-		history.add(new Sample<T>(timestamp, newValue));
+		average.setValue((average.getValue() * (average.getTimestamp() - tourStartTimestamp) + newSample.getValue().doubleValue() * (newSample.getTimestamp()-average.getTimestamp())) / (newSample.getTimestamp() - tourStartTimestamp));
+		average.setTimestamp(newSample.getTimestamp());
 	}
 }
