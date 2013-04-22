@@ -3,15 +3,8 @@
  */
 package net.osmand.plus.vehiclediagnostics;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.EnumSet;
 
-import net.osmand.Location;
 import net.osmand.PlatformUtil;
 import net.osmand.plus.ApplicationMode;
 import net.osmand.plus.OsmandApplication;
@@ -19,8 +12,11 @@ import net.osmand.plus.OsmandPlugin;
 import net.osmand.plus.OsmandSettings;
 import net.osmand.plus.R;
 import net.osmand.plus.activities.MapActivity;
+import net.osmand.plus.vehiclediagnostics.widgets.EngineLoadWidget;
+import net.osmand.plus.vehiclediagnostics.widgets.EngineRpmWidget;
 import net.osmand.plus.vehiclediagnostics.widgets.FuelConsumptionWidget;
 import net.osmand.plus.vehiclediagnostics.widgets.TourWidget;
+import net.osmand.plus.vehiclediagnostics.widgets.VehicleSpeedWidget;
 import net.osmand.plus.views.MapInfoLayer;
 import net.osmand.plus.views.mapwidgets.TextInfoWidget;
 
@@ -32,8 +28,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.view.View;
-import au.com.bytecode.opencsv.CSVWriter;
 import eu.lighthouselabs.obd.commands.SpeedObdCommand;
 import eu.lighthouselabs.obd.commands.engine.EngineLoadObdCommand;
 import eu.lighthouselabs.obd.commands.engine.EngineRPMObdCommand;
@@ -63,9 +57,9 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 	
 	private Handler handler = new Handler();
 	
-	private TextInfoWidget vehicleSpeedWidget;
-	private TextInfoWidget engineRpmWidget;
-	private TextInfoWidget engineLoadWidget;
+	private VehicleSpeedWidget vehicleSpeedWidget;
+	private EngineRpmWidget engineRpmWidget;
+	private EngineLoadWidget engineLoadWidget;
 	
 	private FuelConsumptionWidget fuelConsumptionWidget;
 	private TourWidget tourWidget;
@@ -74,11 +68,10 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 	private double costsPerLiter = 1.509;
 	
 	private VehicleModel vehicleModel;
-	
-	private CSVWriter csvWriter;
+	private VehicleDataCsvLogger dataLogger;
 	
 	public OsmandVehicleDiagnosticsPlugin(OsmandApplication app) {
-		this.app = app;		
+		this.app = app;
 	}
 	
 	@Override
@@ -99,52 +92,22 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 		
 		postListener = new IPostListener() {
 			
-			private long last_speed_update = System.currentTimeMillis() - 1001;
-			private long last_rpm_update = System.currentTimeMillis() - 1001;
-			private long last_load_update = System.currentTimeMillis() - 1001;
-//			private long last_csv_update = System.currentTimeMillis();
-			
+			long lastUpdate;
+					
 			public void stateUpdate(ObdCommandJob job) {
-				String cmdName = job.getCommand().getName();
-				String cmdFormattedResult = job.getCommand().getFormattedResult();
-				String cmdResult = job.getCommand().getResult();
 				
 				vehicleModel.stateUpdate(job);
+				dataLogger.stateUpdate(job);
 				
-				final Location loc = app.getLocationProvider().getLastKnownLocation();
-				
-				String[] entries = new String[] {
-						String.valueOf(System.currentTimeMillis()),
-						loc != null ? String.valueOf(loc.getLatitude()) : "NOLOC",
-						loc != null ? String.valueOf(loc.getLongitude()) : "NOLOC",
-						cmdName != null ? cmdName : "UNKNOWN",
-						cmdResult != null ? cmdResult : "NORESULT"};
-				
-			    //csvWriter.writeNext(entries);
-			    
-//			    if((System.currentTimeMillis() - last_csv_update) >= 10000) {
-//				    try {
-//						csvWriter.flush();
-//					} catch (IOException e) {
-//						log.error("Could not flush csv file", e);
-//					}
-//			    }
-				
-				if(AvailableCommandNames.ENGINE_RPM.getValue().equals(cmdName) && (System.currentTimeMillis() - last_rpm_update) >= 1000) {
-					engineRpmWidget.setText(String.valueOf(((EngineRPMObdCommand)job.getCommand()).getRPM()), "rpm");
-					last_rpm_update = System.currentTimeMillis();
-				} else if (AvailableCommandNames.SPEED.getValue().equals(
-						cmdName)  && (System.currentTimeMillis() - last_speed_update) >= 1000) {
-					vehicleSpeedWidget.setText(job.getCommand().getFormattedResult(), "");
-					last_speed_update = System.currentTimeMillis();
-				} else if(AvailableCommandNames.ENGINE_LOAD.getValue().equals(cmdName) && (System.currentTimeMillis() - last_load_update) >= 1000) {
-					engineLoadWidget.setText(cmdFormattedResult, "");
-					last_load_update = System.currentTimeMillis();
+				if(lastUpdate + 1000 <= System.currentTimeMillis()) {
+					
+					engineLoadWidget.refresh();
+					engineRpmWidget.refresh();
+					vehicleSpeedWidget.refresh();
+					fuelConsumptionWidget.refresh();
+					tourWidget.refresh();
+					lastUpdate = System.currentTimeMillis();
 				}
-				
-				fuelConsumptionWidget.valueChanged();
-				tourWidget.valueChanged();
-			
 			}
 		};
 		
@@ -176,17 +139,7 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 			app.startService(serviceIntent);
 		}
 		
-		try {
-			File dir = app.getAppPath("vehicledata/");
-			dir.mkdirs();
-
-			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_SSS");
-			File csvFile = new File(dir, dateFormat.format(new Date()) + ".csv");
-			csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(csvFile)));
-			log.info("Successfully opened CSV file at "+ csvFile);
-		} catch (IOException e) {
-			log.error("Could not access CSV file.", e);
-		}
+		dataLogger = new VehicleDataCsvLogger(app);
 		
 		return true;
 	}
@@ -215,26 +168,20 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 	public void registerLayers(MapActivity activity) {
 		MapInfoLayer mapInfoLayer = activity.getMapLayers().getMapInfoLayer();
 		if (mapInfoLayer != null ) {
-			vehicleSpeedWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
-			vehicleSpeedWidget.setText("-", "km/h");
-			setRecordListener(vehicleSpeedWidget, activity);
+			vehicleSpeedWidget = new VehicleSpeedWidget(activity, vehicleModel);
 			mapInfoLayer.getMapInfoControls().registerSideWidget(vehicleSpeedWidget,
 					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_speed, "vehiclespeed", false,
 					EnumSet.allOf(ApplicationMode.class),
 					EnumSet.noneOf(ApplicationMode.class), 20);
 			
 			
-			engineRpmWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
-			engineRpmWidget.setText("-", "rpm");
-			setRecordListener(engineRpmWidget, activity);
+			engineRpmWidget = new EngineRpmWidget(activity, vehicleModel);
 			mapInfoLayer.getMapInfoControls().registerSideWidget(engineRpmWidget,
 					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_enginerpm, "enginerpm", false,
 					EnumSet.allOf(ApplicationMode.class),
 					EnumSet.noneOf(ApplicationMode.class), 21);
 			
-			engineLoadWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
-			engineLoadWidget.setText("-", "%");
-			setRecordListener(engineLoadWidget, activity);
+			engineLoadWidget = new EngineLoadWidget(activity, vehicleModel);
 			mapInfoLayer.getMapInfoControls().registerSideWidget(engineLoadWidget,
 					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_engineload, "engineload", false,
 					EnumSet.allOf(ApplicationMode.class),
@@ -252,44 +199,24 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 					EnumSet.allOf(ApplicationMode.class),
 					EnumSet.noneOf(ApplicationMode.class), 24);
 			
-//			rangeWidget = new TextInfoWidget(activity, 0, mapInfoLayer.getPaintText(), mapInfoLayer.getPaintSubText());
-//			rangeWidget.setText("-", "km");
-//			setRecordListener(rangeWidget, activity);
-//			mapInfoLayer.getMapInfoControls().registerSideWidget(rangeWidget,
-//					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_range, "range", true,
-//					EnumSet.allOf(ApplicationMode.class),
-//					EnumSet.noneOf(ApplicationMode.class), 25);
-			
 			mapInfoLayer.recreateControls();
 			
 			handler.post(mQueueCommands);
 		}
 	}
 	
-	private void setRecordListener(final TextInfoWidget vehicleDiagnosticsControl, final MapActivity mapActivity) {
-		vehicleDiagnosticsControl.setOnClickListener(new View.OnClickListener() {
-			
-			@Override
-			public void onClick(View v) {
-				
-				final Location loc = app.getLocationProvider().getLastKnownLocation();
-				
-				String[] entries = new String[] {
-						String.valueOf(System.currentTimeMillis()),
-						loc != null ? String.valueOf(loc.getLatitude()) : "",
-						loc != null ? String.valueOf(loc.getLongitude()) : "",
-						"fuelup",
-						"100" };
-			    csvWriter.writeNext(entries);
-			    try {
-					csvWriter.flush();
-					log.info("Flushed csv file");
-				} catch (IOException e) {
-					log.error("Could not flush csv file", e);
-				}
-			}
-		});
-	}
+//	private void setRecordListener(final TextInfoWidget vehicleDiagnosticsControl, final MapActivity mapActivity) {
+//		vehicleDiagnosticsControl.setOnClickListener(new View.OnClickListener() {
+//			
+//			@Override
+//			public void onClick(View v) {
+//				
+//				final Location loc = app.getLocationProvider().getLastKnownLocation();
+//				
+//				dataLogger.logEntry(System.currentTimeMillis(), loc, "fuelup", 100);
+//			}
+//		});
+//	}
 	
 	private Runnable mQueueCommands = new Runnable() {
 		public void run() {

@@ -3,13 +3,13 @@
  */
 package net.osmand.plus.vehiclediagnostics.widgets;
 
-import android.view.View;
 import net.osmand.plus.activities.MapActivity;
 import net.osmand.plus.vehiclediagnostics.VehicleModel;
 import net.osmand.plus.views.mapwidgets.TextInfoWidget;
+import android.view.View;
 
 /**
- * @author fabian
+ * @author Fabian Köster <f.koester@tarent.de>
  * 
  */
 public class TourWidget extends TextInfoWidget {
@@ -21,7 +21,6 @@ public class TourWidget extends TextInfoWidget {
 	private final static int DURATION = 4;
 	private final static int DISTANCE = 5;
 	
-
 	private int mode = CONSUMPTION;
 	private VehicleModel vehicleModel;
 	
@@ -41,13 +40,13 @@ public class TourWidget extends TextInfoWidget {
 			public void onClick(View v) {
 
 				mode = (mode + 1) % 6;
-				valueChanged();
+				refresh();
 			}
 		});
-		valueChanged();
+		refresh();
 	}
 
-	public void valueChanged() {
+	public void refresh() {
 
 		double value;
 		String suffix;

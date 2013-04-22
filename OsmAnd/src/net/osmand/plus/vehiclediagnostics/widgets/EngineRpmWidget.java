@@ -12,14 +12,13 @@ import android.view.View;
  * @author Fabian Köster <f.koester@tarent.de>
  *
  */
-public class VehicleSpeedWidget extends TextInfoWidget {
+public class EngineRpmWidget extends TextInfoWidget {
 	
 	private VehicleModel vehicleModel;
 
-	public VehicleSpeedWidget(MapActivity activity, VehicleModel vehicleModel) {
-				
-		super(activity, 0, activity.getMapLayers().getMapInfoLayer().getPaintText(), activity.getMapLayers().getMapInfoLayer().getPaintSubText());
+	public EngineRpmWidget(MapActivity activity, VehicleModel vehicleModel) {
 		
+		super(activity, 0, activity.getMapLayers().getMapInfoLayer().getPaintText(), activity.getMapLayers().getMapInfoLayer().getPaintSubText());
 		this.vehicleModel = vehicleModel;
 		
 		setOnClickListener(new View.OnClickListener() {
@@ -36,6 +35,6 @@ public class VehicleSpeedWidget extends TextInfoWidget {
 	
 	public void refresh() {
 		
-		setText(String.valueOf(vehicleModel.getCurrentVelocity()), "km/h");
+		setText(String.valueOf(vehicleModel.getCurrentEngineRpm()), "rpm");
 	}
 }

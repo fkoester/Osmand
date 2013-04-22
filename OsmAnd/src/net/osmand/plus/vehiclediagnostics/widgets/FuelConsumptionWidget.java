@@ -9,7 +9,7 @@ import net.osmand.plus.views.mapwidgets.TextInfoWidget;
 import android.view.View;
 
 /**
- * @author fabian
+ * @author Fabian Köster <f.koester@tarent.de>
  *
  */
 public class FuelConsumptionWidget extends TextInfoWidget {
@@ -31,13 +31,13 @@ public class FuelConsumptionWidget extends TextInfoWidget {
 			public void onClick(View v) {
 				
 				mode = (mode+1) % 2;
-				valueChanged();
+				refresh();
 			}
 		});
-		valueChanged();
+		refresh();
 	}
 	
-	public void valueChanged() {
+	public void refresh() {
 		
 		double value;
 		String suffix;
