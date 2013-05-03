@@ -3,10 +3,17 @@
  */
 package net.osmand.plus.vehiclediagnostics;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.EnumSet;
 
 import net.osmand.PlatformUtil;
 import net.osmand.plus.ApplicationMode;
+import net.osmand.plus.OptionsMenuHelper;
+import net.osmand.plus.OptionsMenuHelper.OnOptionsMenuClick;
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.OsmandPlugin;
 import net.osmand.plus.OsmandSettings;
@@ -15,19 +22,29 @@ import net.osmand.plus.activities.MapActivity;
 import net.osmand.plus.vehiclediagnostics.widgets.EngineLoadWidget;
 import net.osmand.plus.vehiclediagnostics.widgets.EngineRpmWidget;
 import net.osmand.plus.vehiclediagnostics.widgets.FuelConsumptionWidget;
+import net.osmand.plus.vehiclediagnostics.widgets.RangeWidget;
 import net.osmand.plus.vehiclediagnostics.widgets.TourWidget;
 import net.osmand.plus.vehiclediagnostics.widgets.VehicleSpeedWidget;
 import net.osmand.plus.views.MapInfoLayer;
-import net.osmand.plus.views.mapwidgets.TextInfoWidget;
 
 import org.apache.commons.logging.Log;
 
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import au.com.bytecode.opencsv.CSVReader;
 import eu.lighthouselabs.obd.commands.SpeedObdCommand;
 import eu.lighthouselabs.obd.commands.engine.EngineLoadObdCommand;
 import eu.lighthouselabs.obd.commands.engine.EngineRPMObdCommand;
@@ -63,12 +80,17 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 	
 	private FuelConsumptionWidget fuelConsumptionWidget;
 	private TourWidget tourWidget;
-	private TextInfoWidget rangeWidget;
+	private RangeWidget rangeWidget;
 
 	private double costsPerLiter = 1.509;
 	
 	private VehicleModel vehicleModel;
 	private VehicleDataCsvLogger dataLogger;
+//	private PermanentStorage<Double> fuelVolumeStorage;
+//	private PermanentStorage<Double> tourAverageEngineLoadStorage;
+//	private PermanentStorage<Double> tourAverageFuelConsumptionStorage;
+//	private PermanentStorage<Double> tourAverageVelocityStorage;
+	
 	
 	public OsmandVehicleDiagnosticsPlugin(OsmandApplication app) {
 		this.app = app;
@@ -107,12 +129,46 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 					fuelConsumptionWidget.refresh();
 					tourWidget.refresh();
 					lastUpdate = System.currentTimeMillis();
+					
+//					fuelVolumeLogger.logEntry(System.currentTimeMillis(), app.getLastKnownLocation(), "fuelvolume", vehicleModel.getCurrentFuelVolume());
 				}
 			}
 		};
 		
+//		fuelVolumeStorage = new PermanentStorage<Double>(app, "fuel_volume.txt");
+//		tourAverageEngineLoadStorage = new PermanentStorage<Double>(app, "tour_engine_load.txt");
+//		tourAverageFuelConsumptionStorage = new PermanentStorage<Double>(app, "tour_fuel_consumption.txt");
+//		tourAverageVelocityStorage = new PermanentStorage<Double>(app, "tour_average_velocity.txt");
+		
 		vehicleModel = new VehicleModel(FuelType.SUPER_E10, 50);
 		
+//		File directory = app.getAppPath("vehicledata/fuelvolume");
+//		
+//		File[] files = directory.listFiles();
+//		if(files != null && files.length > 0) {
+//			Arrays.sort(files);
+//			try {
+//				CSVReader fuelVolumeReader = new CSVReader(new FileReader(files[files.length-1]));
+//				String[] prev = null;
+//				String[] row = fuelVolumeReader.readNext();
+//				
+//				while(row != null) {
+//					prev = row;
+//					row = fuelVolumeReader.readNext();					
+//				}
+//				
+//				if(prev != null)
+//					vehicleModel.setCurrentFuelVolume(Double.valueOf(prev[prev.length-1]));
+//				
+//			} catch (FileNotFoundException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}			 
+//		}
+//		
 		/*
 		 * Prepare service and its connection
 		 */
@@ -139,7 +195,7 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 			app.startService(serviceIntent);
 		}
 		
-		dataLogger = new VehicleDataCsvLogger(app);
+		dataLogger = new VehicleDataCsvLogger(app, "raw");
 		
 		return true;
 	}
@@ -199,24 +255,17 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 					EnumSet.allOf(ApplicationMode.class),
 					EnumSet.noneOf(ApplicationMode.class), 24);
 			
+			rangeWidget = new RangeWidget(activity, vehicleModel);
+			mapInfoLayer.getMapInfoControls().registerSideWidget(rangeWidget,
+					R.drawable.widget_icon_av_inactive, R.string.map_widget_vehiclediagnostics_range, "range", true,
+					EnumSet.allOf(ApplicationMode.class),
+					EnumSet.noneOf(ApplicationMode.class), 25);
+			
 			mapInfoLayer.recreateControls();
 			
 			handler.post(mQueueCommands);
 		}
 	}
-	
-//	private void setRecordListener(final TextInfoWidget vehicleDiagnosticsControl, final MapActivity mapActivity) {
-//		vehicleDiagnosticsControl.setOnClickListener(new View.OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				
-//				final Location loc = app.getLocationProvider().getLastKnownLocation();
-//				
-//				dataLogger.logEntry(System.currentTimeMillis(), loc, "fuelup", 100);
-//			}
-//		});
-//	}
 	
 	private Runnable mQueueCommands = new Runnable() {
 		public void run() {
@@ -233,7 +282,7 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 //				
 //			}
 			
-			boolean dummyData = true;
+			boolean dummyData = false;
 
 			if(dummyData) {				
 				postListener.stateUpdate(new ObdCommandJob(new DummyObdCommand(AvailableCommandNames.ENGINE_LOAD.getValue())));
@@ -288,4 +337,93 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 		serviceConnection.addJobToQueue(throttlePos);
 		//serviceConnection.addJobToQueue(maf);
 	}
+
+	/**
+	 * @see net.osmand.plus.OsmandPlugin#registerOptionsMenuItems(net.osmand.plus.activities.MapActivity, net.osmand.plus.OptionsMenuHelper)
+	 */
+	@Override
+	public void registerOptionsMenuItems(final MapActivity mapActivity,
+			OptionsMenuHelper helper) {
+
+		helper.registerOptionsMenuItem(R.string.vehiclediagnostics_options_reset_tour, R.string.vehiclediagnostics_options_reset_tour, android.R.drawable.ic_menu_mylocation, 
+				new OnOptionsMenuClick() {
+					@Override
+					public void prepareOptionsMenu(Menu menu, MenuItem item) {
+					}
+					@Override
+					public boolean onClick(MenuItem item) {
+						
+				    	Builder builder = new AlertDialog.Builder(mapActivity);
+				    	builder.setMessage(R.string.vehiclediagnostics_dialog_reset_confirm)
+			               .setPositiveButton(R.string.vehiclediagnostics_dialog_reset_tour, new DialogInterface.OnClickListener() {
+			                   public void onClick(DialogInterface dialog, int id) {
+			                	   
+			                	   vehicleModel.resetTour();
+			                	   tourWidget.refresh();
+			                   }
+			               })
+			               .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+			                   public void onClick(DialogInterface dialog, int id) {
+			                	   dialog.cancel();
+			                   }
+			               });
+				    	builder.show();
+						return true;
+					}
+				});
+		
+		helper.registerOptionsMenuItem(R.string.vehiclediagnostics_options_refuel, R.string.vehiclediagnostics_options_refuel, android.R.drawable.ic_menu_mylocation, 
+				new OnOptionsMenuClick() {
+					@Override
+					public void prepareOptionsMenu(Menu menu, MenuItem item) {
+					}
+					@Override
+					public boolean onClick(MenuItem item) {
+
+						AlertDialog.Builder builder = new AlertDialog.Builder(
+								mapActivity);
+
+						LayoutInflater inflater = mapActivity.getLayoutInflater();
+						
+						final View view = inflater.inflate(R.layout.dialog_refuel, null);
+						
+						builder.setView(view);
+
+						builder.setPositiveButton(R.string.vehiclediagnostics_dialog_refuel,
+										new DialogInterface.OnClickListener() {
+											@Override
+											public void onClick(
+													DialogInterface dialog,
+													int id) {
+												
+												RadioButton refuelTypeSet = (RadioButton) view.findViewById(R.id.refuel_type_set);
+
+												EditText editText = (EditText) view.findViewById(R.id.fuel_amount);
+												
+												double fuel_amount = Double.valueOf(editText.getText().toString());
+												
+												vehicleModel.setCurrentFuelVolume(refuelTypeSet.isChecked() ? fuel_amount : vehicleModel.getCurrentFuelVolume() + fuel_amount);
+												
+//												fuelVolumeLogger.logEntry(System.currentTimeMillis(), app.getLastKnownLocation(), "fuelvolume", vehicleModel.getCurrentFuelVolume());
+												
+												rangeWidget.refresh();
+											}
+										});
+						
+						builder.setNegativeButton(R.string.cancel,
+										new DialogInterface.OnClickListener() {
+											public void onClick(
+													DialogInterface dialog,
+													int id) {
+												
+												dialog.cancel();
+											}
+										});
+						
+						builder.show();
+						return true;
+					}
+				});
+	}
+
 }

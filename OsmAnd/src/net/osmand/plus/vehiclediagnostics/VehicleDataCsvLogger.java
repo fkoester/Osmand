@@ -32,16 +32,19 @@ public class VehicleDataCsvLogger implements IPostListener {
 	
 	private static final Log log = PlatformUtil.getLog(VehicleDataCsvLogger.class);
 
-	public VehicleDataCsvLogger(final OsmandApplication app) {
+	public VehicleDataCsvLogger(final OsmandApplication app, String subdirectory) {
 		
 		this.app = app;
 		
 		try {
 			File directory = app.getAppPath("vehicledata/");
 			directory.mkdirs();
+			
+			File subdir = new File(directory, subdirectory);
+			subdir.mkdirs();
 
 			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy_MM_dd_HH_mm_ss_SSS");
-			File csvFile = new File(directory, dateFormat.format(new Date()) + ".csv");
+			File csvFile = new File(subdir, dateFormat.format(new Date()) + ".csv");
 			csvWriter = new CSVWriter(new BufferedWriter(new FileWriter(csvFile)));
 			log.info("Successfully opened CSV file at "+ csvFile);
 		} catch (IOException e) {

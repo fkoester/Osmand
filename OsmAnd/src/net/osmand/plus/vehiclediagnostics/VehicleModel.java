@@ -22,7 +22,7 @@ public class VehicleModel implements IPostListener {
 	/*
 	 * Dynamic memorized values
 	 */
-	private int currentFuelVolume;
+	private double currentFuelVolume;
 	private long tourStartTimestamp;
 	//private int tourStartKm;
 	
@@ -71,11 +71,11 @@ public class VehicleModel implements IPostListener {
 		this.tankCapacity = tankCapacity;
 	}
 
-	public int getCurrentFuelVolume() {
+	public double getCurrentFuelVolume() {
 		return currentFuelVolume;
 	}
 
-	public void setCurrentFuelVolume(int currentFuelVolume) {
+	public void setCurrentFuelVolume(double currentFuelVolume) {
 		this.currentFuelVolume = currentFuelVolume;
 	}
 
@@ -103,9 +103,14 @@ public class VehicleModel implements IPostListener {
 		return getCurrentFuelConsumptionPerHour() * 100 / (double)getCurrentVelocity();
 	}
 	
-	public double getCurrentRange() {
+	public double getCurrentRangeDistance() {
 		
 		return getCurrentFuelVolume() / getCurrentFuelConsumptionPerHour() * getCurrentVelocity();
+	}
+	
+	public double getCurrentRangeTime() {
+		
+		return getCurrentFuelVolume() / getCurrentFuelConsumptionPerHour();
 	}
 	
 	public double getTourTotalConsumption() {
@@ -167,7 +172,9 @@ public class VehicleModel implements IPostListener {
 			// TODO find real formula	
 			Double consumptionPerHour = engineLoad * 0.05351558818533617;
 			
-			currentFuelConsumptionPerHour = new Sample<Double>(timestamp, consumptionPerHour);
+			currentFuelVolume -= consumptionPerHour * ((timestamp - currentFuelConsumptionPerHour.getTimestamp()) / 1000 / 60 / 60) ;
+			
+			currentFuelConsumptionPerHour = new Sample<Double>(timestamp, consumptionPerHour);			
 			updateAverage(tourAverageConsumption, currentFuelConsumptionPerHour);
 			
 		} else if (AvailableCommandNames.SPEED.getValue().equals(cmdName)) {
