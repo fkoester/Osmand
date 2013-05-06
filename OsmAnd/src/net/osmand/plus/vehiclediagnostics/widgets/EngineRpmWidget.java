@@ -26,7 +26,6 @@ public class EngineRpmWidget extends TextInfoWidget {
 			@Override
 			public void onClick(View v) {
 				
-				
 				refresh();
 			}
 		});

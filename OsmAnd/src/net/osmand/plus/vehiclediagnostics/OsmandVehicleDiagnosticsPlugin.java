@@ -458,6 +458,9 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 		if(!tourStorage.hasSample("engineLoadAverage"))
 			return;
 		
+		if(!tourStorage.hasSample("engineRpmAverage"))
+			return;
+		
 		if(!tourStorage.hasSample("velocityAverage"))
 			return;
 		
@@ -469,12 +472,13 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 		
 		long tourStartTimestamp = tourStorage.getSample("tourStartTimestamp").getTimestamp();
 		
-		vehicleModel.resumeTour(tourStartTimestamp, tourStorage.getSample("engineLoadAverage"), tourStorage.getSample("velocityAverage"), tourStorage.getSample("fuelConsumptionAverage"));
+		vehicleModel.resumeTour(tourStartTimestamp, tourStorage.getSample("engineLoadAverage"), tourStorage.getSample("velocityAverage"), tourStorage.getSample("fuelConsumptionAverage"), tourStorage.getSample("engineRpmAverage"));
 	}
 	
 	private void saveTour() {
 		
 		tourStorage.setSample("engineLoadAverage", vehicleModel.getTourAverageEngineLoad());
+		tourStorage.setSample("engineRpmAverage", vehicleModel.getTourAverageEngineRpm());
 		tourStorage.setSample("velocityAverage", vehicleModel.getTourAverageVelocity());
 		tourStorage.setSample("fuelConsumptionAverage", vehicleModel.getTourAverageFuelConsumption());
 		tourStorage.setSample("tourStartTimestamp", new Sample<Double>(vehicleModel.getTourStartTimestamp(), 0.0));

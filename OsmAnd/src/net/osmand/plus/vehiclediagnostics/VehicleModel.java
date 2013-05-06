@@ -33,7 +33,7 @@ public class VehicleModel implements IPostListener {
 	 * Dynamic values read from vehicle
 	 */
 	private Sample<Integer> currentEngineLoad;
-	private Sample<Integer> currentEngineRpm;
+	private Sample<Double> currentEngineRpm;
 	private Sample<Integer> currentVelocity;
 	
 	/*
@@ -43,6 +43,7 @@ public class VehicleModel implements IPostListener {
 	
 	private Sample<Double> tourAverageVelocity;
 	private Sample<Double> tourAverageEngineLoad;
+	private Sample<Double> tourAverageEngineRpm;
 	private Sample<Double> tourAverageFuelConsumption;
 	
 	private List<VehicleModelListener> vehicleModelListeners;
@@ -53,7 +54,7 @@ public class VehicleModel implements IPostListener {
 		this.tankCapacity = tankCapacity;
 		
 		this.currentEngineLoad = new Sample<Integer>(0);
-		this.currentEngineRpm = new Sample<Integer>(0);
+		this.currentEngineRpm = new Sample<Double>(Double.valueOf(0));
 		this.currentVelocity = new Sample<Integer>(0);
 		this.currentFuelConsumptionPerHour = new Sample<Double>(Double.valueOf(0));
 		
@@ -91,7 +92,7 @@ public class VehicleModel implements IPostListener {
 		return currentEngineLoad.getValue();
 	}
 
-	public int getCurrentEngineRpm() {
+	public double getCurrentEngineRpm() {
 		return currentEngineRpm.getValue();
 	}
 
@@ -115,9 +116,19 @@ public class VehicleModel implements IPostListener {
 		return getCurrentFuelVolume() / getCurrentFuelConsumptionPerHour() * (double)getCurrentVelocity();
 	}
 	
+	public double getTourRangeDistance() {
+		
+		return getCurrentFuelVolume() / getTourFuelConsumptionPerHour() * (double)getCurrentVelocity();
+	}
+	
 	public double getCurrentRangeTime() {
 		
 		return getCurrentFuelVolume() / getCurrentFuelConsumptionPerHour();
+	}
+	
+	public double getTourRangeTime() {
+		
+		return getCurrentFuelVolume() / getTourFuelConsumptionPerHour();
 	}
 	
 	public double getTourTotalConsumption() {
@@ -153,19 +164,22 @@ public class VehicleModel implements IPostListener {
 		tourAverageEngineLoad = new Sample<Double>(tourStartTimestamp, Double.valueOf(0));
 		tourAverageVelocity = new Sample<Double>(tourStartTimestamp, Double.valueOf(0));
 		tourAverageFuelConsumption = new Sample<Double>(tourStartTimestamp, Double.valueOf(0));
+		tourAverageEngineRpm = new Sample<Double>(tourStartTimestamp, Double.valueOf(0));
 	}
 	
-	public void resumeTour(long tourStartTimestamp, Sample<Double> lastAverageEngineLoad, Sample<Double> lastAverageVelocity, Sample<Double> lastTourAverageConsumption) {
+	public void resumeTour(long tourStartTimestamp, Sample<Double> lastAverageEngineLoad, Sample<Double> lastAverageVelocity, Sample<Double> lastTourAverageConsumption, Sample<Double> lastTourAverageEngineRpm) {
 		
 		this.tourStartTimestamp = tourStartTimestamp;
 		
 		tourAverageEngineLoad = lastAverageEngineLoad;
 		tourAverageVelocity = lastAverageVelocity;
 		tourAverageFuelConsumption = lastTourAverageConsumption;
+		tourAverageEngineRpm = lastTourAverageEngineRpm;
 		
 		updateAverage(tourAverageEngineLoad, new Sample<Double>(0.0));
 		updateAverage(tourAverageVelocity, new Sample<Double>(0.0));
 		updateAverage(tourAverageFuelConsumption, new Sample<Double>(0.0));
+		updateAverage(tourAverageEngineRpm, new Sample<Double>(0.0));
 	}
 
 	/**
@@ -191,7 +205,8 @@ public class VehicleModel implements IPostListener {
 			updateAverage(tourAverageEngineLoad, currentEngineLoad);
 
 			// TODO find real formula	
-			Double consumptionPerHour = engineLoad * 0.05351558818533617;
+			//Double consumptionPerHour = (double)getCurrentEngineRpm() / 128.11870358258625 * (double)engineLoad * 0.05351558818533617;
+			Double consumptionPerHour = (double)engineLoad * 0.05351558818533617;
 			
 			currentFuelVolume -= consumptionPerHour * ((timestamp - currentFuelConsumptionPerHour.getTimestamp()) / (double)(1000 * 60 * 60)) ;
 			
@@ -211,7 +226,23 @@ public class VehicleModel implements IPostListener {
 			updateAverage(tourAverageVelocity, currentVelocity);
 			
 			fireModelChanged();
+		} else if (AvailableCommandNames.ENGINE_RPM.getValue().equals(cmdName)) {
+			double rpm;
+			if(job.getCommand().getBuffer().size() > 3) {
+				// ignore first two bytes [41 0C] of the response
+				int a = job.getCommand().getBuffer().get(2);
+				int b = job.getCommand().getBuffer().get(3);
+				rpm = ((double)(a * 256 + b)) / 4;
+			}
+			else
+				rpm = 0;
+			
+			currentEngineRpm = new Sample<Double>(timestamp, rpm);
+			updateAverage(tourAverageEngineRpm, currentEngineRpm);
+			
+			fireModelChanged();
 		}
+		
 	}
 	
 	private <T extends Number> void updateAverage(Sample<Double> average, Sample<T> newSample) {		
@@ -262,5 +293,12 @@ public class VehicleModel implements IPostListener {
 	 */
 	public Sample<Double> getTourAverageFuelConsumption() {
 		return tourAverageFuelConsumption;
+	}
+
+	/**
+	 * @return the tourAverageEngineRpm
+	 */
+	public Sample<Double> getTourAverageEngineRpm() {
+		return tourAverageEngineRpm;
 	}
 }

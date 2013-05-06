@@ -51,12 +51,12 @@ public class RangeWidget extends TextInfoWidget {
 			suffix = "l";
 			break;
 		case RANGE_TIME:
-			value = vehicleModel.getCurrentRangeTime();
+			value = vehicleModel.getTourRangeTime();
 			suffix = "h";
 			break;
 		case RANGE_DISTANCE:
 		default:
-			value = vehicleModel.getCurrentRangeDistance();
+			value = vehicleModel.getTourRangeDistance();
 			suffix = "km";
 			break;
 		}
