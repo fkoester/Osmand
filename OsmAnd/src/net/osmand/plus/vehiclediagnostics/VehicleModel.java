@@ -205,8 +205,8 @@ public class VehicleModel implements IPostListener {
 			updateAverage(tourAverageEngineLoad, currentEngineLoad);
 
 			// TODO find real formula	
-			//Double consumptionPerHour = (double)getCurrentEngineRpm() / 128.11870358258625 * (double)engineLoad * 0.05351558818533617;
-			Double consumptionPerHour = (double)engineLoad * 0.05351558818533617;
+			Double consumptionPerHour = getCurrentEngineRpm() * (double)engineLoad * 4.01288e-06;
+			//Double consumptionPerHour = (double)engineLoad * 0.05351558818533617;
 			
 			currentFuelVolume -= consumptionPerHour * ((timestamp - currentFuelConsumptionPerHour.getTimestamp()) / (double)(1000 * 60 * 60)) ;
 			
