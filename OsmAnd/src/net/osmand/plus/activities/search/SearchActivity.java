@@ -20,6 +20,7 @@ import android.app.Activity;
 import android.app.TabActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -89,11 +90,12 @@ public class SearchActivity extends TabActivity implements OsmAndLocationListene
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		long t = System.currentTimeMillis();
 		requestWindowFeature(Window.FEATURE_NO_TITLE); 
 		setContentView(R.layout.search_main);
 		settings = ((OsmandApplication) getApplication()).getSettings();
 		
-		Button backButton = (Button) findViewById(R.id.search_back_button);
+		View backButton = (View) findViewById(R.id.search_back_button);
 		backButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -205,6 +207,8 @@ public class SearchActivity extends TabActivity implements OsmAndLocationListene
 			public void onNothingSelected(AdapterView<?> parent) {
 			}
 		});
+		
+		Log.i("net.osmand", "Start on create " + (System.currentTimeMillis() - t ));
 	}
 	
 	@Override

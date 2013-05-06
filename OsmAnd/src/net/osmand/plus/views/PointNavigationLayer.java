@@ -97,19 +97,19 @@ public class PointNavigationLayer extends OsmandMapLayer implements IContextMenu
 			index ++;
 			if (isLocationVisible(ip)) {
 				int marginX = intermediatePoint.getWidth() / 3;
-				int marginY = 2 * intermediatePoint.getHeight() / 3;
+				int marginY = intermediatePoint.getHeight();
 				int locationX = view.getMapXForPoint(ip.getLongitude());
 				int locationY = view.getMapYForPoint(ip.getLatitude());
 				canvas.rotate(-view.getRotate(), locationX, locationY);
 				canvas.drawBitmap(intermediatePoint, locationX - marginX, locationY - marginY, bitmapPaint);
-				canvas.drawText(index + "", locationX + marginX, locationY - marginY / 2, textPaint);
+				canvas.drawText(index + "", locationX + marginX, locationY - 2 * marginY / 3, textPaint);
 				canvas.rotate(view.getRotate(), locationX, locationY);
 			}
 		}
 		LatLon pointToNavigate = targetPoints.getPointToNavigate();
 		if (isLocationVisible(pointToNavigate)) {
 			int marginX = targetPoint.getWidth() / 3;
-			int marginY = 2 * targetPoint.getHeight() / 3;
+			int marginY = targetPoint.getHeight();
 			int locationX = view.getMapXForPoint(pointToNavigate.getLongitude());
 			int locationY = view.getMapYForPoint(pointToNavigate.getLatitude());
 			canvas.rotate(-view.getRotate(), locationX, locationY);
@@ -159,6 +159,7 @@ public class PointNavigationLayer extends OsmandMapLayer implements IContextMenu
 	public void collectObjectsFromPoint(PointF point, List<Object> o) {
 		TargetPointsHelper tg = map.getMyApplication().getTargetPointsHelper();
 		List<LatLon> intermediatePoints = tg.getIntermediatePointsWithTarget();
+		int r = getRadiusPoi(view.getZoom());
 		for (int i = 0; i < intermediatePoints.size(); i++) {
 			LatLon latLon = intermediatePoints.get(i);
 			boolean target = i == intermediatePoints.size() - 1;
@@ -167,8 +168,7 @@ public class PointNavigationLayer extends OsmandMapLayer implements IContextMenu
 				int ey = (int) point.y;
 				int x = view.getRotatedMapXForPoint(latLon.getLatitude(), latLon.getLongitude());
 				int y = view.getRotatedMapYForPoint(latLon.getLatitude(), latLon.getLongitude());
-				int r = getRadiusPoi(view.getZoom());
-				if (Math.abs(x - ex) <= r && Math.abs(y - ey) <= r) {
+				if (calculateBelongs(ex, ey, x, y, r)) {
 					TargetPoint tp = new TargetPoint();
 					tp.location = latLon;
 					tp.intermediate = !target;
@@ -184,6 +184,10 @@ public class PointNavigationLayer extends OsmandMapLayer implements IContextMenu
 		}
 		
 		
+	}
+	
+	private boolean calculateBelongs(int ex, int ey, int objx, int objy, int radius) {
+		return Math.abs(objx - ex) <= radius && (ey - objy) <= radius && (objy - ey) <= 2.5 * radius ;
 	}
 	
 	public int getRadiusPoi(int zoom){

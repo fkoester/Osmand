@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+
 import net.osmand.GeoidAltitudeCorrection;
 import net.osmand.PlatformUtil;
 import net.osmand.access.NavigationInfo;
@@ -19,8 +20,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.GpsSatellite;
-import android.location.GpsStatus.Listener;
 import android.location.GpsStatus;
+import android.location.GpsStatus.Listener;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -57,13 +58,20 @@ public class OsmAndLocationProvider implements SensorEventListener {
 	private float previousCorrectionValue = 360;
 	
 	
-	private float previousCompassValuesAvg = 0;
-	private final boolean USE_KALMAN_FILTER = false;
+	
+	private final boolean USE_KALMAN_FILTER = true;
 	private final float KALMAN_COEFFICIENT = 0.02f;
 	
-	private float[] previousCompassValues = new float[50];
-	private int previousCompassInd = 0;
+	float avgValSin = 0;
+	float avgValCos = 0;
+	float lastValSin = 0;
+	float lastValCos = 0;
+	private float[] previousCompassValuesA = new float[50];
+	private float[] previousCompassValuesB = new float[50];
+	private int previousCompassIndA = 0;
+	private int previousCompassIndB = 0;
 	
+	private long lastHeadingCalcTime = 0;
 	private Float heading = null;
 
 	// Current screen orientation
@@ -310,35 +318,56 @@ public class OsmAndLocationProvider implements SensorEventListener {
 		if (previousCorrectionValue != 360) {
 			val += previousCorrectionValue;
 		}
-
-		val = MapUtils.unifyRotationTo360(val);
-		if(previousCompassValuesAvg == 0 && previousCompassInd == 0) {
-			Arrays.fill(previousCompassValues, val);
-			previousCompassValuesAvg = val;
+		float valRad = (float) (val / 180f * Math.PI);
+		lastValSin = (float) Math.sin(valRad);
+		lastValCos = (float) Math.cos(valRad);
+		lastHeadingCalcTime = System.currentTimeMillis();
+		if(heading == null && previousCompassIndA == 0) {
+			Arrays.fill(previousCompassValuesA, lastValSin);
+			Arrays.fill(previousCompassValuesB, lastValCos);
+			avgValSin = lastValSin;
+			avgValCos = lastValCos;
 		} else {
 			if (USE_KALMAN_FILTER) {
-				previousCompassValuesAvg = KALMAN_COEFFICIENT * val  + 
-						previousCompassValuesAvg * (1 - KALMAN_COEFFICIENT);
+				avgValSin = KALMAN_COEFFICIENT * lastValSin + avgValSin * (1 - KALMAN_COEFFICIENT);
+				avgValCos = KALMAN_COEFFICIENT * lastValCos + avgValCos * (1 - KALMAN_COEFFICIENT);
 			} else {
-				int l = previousCompassValues.length;
-				previousCompassInd = (previousCompassInd + 1) % l;
+				int l = previousCompassValuesA.length;
+				previousCompassIndA = (previousCompassIndA + 1) % l;
+				previousCompassIndB = (previousCompassIndB + 1) % l;
 				// update average
-				previousCompassValuesAvg =
-						previousCompassValuesAvg + (-previousCompassValues[previousCompassInd] + val) / l;
-				previousCompassValues[previousCompassInd] = val;
-				previousCompassValuesAvg = MapUtils.unifyRotationTo360(previousCompassValuesAvg);
+				avgValSin = avgValSin + (-previousCompassValuesA[previousCompassIndA] + lastValSin) / l;
+				previousCompassValuesA[previousCompassIndA] = lastValSin;
+				avgValCos = avgValCos + (-previousCompassValuesB[previousCompassIndB] + lastValCos) / l;
+				previousCompassValuesB[previousCompassIndB] = lastValCos;
 			}
 		}
-		heading = previousCompassValuesAvg;
-		updateCompassValue(heading.floatValue());
+		updateCompassVal();
+	}	
 
-	}
-
-	private void updateCompassValue(float val) {
+	private void updateCompassVal() {
+		heading = (float) getAngle(avgValSin, avgValCos);
 		for(OsmAndCompassListener c : compassListeners){
-			c.updateCompassValue(val);
+			c.updateCompassValue(heading.floatValue());
 		}
 	}
+	
+	public Float getHeading() {
+		if (heading != null && lastValSin != avgValSin && System.currentTimeMillis() - lastHeadingCalcTime > 700) {
+			avgValSin = lastValSin;
+			avgValCos = lastValCos;
+			lastHeadingCalcTime = System.currentTimeMillis();
+			Arrays.fill(previousCompassValuesA, avgValSin);
+			Arrays.fill(previousCompassValuesB, avgValCos);
+			updateCompassVal();
+		}
+		return heading;
+	}
+	
+	private float getAngle(float sinA, float cosA) {
+		return MapUtils.unifyRotationTo360((float) (Math.atan2(sinA, cosA) * 180 / Math.PI));
+	}
+
 	
 	private void updateLocation(net.osmand.Location loc ) {
 		for(OsmAndLocationListener l : locationListeners){
@@ -570,9 +599,6 @@ public class OsmAndLocationProvider implements SensorEventListener {
 		return location;
 	}
 
-	public Float getHeading() {
-		return heading;
-	}
 
 	public void showNavigationInfo(LatLon pointToNavigate, Context uiActivity) {
 		getNavigationInfo().show(pointToNavigate, getHeading(), uiActivity);

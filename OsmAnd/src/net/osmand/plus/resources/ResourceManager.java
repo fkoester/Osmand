@@ -117,11 +117,11 @@ public class ResourceManager {
 	
 	protected final List<TransportIndexRepository> transportRepositories = new ArrayList<TransportIndexRepository>();
 	
-	protected final Map<String, String> indexFileNames = new LinkedHashMap<String, String>();
+	protected final Map<String, String> indexFileNames = Collections.synchronizedMap(new LinkedHashMap<String, String>());
 	
-	protected final Set<String> basemapFileNames = new LinkedHashSet<String>();
+	protected final Set<String> basemapFileNames = Collections.synchronizedSet(new LinkedHashSet<String>());
 	
-	protected final Map<String, BinaryMapIndexReader> routingMapFiles = new LinkedHashMap<String, BinaryMapIndexReader>();
+	protected final Map<String, BinaryMapIndexReader> routingMapFiles = Collections.synchronizedMap(new LinkedHashMap<String, BinaryMapIndexReader>());
 	
 	protected final MapRenderRepositories renderer;
 	
@@ -446,6 +446,8 @@ public class ResourceManager {
 					boolean isFirstInstall = context.getSettings().PREVIOUS_INSTALLED_VERSION.get().equals("");
 					unpackBundledAssets(assetManager, applicationDataDir, progress, isFirstInstall);
 					context.getSettings().PREVIOUS_INSTALLED_VERSION.set(Version.getFullVersion(context));
+					
+					context.getPoiFilters().updateFilters(false);
 				} catch (IOException e) {
 					log.error(e.getMessage(), e);
 				} catch (XmlPullParserException e) {

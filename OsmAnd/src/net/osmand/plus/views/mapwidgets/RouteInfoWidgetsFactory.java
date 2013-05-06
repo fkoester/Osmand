@@ -3,6 +3,7 @@ package net.osmand.plus.views.mapwidgets;
 
 import java.util.Arrays;
 
+
 import net.osmand.Location;
 import net.osmand.binary.RouteDataObject;
 import net.osmand.data.LatLon;
@@ -23,6 +24,7 @@ import net.osmand.plus.views.AnimateDraggingMapThread;
 import net.osmand.plus.views.OsmandMapTileView;
 import net.osmand.plus.views.RouteInfoLayer;
 import net.osmand.plus.views.TurnPathHelper;
+import net.osmand.plus.views.OsmandMapLayer.DrawSettings;
 import net.osmand.router.TurnType;
 import net.osmand.util.Algorithms;
 import android.content.Context;
@@ -54,7 +56,7 @@ public class RouteInfoWidgetsFactory {
 			TurnType straight = TurnType.valueOf(TurnType.C, true);
 
 			@Override
-			public boolean updateInfo() {
+			public boolean updateInfo(DrawSettings drawSettings) {
 				boolean visible = false;
 				if (routingHelper != null && routingHelper.isRouteCalculated() && routingHelper.isFollowingMode()) {
 					makeUturnWhenPossible = routingHelper.makeUturnWhenPossible() ;
@@ -137,7 +139,7 @@ public class RouteInfoWidgetsFactory {
 		final NextTurnInfoWidget nextTurnInfo = new NextTurnInfoWidget(ctx, textPaint, subtextPaint, horisontalMini) {
 			NextDirectionInfo calc1 = new NextDirectionInfo();
 			@Override
-			public boolean updateInfo() {
+			public boolean updateInfo(DrawSettings drawSettings) {
 				boolean visible = false;
 				if (routingHelper != null && routingHelper.isRouteCalculated() && routingHelper.isFollowingMode()
 						) {
@@ -217,15 +219,15 @@ public class RouteInfoWidgetsFactory {
 	
 	public TextInfoWidget createTimeControl(final MapActivity map, Paint paintText, Paint paintSubText){
 		final RoutingHelper routingHelper = map.getRoutingHelper();
-		final Drawable time = map.getResources().getDrawable(R.drawable.info_time);
-		final Drawable timeToGo = map.getResources().getDrawable(R.drawable.info_time_to_go);
+		final Drawable time = map.getResources().getDrawable(R.drawable.widget_time);
+		final Drawable timeToGo = map.getResources().getDrawable(R.drawable.widget_time_to_distance);
 		final OsmandApplication ctx = map.getMyApplication();
 		final OsmandPreference<Boolean> showArrival = ctx.getSettings().SHOW_ARRIVAL_TIME_OTHERWISE_EXPECTED_TIME;
 		final TextInfoWidget leftTimeControl = new TextInfoWidget(map, 0, paintText, paintSubText) {
 			private long cachedLeftTime = 0;
 			
 			@Override
-			public boolean updateInfo() {
+			public boolean updateInfo(DrawSettings drawSettings) {
 				int time = 0;
 				if (routingHelper != null && routingHelper.isRouteCalculated()) {
 					boolean followingMode = routingHelper.isFollowingMode();
@@ -288,7 +290,7 @@ public class RouteInfoWidgetsFactory {
 			private float cachedSpeed = 0;
 
 			@Override
-			public boolean updateInfo() {
+			public boolean updateInfo(DrawSettings drawSettings) {
 				float mx = 0; 
 				if ((rh == null || !rh.isFollowingMode()) && trackingUtilities.isMapLinkedToLocation()) {
 					RouteDataObject ro = locationProvider.getLastKnownRouteSegment();
@@ -318,7 +320,7 @@ public class RouteInfoWidgetsFactory {
 				return false;
 			}
 		};
-		speedControl.setImageDrawable(map.getResources().getDrawable(R.drawable.info_max_speed));
+		speedControl.setImageDrawable(map.getResources().getDrawable(R.drawable.widget_max_speed));
 		speedControl.setText(null, null);
 		return speedControl;
 	}
@@ -332,7 +334,7 @@ public class RouteInfoWidgetsFactory {
 			private float cachedSpeed = 0;
 
 			@Override
-			public boolean updateInfo() {
+			public boolean updateInfo(DrawSettings drawSettings) {
 				Location loc = app.getLastKnownLocation();
 				// draw speed
 				if (loc != null && loc.hasSpeed()) {
@@ -362,7 +364,7 @@ public class RouteInfoWidgetsFactory {
 				return false;
 			}
 		};
-		speedControl.setImageDrawable(app.getResources().getDrawable(R.drawable.info_speed));
+		speedControl.setImageDrawable(map.getResources().getDrawable(R.drawable.widget_speed));
 		speedControl.setText(null, null);
 		return speedControl;
 	}
@@ -398,7 +400,7 @@ public class RouteInfoWidgetsFactory {
 		}
 		
 		@Override
-		public boolean updateInfo() {
+		public boolean updateInfo(DrawSettings drawSettings) {
 			int d = getDistance();
 			if (distChanged(cachedMeters, d)) {
 				cachedMeters = d;
@@ -435,7 +437,7 @@ public class RouteInfoWidgetsFactory {
 	public TextInfoWidget createDistanceControl(final MapActivity map, Paint paintText, Paint paintSubText) {
 		final OsmandMapTileView view = map.getMapView();
 		DistanceToPointInfoControl distanceControl = new DistanceToPointInfoControl(map, 0, paintText, paintSubText, map.getResources()
-				.getDrawable(R.drawable.info_target), view) {
+				.getDrawable(R.drawable.widget_target), view) {
 			@Override
 			public LatLon getPointToNavigate() {
 				return map.getPointToNavigate();
@@ -456,7 +458,7 @@ public class RouteInfoWidgetsFactory {
 		final OsmandMapTileView view = map.getMapView();
 		final TargetPointsHelper targets = map.getMyApplication().getTargetPointsHelper();
 		DistanceToPointInfoControl distanceControl = new DistanceToPointInfoControl(map, 0, paintText, paintSubText, map.getResources()
-				.getDrawable(R.drawable.info_intermediate), view) {
+				.getDrawable(R.drawable.widget_intermediate), view) {
 
 			@Override
 			protected void click(OsmandMapTileView view) {
@@ -486,10 +488,10 @@ public class RouteInfoWidgetsFactory {
 	public MiniMapWidget createMiniMapControl(final RoutingHelper routingHelper, OsmandMapTileView view) {
 		final MiniMapWidget miniMapControl = new MiniMapWidget(view.getContext(), view) {
 			@Override
-			public boolean updateInfo() {
+			public boolean updateInfo(DrawSettings drawSettings) {
 				boolean visible = routingHelper.isFollowingMode();
 				updateVisibility(visible);
-				return super.updateInfo();
+				return super.updateInfo(drawSettings);
 			}
 		};
 		miniMapControl.setVisibility(View.GONE);
@@ -548,7 +550,7 @@ public class RouteInfoWidgetsFactory {
 			}
 			
 			@Override
-			public boolean updateInfo() {
+			public boolean updateInfo(DrawSettings drawSettings) {
 				boolean visible = false;
 				int locimminent = -1;
 				int[] loclanes = null;
@@ -623,7 +625,7 @@ public class RouteInfoWidgetsFactory {
 			private Bitmap img = null;
 			private int imgId;
 			@Override
-			public boolean updateInfo() {
+			public boolean updateInfo(DrawSettings drawSettings) {
 				boolean trafficWarnings = settings.SHOW_TRAFFIC_WARNINGS.get();
 				boolean cams = settings.SHOW_CAMERAS.get();
 				boolean visible = false;

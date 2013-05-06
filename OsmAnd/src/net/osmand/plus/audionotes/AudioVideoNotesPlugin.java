@@ -391,7 +391,7 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 				}
 			}
 		};
-		adapter.registerSelectedItem(R.string.layer_recordings, SHOW_RECORDINGS.get()? 1 : 0, R.drawable.list_activities_rec_layer, listener, 5);
+		adapter.registerSelectedItem(R.string.layer_recordings, SHOW_RECORDINGS.get()? 1 : 0, R.drawable.list_activities_rec_layer2, listener, 5);
 	}
 	
 	@Override
@@ -442,7 +442,7 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 			recordControl.setImageDrawable(activity.getResources().getDrawable(R.drawable.monitoring_rec_inactive));
 			setRecordListener(recordControl, activity);
 			mapInfoLayer.getMapInfoControls().registerSideWidget(recordControl,
-					R.drawable.widget_icon_av_active_menu, R.string.map_widget_av_notes, "audionotes", false,
+					R.drawable.widget_icon_av_inactive, R.string.map_widget_av_notes, "audionotes", false,
 					EnumSet.allOf(ApplicationMode.class),
 					EnumSet.noneOf(ApplicationMode.class), 22);
 			mapInfoLayer.recreateControls();
@@ -1030,9 +1030,9 @@ public class AudioVideoNotesPlugin extends OsmandPlugin {
 				}
 			};
 			if(ri.rec.isPhoto()) {
-				adapter.registerItem(R.string.recording_context_menu_show, R.drawable.list_context_menu_play, listener, 0);
+				adapter.registerItem(R.string.recording_context_menu_show, R.drawable.list_activities_play_note, listener, 0);
 			} else {
-				adapter.registerItem(R.string.recording_context_menu_play, R.drawable.list_context_menu_play, listener, 0);
+				adapter.registerItem(R.string.recording_context_menu_play, R.drawable.list_activities_play_note, listener, 0);
 			}
 			adapter.registerItem(R.string.show_location, 0, new OnContextMenuClick() {
 				@Override

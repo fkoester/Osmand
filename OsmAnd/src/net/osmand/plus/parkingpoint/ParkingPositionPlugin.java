@@ -1,5 +1,6 @@
 package net.osmand.plus.parkingpoint;
 
+
 import java.util.Calendar;
 import java.util.EnumSet;
 
@@ -21,6 +22,7 @@ import net.osmand.plus.views.MapInfoLayer;
 import net.osmand.plus.views.OsmandMapTileView;
 import net.osmand.plus.views.mapwidgets.BaseMapWidget;
 import net.osmand.plus.views.mapwidgets.TextInfoWidget;
+import net.osmand.plus.views.OsmandMapLayer.DrawSettings;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.app.Dialog;
@@ -213,7 +215,7 @@ public class ParkingPositionPlugin extends OsmandPlugin {
 				}
 			};
 			if (parkingPosition != null)
-				adapter.registerItem(R.string.context_menu_item_delete_parking_point, R.drawable.list_parking_poi_remove, removeListener, 0);
+				adapter.registerItem(R.string.context_menu_item_delete_parking_point, R.drawable.list_activities_parking_poi_remove, removeListener, 0);
 		}
 		
 		OnContextMenuClick addListener = new OnContextMenuClick() {
@@ -225,7 +227,7 @@ public class ParkingPositionPlugin extends OsmandPlugin {
 				}
 			}
 		};
-		adapter.registerItem(R.string.context_menu_item_add_parking_point, R.drawable.list_parking_poi_add, addListener, -1);
+		adapter.registerItem(R.string.context_menu_item_add_parking_point, R.drawable.list_activities_parking_poi_add, addListener, -1);
 		
 	}
 
@@ -453,7 +455,7 @@ public class ParkingPositionPlugin extends OsmandPlugin {
 			private int cachedMeters = 0;			
 			
 			@Override
-			public boolean updateInfo() {
+			public boolean updateInfo(DrawSettings drawSettings) {
 				LatLon parkingPoint = parkingLayer.getParkingPoint();
 				if( parkingPoint != null && !map.getRoutingHelper().isFollowingMode()) {
 					OsmandMapTileView view = map.getMapView();
@@ -512,7 +514,7 @@ public class ParkingPositionPlugin extends OsmandPlugin {
 			}
 		});
 		parkingPlaceControl.setText(null, null);
-		parkingPlaceControl.setImageDrawable(map.getResources().getDrawable(R.drawable.list_activities_poi_parking));
+		parkingPlaceControl.setImageDrawable(map.getResources().getDrawable(R.drawable.widget_parking));
 		return parkingPlaceControl;
 	}
 }

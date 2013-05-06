@@ -160,7 +160,8 @@ public class MapActivity extends AccessibleActivity  {
 		createProgressBarForRouting();
 		// This situtation could be when navigation suddenly crashed and after restarting
 		// it tries to continue the last route
-		if(settings.FOLLOW_THE_ROUTE.get() && !app.getRoutingHelper().isRouteCalculated()){
+		if(settings.FOLLOW_THE_ROUTE.get() && !app.getRoutingHelper().isRouteCalculated() &&
+				!app.getRoutingHelper().isRouteBeingCalculated()){
 			FailSafeFuntions.restoreRoutingMode(this);
 		}
 		
@@ -472,6 +473,7 @@ public class MapActivity extends AccessibleActivity  {
 
 	
 	public void followRoute(ApplicationMode appMode, LatLon finalLocation, List<LatLon> intermediatePoints, net.osmand.Location currentLocation, GPXRouteParams gpxRoute){
+		getMapViewTrackingUtilities().backToLocationImpl();
 		RoutingHelper routingHelper = app.getRoutingHelper();
 		settings.APPLICATION_MODE.set(appMode);
 		settings.FOLLOW_THE_ROUTE.set(true);

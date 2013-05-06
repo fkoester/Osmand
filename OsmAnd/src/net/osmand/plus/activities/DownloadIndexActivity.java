@@ -114,7 +114,7 @@ public class DownloadIndexActivity extends OsmandExpandableListActivity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.download_index);
 		// recreation upon rotation is prevented in manifest file
-		Button b = (Button) findViewById(R.id.search_back_button);
+		View b = findViewById(R.id.search_back_button);
 		b.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -375,9 +375,12 @@ public class DownloadIndexActivity extends OsmandExpandableListActivity {
 				protected void onPostExecute(List<IndexItem> filtered) {
 					entriesToDownload.clear();
 					DownloadIndexAdapter a = ((DownloadIndexAdapter) getExpandableListAdapter());
-					a.setIndexFiles(filtered, cats);
-					a.notifyDataSetChanged();
-					a.getFilter().filter(filterText.getText());
+					// Strange null pointer fix (reproduce?)
+					if (a != null) {
+						a.setIndexFiles(filtered, cats);
+						a.notifyDataSetChanged();
+						a.getFilter().filter(filterText.getText());
+					}
 					progressDialog.dismiss();					
 				}
 				
@@ -599,13 +602,15 @@ public class DownloadIndexActivity extends OsmandExpandableListActivity {
 					total++;
 				}
 			}
+			String msgTx = getString(R.string.free_version_message, MAXIMUM_AVAILABLE_FREE_DOWNLOADS + "", "( =" + total + ") ");
 			if (total > MAXIMUM_AVAILABLE_FREE_DOWNLOADS || wiki) {
 				Builder msg = new AlertDialog.Builder(this);
 				msg.setTitle(R.string.free_version_title);
-				msg.setMessage(getString(R.string.free_version_message, MAXIMUM_AVAILABLE_FREE_DOWNLOADS + "", "( =" + total + ") "));
+				msg.setMessage(msgTx);
 				msg.setPositiveButton(R.string.default_buttons_ok, null);
 				msg.show();
 			} else {
+				AccessibleToast.makeText(this, msgTx, Toast.LENGTH_LONG).show();
 				downloadFilesPreCheckSRTM( list);
 			}
 		} else {
@@ -755,7 +760,7 @@ public class DownloadIndexActivity extends OsmandExpandableListActivity {
 							boolean result = downloadFile(entry, filesToReindex, indexOfAllFiles, forceWifi);
 							if (result) {
 								DownloadIndexActivity.this.entriesToDownload.remove(filename);
-								if (entry.type != DownloadActivityType.SRTM_FILE) {
+								if (entry.type != DownloadActivityType.SRTM_FILE && entry.type != DownloadActivityType.HILLSHADE_FILE) {
 									downloads.set(downloads.get() + 1);
 								}
 								if (entry.existingBackupFile != null) {

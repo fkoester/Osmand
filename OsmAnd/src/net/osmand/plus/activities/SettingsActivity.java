@@ -612,14 +612,14 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 
 				@Override
 				protected Void doInBackground(Void... params) {
-					NativeOsmandLibrary.getLibrary(storage);
+					NativeOsmandLibrary.getLibrary(storage, getMyApplication());
 					return null;
 				}
 
 				@Override
 				protected void onPostExecute(Void result) {
 					progressDlg.dismiss();
-					if (!NativeOsmandLibrary.isNativeSupported(storage)) {
+					if (!NativeOsmandLibrary.isNativeSupported(storage, getMyApplication())) {
 						AccessibleToast.makeText(SettingsActivity.this, R.string.native_library_not_supported, Toast.LENGTH_LONG).show();
 					}
 				};
@@ -679,16 +679,16 @@ public class SettingsActivity extends PreferenceActivity implements OnPreference
 			builder.setView(view);
 			final AlertDialog dlg = builder.show();
 			
-			final Button[] buttons = new Button[ApplicationMode.values().length];
-			buttons[ApplicationMode.CAR.ordinal()] = (Button) view.findViewById(R.id.CarButton);
-			buttons[ApplicationMode.BICYCLE.ordinal()] = (Button) view.findViewById(R.id.BicycleButton);
-			buttons[ApplicationMode.PEDESTRIAN.ordinal()] = (Button) view.findViewById(R.id.PedestrianButton);
+			final View[] buttons = new View[ApplicationMode.values().length];
+			buttons[ApplicationMode.CAR.ordinal()] = view.findViewById(R.id.CarButton);
+			buttons[ApplicationMode.BICYCLE.ordinal()] =view.findViewById(R.id.BicycleButton);
+			buttons[ApplicationMode.PEDESTRIAN.ordinal()] = view.findViewById(R.id.PedestrianButton);
 			final Dialog scrDialog = scr.getDialog();
 			final String tlt = "   " + title;
 			for (int i = 0; i < buttons.length; i++) {
 				if (buttons[i] != null) {
 					final int ind = i;
-					final Button b = buttons[i];
+					final View b = buttons[i];
 					b.setOnClickListener(new View.OnClickListener() {
 						@Override
 						public void onClick(View v) {
