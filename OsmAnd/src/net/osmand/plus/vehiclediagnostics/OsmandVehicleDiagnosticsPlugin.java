@@ -7,8 +7,8 @@ import java.util.EnumSet;
 
 import net.osmand.PlatformUtil;
 import net.osmand.plus.ApplicationMode;
-import net.osmand.plus.OptionsMenuHelper;
-import net.osmand.plus.OptionsMenuHelper.OnOptionsMenuClick;
+import net.osmand.plus.ContextMenuAdapter;
+import net.osmand.plus.ContextMenuAdapter.OnContextMenuClick;
 import net.osmand.plus.OsmandApplication;
 import net.osmand.plus.OsmandPlugin;
 import net.osmand.plus.OsmandSettings;
@@ -34,8 +34,6 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -339,19 +337,15 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 	 */
 	@Override
 	public void registerOptionsMenuItems(final MapActivity mapActivity,
-			OptionsMenuHelper helper) {
+			ContextMenuAdapter helper) {
 
-		helper.registerOptionsMenuItem(
-				R.string.vehiclediagnostics_options_reset_tour,
+		helper.registerItem(
 				R.string.vehiclediagnostics_options_reset_tour,
 				android.R.drawable.ic_menu_mylocation,
-				new OnOptionsMenuClick() {
-					@Override
-					public void prepareOptionsMenu(Menu menu, MenuItem item) {
-					}
+				new OnContextMenuClick() {
 
 					@Override
-					public boolean onClick(MenuItem item) {
+					public void onContextMenuClick(int itemId, int pos, boolean isChecked, DialogInterface dialog) {
 
 						Builder builder = new AlertDialog.Builder(mapActivity);
 						builder.setMessage(
@@ -368,7 +362,7 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 												saveTour();
 											}
 										})
-								.setNegativeButton(R.string.cancel,
+								.setNegativeButton(R.string.cancel_navigation,
 										new DialogInterface.OnClickListener() {
 											public void onClick(
 													DialogInterface dialog,
@@ -377,21 +371,17 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 											}
 										});
 						builder.show();
-						return true;
 					}
-				});
+				},
+				0);
 
-		helper.registerOptionsMenuItem(
-				R.string.vehiclediagnostics_options_refuel,
+		helper.registerItem(
 				R.string.vehiclediagnostics_options_refuel,
 				android.R.drawable.ic_menu_mylocation,
-				new OnOptionsMenuClick() {
-					@Override
-					public void prepareOptionsMenu(Menu menu, MenuItem item) {
-					}
+				new OnContextMenuClick() {
 
 					@Override
-					public boolean onClick(MenuItem item) {
+					public void onContextMenuClick(int itemId, int pos, boolean isChecked, DialogInterface dialog) {
 
 						AlertDialog.Builder builder = new AlertDialog.Builder(
 								mapActivity);
@@ -438,7 +428,7 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 									}
 								});
 
-						builder.setNegativeButton(R.string.cancel,
+						builder.setNegativeButton(R.string.cancel_navigation,
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,
 											int id) {
@@ -448,9 +438,9 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 								});
 
 						builder.show();
-						return true;
 					}
-				});
+				},
+				1);
 	}
 
 	private void resumeTour(PermanentSampleStorage<Double> tourStorage) {
