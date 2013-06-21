@@ -118,7 +118,7 @@ public class VehicleModel implements IPostListener {
 	
 	public double getTourRangeDistance() {
 		
-		return getCurrentFuelVolume() / getTourFuelConsumptionPerHour() * (double)getCurrentVelocity();
+		return getCurrentFuelVolume() / getTourFuelConsumptionPerHour() * tourAverageVelocity.getValue();
 	}
 	
 	public double getCurrentRangeTime() {
