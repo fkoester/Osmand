@@ -1513,4 +1513,22 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="edit_filter_create_message">Filter {0} has been created</string>
 	<string name="default_buttons_selectall">Select All</string>
 	<string name="email">email</string>
+	
+	<string name="map_widget_vehiclediagnostics_speed">Vehicle speed</string>
+	<string name="map_widget_vehiclediagnostics_engineload">Engine load</string>
+	<string name="map_widget_vehiclediagnostics_enginerpm">Engine RPM</string>
+	<string name="map_widget_vehiclediagnostics_fuelconsumption">Fuel consumption</string>
+	<string name="map_widget_vehiclediagnostics_tour">Tour data</string>
+	<string name="map_widget_vehiclediagnostics_range">Range</string>
+	
+	<string name="vehiclediagnostics_options_reset_tour">Reset Tour</string>
+	<string name="vehiclediagnostics_options_refuel">Refuel</string>
+	
+	<string name="vehiclediagnostics_dialog_reset_confirm">Really reset tour?</string>
+	<string name="vehiclediagnostics_dialog_reset_tour">Reset</string>
+	
+	<string name="vehiclediagnostics_dialog_add_fuel">Add fuel</string>
+	<string name="vehiclediagnostics_dialog_set_fuel">Set total fuel</string>
+	<string name="vehiclediagnostics_dialog_input_hint">Fuel amount</string>
+	<string name="vehiclediagnostics_dialog_refuel">Refuel</string>
 </resources>

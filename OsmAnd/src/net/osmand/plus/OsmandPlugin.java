@@ -24,6 +24,7 @@ import net.osmand.plus.osmodroid.OsMoDroidPlugin;
 import net.osmand.plus.parkingpoint.ParkingPositionPlugin;
 import net.osmand.plus.rastermaps.OsmandRasterMapsPlugin;
 import net.osmand.plus.srtmplugin.SRTMPlugin;
+import net.osmand.plus.vehiclediagnostics.OsmandVehicleDiagnosticsPlugin;
 import net.osmand.plus.views.OsmandMapTileView;
 
 import org.apache.commons.logging.Log;
@@ -81,6 +82,7 @@ public abstract class OsmandPlugin {
 		installedPlugins.add(new AudioVideoNotesPlugin(app));
 		installedPlugins.add(new OsmEditingPlugin(app));
 		installedPlugins.add(new OsmandDevelopmentPlugin(app));
+		installedPlugins.add(new OsmandVehicleDiagnosticsPlugin(app));
 		
 		
 		Set<String> enabledPlugins = settings.getEnabledPlugins();
