@@ -3,9 +3,11 @@ package net.osmand.plus.activities;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 
 import net.osmand.access.AccessibleToast;
 import net.osmand.plus.ApplicationMode;
@@ -28,6 +30,7 @@ import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.Preference.OnPreferenceClickListener;
 import android.preference.PreferenceScreen;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
@@ -50,6 +53,7 @@ public abstract class SettingsBaseActivity extends SherlockPreferenceActivity im
 	private Map<String, OsmandPreference<Integer>> seekBarPreferences = new LinkedHashMap<String, OsmandPreference<Integer>>();
 
 	private Map<String, Map<String, ?>> listPrefValues = new LinkedHashMap<String, Map<String, ?>>();
+	private AlertDialog profileDialog;
 	
 	public SettingsBaseActivity() {
 		this(false);
@@ -289,22 +293,48 @@ public abstract class SettingsBaseActivity extends SherlockPreferenceActivity im
 		super.onResume();
 		if (profileSettings) {
 			previousAppMode = settings.getApplicationMode();
-			int ind = 0;
-			boolean found = false;
-			for (ApplicationMode a : modes) {
-				if (previousAppMode == a) {
-					getSupportActionBar().setSelectedNavigationItem(ind);
-					found = true;
-					break;
-				}
-				ind++;
-			}
+			boolean found = setSelectedAppMode(previousAppMode);
 			if (!found) {
 				getSupportActionBar().setSelectedNavigationItem(0);
 			}
 		} else {
 			updateAllSettings();
 		}
+	}
+	
+	protected void profileDialog() {
+		Builder b = new AlertDialog.Builder(this);
+		final Set<ApplicationMode> selected = new LinkedHashSet<ApplicationMode>();
+		View v = MapActivityActions.prepareAppModeView(this, selected, false, null,
+				new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						if(selected.size() > 0) {
+							setSelectedAppMode(selected.iterator().next());
+						}
+						if(profileDialog != null && profileDialog.isShowing()) {
+							profileDialog.dismiss();
+						}
+						profileDialog = null;
+					}
+				});
+		b.setTitle(R.string.profile_settings);
+		b.setView(v);
+		profileDialog = b.show();
+	}
+
+	protected boolean setSelectedAppMode(ApplicationMode am) {
+		int ind = 0;
+		boolean found = false;
+		for (ApplicationMode a : modes) {
+			if (am == a) {
+				getSupportActionBar().setSelectedNavigationItem(ind);
+				found = true;
+				break;
+			}
+			ind++;
+		}
+		return found;
 	}
 	
 	@Override

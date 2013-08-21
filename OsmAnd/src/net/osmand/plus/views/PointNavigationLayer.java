@@ -158,6 +158,7 @@ public class PointNavigationLayer extends OsmandMapLayer implements IContextMenu
 	public void collectObjectsFromPoint(PointF point, List<Object> o) {
 		TargetPointsHelper tg = map.getMyApplication().getTargetPointsHelper();
 		List<LatLon> intermediatePoints = tg.getIntermediatePointsWithTarget();
+		List<String> names = tg.getIntermediatePointNamesWithTarget();
 		int r = getRadiusPoi(view.getZoom());
 		for (int i = 0; i < intermediatePoints.size(); i++) {
 			LatLon latLon = intermediatePoints.get(i);
@@ -172,9 +173,9 @@ public class PointNavigationLayer extends OsmandMapLayer implements IContextMenu
 					tp.location = latLon;
 					tp.intermediate = !target;
 					if (target) {
-						tp.name = view.getContext().getString(R.string.target_point, "");
+						tp.name = view.getContext().getString(R.string.destination_point, "")  + " : " + names.get(i);
 					} else {
-						tp.name = (i + 1) + ". " + view.getContext().getString(R.string.intermediate_point, "");
+						tp.name = (i + 1) + ". " + view.getContext().getString(R.string.intermediate_point, "")  + " : " + names.get(i);
 					}
 					tp.index = i;
 					o.add(tp);
@@ -246,8 +247,9 @@ public class PointNavigationLayer extends OsmandMapLayer implements IContextMenu
 				}
 			};
 			
-			adapter.registerItem(R.string.delete_target_point, 
-					a.intermediate?  R.drawable.list_activities_intermediate_delete : R.drawable.list_activities_target_delete, listener, -1);
+			
+			adapter.item(R.string.delete_target_point)
+			.icons( R.drawable.ic_action_remove_dark, R.drawable.ic_action_remove_light).listen(listener).reg();
 			
 		}
 	}

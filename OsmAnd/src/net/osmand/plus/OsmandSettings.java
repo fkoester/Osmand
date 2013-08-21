@@ -682,6 +682,15 @@ public class OsmandSettings {
 	public final OsmandPreference<Boolean> SHOW_TRAFFIC_WARNINGS = new BooleanPreference("show_traffic_warnings", true).makeProfile().cache();
 	public final OsmandPreference<Boolean> SHOW_CAMERAS = new BooleanPreference("show_cameras", true).makeProfile().cache();
 	public final OsmandPreference<Boolean> SHOW_LANES = new BooleanPreference("show_lanes", true).makeProfile().cache();
+	
+	public final OsmandPreference<Boolean> SPEAK_TRAFFIC_WARNINGS = new BooleanPreference("speak_traffic_warnings", true).makeProfile().cache();
+	public final OsmandPreference<Boolean> SPEAK_STREET_NAMES = new BooleanPreference("speak_street_names", true).makeProfile().cache();
+	public final OsmandPreference<Boolean> SPEAK_SPEED_CAMERA = new BooleanPreference("speak_cameras", true).makeProfile().cache();
+	public final OsmandPreference<Boolean> SPEAK_SPEED_LIMIT = new BooleanPreference("speak_speed_limit", true).makeProfile().cache();
+	
+	public final OsmandPreference<Boolean> SPEAK_GPX_WPT = new BooleanPreference("speak_gpx_wpt", true).makeGlobal().cache();
+	
+	
 
 	public final OsmandPreference<Boolean> AVOID_TOLL_ROADS = new BooleanPreference("avoid_toll_roads", false).makeProfile().cache();
 	public final OsmandPreference<Boolean> AVOID_MOTORWAY = new BooleanPreference("avoid_motorway", false).makeProfile().cache();
@@ -795,6 +804,9 @@ public class OsmandSettings {
 
 	// this value string is synchronized with settings_pref.xml preference name
 	public final CommonPreference<Boolean> SHOW_DESTINATION_ARROW = new BooleanPreference("show_destination_arrow", true).makeProfile();
+	{
+		SHOW_DESTINATION_ARROW.setModeDefaultValue(ApplicationMode.CAR, false);	
+	}
 	
 	// this value string is synchronized with settings_pref.xml preference name
 	public final CommonPreference<String> MAP_OVERLAY = new StringPreference("map_overlay", null).makeGlobal();
@@ -1060,18 +1072,17 @@ public class OsmandSettings {
 	}
 	
 	public boolean clearIntermediatePoints() {
-		return settingsAPI.edit(globalPreferences).remove(INTERMEDIATE_POINTS).commit();
+		return settingsAPI.edit(globalPreferences).remove(INTERMEDIATE_POINTS).remove(INTERMEDIATE_POINTS_DESCRIPTION).commit();
 	}
 	
 	public List<String> getIntermediatePointDescriptions(int sz) {
 		List<String> list = new ArrayList<String>();
 		String ip = settingsAPI.getString(globalPreferences,INTERMEDIATE_POINTS_DESCRIPTION, "");
 		if (ip.trim().length() > 0) {
-			StringTokenizer tok = new StringTokenizer(ip, "--");
-			while (tok.hasMoreTokens()) {
-				String d = tok.nextToken();
-				list.add(d);
-			}
+			list.addAll(Arrays.asList(ip.split("--")));
+		}
+		while(list.size() > sz) {
+			list.remove(list.size() - 1);
 		}
 		while(list.size() < sz) {
 			list.add("");
@@ -1096,15 +1107,11 @@ public class OsmandSettings {
 		return list;
 	}
 	
-	public boolean insertIntermediatePoint(double latitude, double longitude, String historyDescription, int index,
-			boolean navigate) {
+	public boolean insertIntermediatePoint(double latitude, double longitude, String historyDescription, int index) {
 		List<LatLon> ps = getIntermediatePoints();
 		List<String> ds = getIntermediatePointDescriptions(ps.size());
 		ps.add(index, new LatLon(latitude, longitude));
 		ds.add(index, historyDescription);
-		if(navigate) {
-			settingsAPI.edit(globalPreferences).putString(POINT_NAVIGATE_ROUTE, "true").commit();
-		}
 		if (historyDescription != null) {
 			SearchHistoryHelper.getInstance(ctx).addNewItemToHistory(latitude, longitude, historyDescription);
 		}
@@ -1144,25 +1151,21 @@ public class OsmandSettings {
 	
 	public boolean clearPointToNavigate() {
 		return settingsAPI.edit(globalPreferences).remove(POINT_NAVIGATE_LAT).remove(POINT_NAVIGATE_LON).
-				remove(POINT_NAVIGATE_DESCRIPTION).remove(POINT_NAVIGATE_ROUTE).commit();
+				remove(POINT_NAVIGATE_DESCRIPTION).commit();
 	}
 	
 	public boolean setPointToNavigate(double latitude, double longitude, String historyDescription) {
-		return setPointToNavigate(latitude, longitude, false, historyDescription);
-	}
-
-	public boolean setPointToNavigate(double latitude, double longitude, boolean navigate, String historyDescription) {
 		boolean add = settingsAPI.edit(globalPreferences).putFloat(POINT_NAVIGATE_LAT, (float) latitude).putFloat(POINT_NAVIGATE_LON, (float) longitude).commit();
 		settingsAPI.edit(globalPreferences).putString(POINT_NAVIGATE_DESCRIPTION, historyDescription).commit();
-		if(navigate) {
-			settingsAPI.edit(globalPreferences).putString(POINT_NAVIGATE_ROUTE, "true").commit();
-		}
 		if(add){
 			if(historyDescription != null){
 				SearchHistoryHelper.getInstance(ctx).addNewItemToHistory(latitude, longitude, historyDescription);
 			}
 		}
 		return add;
+	}
+	public boolean navigateDialog() {
+		return settingsAPI.edit(globalPreferences).putString(POINT_NAVIGATE_ROUTE, "true").commit();
 	}
 
 

@@ -14,6 +14,7 @@ public class RenderingRuleStorageProperties {
 	public static final String ATTR_COLOR_VALUE = "attrColorValue";
 	public static final String ATTR_STRING_VALUE = "attrStringValue";
 	public static final String TEST = "test";
+	public static final String DISABLE = "disable";
 	
 	public static final String TEXT_LENGTH = "textLength";
 	public static final String NAME_TAG = "nameTag";
@@ -43,6 +44,7 @@ public class RenderingRuleStorageProperties {
 	public static final String COLOR__1 = "color__1";
 	public static final String TEXT_BOLD = "textBold";
 	public static final String TEXT_ORDER = "textOrder";
+	public static final String ICON_ORDER = "iconOrder";
 	public static final String TEXT_MIN_DISTANCE = "textMinDistance";
 	public static final String TEXT_ON_PATH = "textOnPath";
 	public static final String ICON = "icon";
@@ -67,6 +69,7 @@ public class RenderingRuleStorageProperties {
 
 	
 	public RenderingRuleProperty R_TEST;
+	public RenderingRuleProperty R_DISABLE;
 	public RenderingRuleProperty R_ATTR_INT_VALUE;
 	public RenderingRuleProperty R_ATTR_BOOL_VALUE;
 	public RenderingRuleProperty R_ATTR_COLOR_VALUE;
@@ -99,6 +102,7 @@ public class RenderingRuleStorageProperties {
 	public RenderingRuleProperty R_COLOR__1;
 	public RenderingRuleProperty R_TEXT_BOLD;
 	public RenderingRuleProperty R_TEXT_ORDER;
+	public RenderingRuleProperty R_ICON_ORDER;
 	public RenderingRuleProperty R_TEXT_MIN_DISTANCE;
 	public RenderingRuleProperty R_TEXT_ON_PATH;
 	public RenderingRuleProperty R_ICON;
@@ -156,6 +160,7 @@ public class RenderingRuleStorageProperties {
 		R_TEXT_LENGTH = registerRuleInternal(RenderingRuleProperty.createInputIntProperty(TEXT_LENGTH));
 		R_NAME_TAG = registerRuleInternal(RenderingRuleProperty.createInputStringProperty(NAME_TAG));
 
+		R_DISABLE = registerRuleInternal(RenderingRuleProperty.createOutputBooleanProperty(DISABLE));
 		R_ATTR_INT_VALUE = registerRuleInternal(RenderingRuleProperty.createOutputIntProperty(ATTR_INT_VALUE));
 		R_ATTR_BOOL_VALUE = registerRuleInternal(RenderingRuleProperty.createOutputBooleanProperty(ATTR_BOOL_VALUE));
 		R_ATTR_COLOR_VALUE = registerRuleInternal(RenderingRuleProperty.createOutputColorProperty(ATTR_COLOR_VALUE));
@@ -172,6 +177,7 @@ public class RenderingRuleStorageProperties {
 		R_TEXT_HALO_RADIUS = registerRuleInternal(RenderingRuleProperty.createOutputIntProperty(TEXT_HALO_RADIUS));
 		R_TEXT_SIZE = registerRuleInternal(RenderingRuleProperty.createOutputIntProperty(TEXT_SIZE));
 		R_TEXT_ORDER = registerRuleInternal(RenderingRuleProperty.createOutputIntProperty(TEXT_ORDER));
+		R_ICON_ORDER = registerRuleInternal(RenderingRuleProperty.createOutputIntProperty(ICON_ORDER));
 		R_TEXT_MIN_DISTANCE = registerRuleInternal(RenderingRuleProperty.createOutputIntProperty(TEXT_MIN_DISTANCE));
 		R_TEXT_SHIELD = registerRuleInternal(RenderingRuleProperty.createOutputStringProperty(TEXT_SHIELD));
 		

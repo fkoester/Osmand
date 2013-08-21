@@ -14,6 +14,7 @@ import net.osmand.data.LatLon;
 import net.osmand.plus.ApplicationMode;
 import net.osmand.plus.GPXUtilities.GPXFile;
 import net.osmand.plus.ClientContext;
+import net.osmand.plus.GPXUtilities.WptPt;
 import net.osmand.plus.OsmAndFormatter;
 import net.osmand.plus.OsmandSettings;
 import net.osmand.plus.OsmandSettings.MetricsConstants;
@@ -215,6 +216,7 @@ public class RoutingHelper {
 				if (finished) {
 					return null;
 				}
+				announceGpxWaypoints(currentLocation);
 				List<Location> routeNodes = route.getImmutableLocations();
 				int currentRoute = route.currentRoute;
 
@@ -225,6 +227,9 @@ public class RoutingHelper {
 					if (dist > 1.7 * posTolerance) {
 						log.info("Recalculate route, because correlation  : " + dist); //$NON-NLS-1$
 						calculateRoute = true;
+					}
+					if(dist > 350) {
+						voiceRouter.announceOffRoute(dist);
 					}
 				}
 				// 3. Identify wrong movement direction
@@ -270,6 +275,24 @@ public class RoutingHelper {
 			return locationProjection;
 		} else {
 			return currentLocation;
+		}
+	}
+
+
+	private void announceGpxWaypoints(Location currentLocation) {
+		if (currentLocation != null) {
+			List<WptPt> wpt = route.getWaypointsToAnnounce(currentLocation);
+			if (wpt.size() > 0) {
+				String s = "";
+				for (WptPt w : wpt) {
+					if(!Algorithms.isEmpty(w.name)) {
+						s = w.name +",";
+					}
+				}
+				if(!Algorithms.isEmpty(s)) {
+					voiceRouter.announceWaypoint(s);
+				}
+			}
 		}
 	}
 
@@ -363,14 +386,19 @@ public class RoutingHelper {
 		// 2. check if intermediate found
 		if(route.getIntermediatePointsToPass()  > 0 && route.getDistanceToNextIntermediate(lastFixedLocation) < POSITION_TOLERANCE * 2) {
 			showMessage(app.getString(R.string.arrived_at_intermediate_point));
-			voiceRouter.arrivedIntermediatePoint();
 			route.passIntermediatePoint();
+			
 			TargetPointsHelper targets = app.getInternalAPI().getTargetPointsHelper();
+			List<String> ns = targets.getIntermediatePointNames();
 			int toDel = targets.getIntermediatePoints().size() - route.getIntermediatePointsToPass();
+			int currentIndex = toDel - 1; 
+			String name = currentIndex  < 0 || currentIndex  >= ns.size() || ns.get(currentIndex ) == null ? "" : ns.get(currentIndex );
+			voiceRouter.arrivedIntermediatePoint(name);
 			while(toDel > 0) {
 				targets.removeWayPoint(false, 0);
 				toDel--;
 			}
+			
 			while(intermediatePoints != null  && route.getIntermediatePointsToPass() < intermediatePoints.size()) {
 				intermediatePoints.remove(0);
 			}
@@ -380,9 +408,11 @@ public class RoutingHelper {
 		Location lastPoint = routeNodes.get(routeNodes.size() - 1);
 		if (currentRoute > routeNodes.size() - 3 && currentLocation.distanceTo(lastPoint) < POSITION_TOLERANCE * 1.5) {
 			showMessage(app.getString(R.string.arrived_at_destination));
-			voiceRouter.arrivedDestinationPoint();
+			TargetPointsHelper targets = app.getInternalAPI().getTargetPointsHelper();
+			String description = targets.getPointNavigateDescription();
+			voiceRouter.arrivedDestinationPoint(description);
 			clearCurrentRoute(null, null);
-			// TargetPointsHelper targets = app.getInternalAPI().getTargetPointsHelper();
+			 
 			// targets.clearPointToNavigate(false);
 			return true;
 		}
@@ -509,6 +539,10 @@ public class RoutingHelper {
 		return route.getLeftTime(lastFixedLocation);
 	}
 	
+	public OsmandSettings getSettings() {
+		return settings;
+	}
+	
 	public String getGeneralRouteInformation(){
 		int dist = getLeftDistance();
 		int hours = getLeftTime() / (60 * 60);
@@ -538,18 +572,18 @@ public class RoutingHelper {
 		AlarmInfo speedAlarm = createSpeedAlarm(mc, mxspeed, lastProjection);
 		AlarmInfo alarm = route.getMostImportantAlarm(lastProjection, speedAlarm, showCameras);
 		if(alarm != null) {
-//			voiceRouter.announceAlarm(alarm);
+			voiceRouter.announceAlarm(alarm);
 		}
 		return alarm;
 		
 	}
 	
-	public static AlarmInfo calculateMostImportantAlarm(RouteDataObject ro, Location loc, 
+	public AlarmInfo calculateMostImportantAlarm(RouteDataObject ro, Location loc, 
 			MetricsConstants mc, boolean showCameras) {
 		float mxspeed = ro.getMaximumSpeed();
 		AlarmInfo speedAlarm = createSpeedAlarm(mc, mxspeed, loc);
 		if (speedAlarm != null) {
-//			voiceRouter.announceAlarm(speedAlarm);
+			voiceRouter.announceAlarm(speedAlarm);
 			return speedAlarm;
 		}
 		for (int i = 0; i < ro.getPointsLength(); i++) {
@@ -561,7 +595,7 @@ public class RoutingHelper {
 					AlarmInfo info = AlarmInfo.createAlarmInfo(typeRule, 0);
 					if (info != null) {
 						if (info.getType() != AlarmInfo.SPEED_CAMERA || showCameras) {
-//							voiceRouter.announceAlarm(info);
+							voiceRouter.announceAlarm(info);
 							return info;
 						}
 					}

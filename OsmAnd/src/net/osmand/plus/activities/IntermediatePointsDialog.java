@@ -103,14 +103,14 @@ public class IntermediatePointsDialog {
 
 			}
 		});
-		if (!changeOrder) {
+		if (!changeOrder && intermediates.size()>1) {
 			builder.setNeutralButton(R.string.intermediate_points_change_order, new DialogInterface.OnClickListener() {
 				@Override
 				public void onClick(DialogInterface dialog, int which) {
 					openIntermediatePointsDialog(activity, app, true);
 				}
 			});
-		} else {
+		} else if(intermediates.size()>1) {
 			builder.setNeutralButton(R.string.intermediate_items_sort_by_distance,   new Dialog.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface d, int which) {
@@ -201,8 +201,11 @@ public class IntermediatePointsDialog {
 					double meters = MapUtils.getDistance(intermediates.get(position), lat, lon);
 					distString = OsmAndFormatter.getFormattedDistance((float) meters, app);
 				}
-				
-				nm += app.getString(R.string.target_point, distString);
+				if(position < intermediates.size() - 1) {
+					nm += app.getString(R.string.target_point, distString);
+				} else {
+					nm += app.getString(R.string.destination_point, distString);
+				}
 				String descr = names.get(position);
 				if(descr != null && descr.trim().length() > 0) {
 					nm += "\n" + descr;
@@ -240,8 +243,8 @@ public class IntermediatePointsDialog {
 					});
 				} else {
 					tv.setCompoundDrawablesWithIntrinsicBounds(
-							position == intermediates.size() - 1? R.drawable.list_activities_set_destination:
-								R.drawable.list_activities_set_intermediate, 0, 0, 0);
+							position == intermediates.size() - 1? R.drawable.list_destination:
+								R.drawable.list_intermediate, 0, 0, 0);
 					tv.setCompoundDrawablePadding(padding);
 					final CheckBox ch = ((CheckBox) v.findViewById(R.id.check_item));
 					ch.setVisibility(View.VISIBLE);

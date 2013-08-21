@@ -63,17 +63,21 @@ public class EditPOIFilterActivity extends OsmandListActivity {
 	public void onCreate(final Bundle icicle) {
 		Bundle bundle = this.getIntent().getExtras();
 		String filterId = bundle.getString(AMENITY_FILTER);
-		helper = ((OsmandApplication)getApplication()).getPoiFilters();
+		helper = ((OsmandApplication) getApplication()).getPoiFilters();
 		filter = helper.getFilterById(filterId);
 		super.onCreate(icicle);
-		
-		
+
 		setContentView(R.layout.editing_poi_filter);
 		getSupportActionBar().setTitle(R.string.filterpoi_activity);
 		getSupportActionBar().setIcon(R.drawable.tab_search_poi_icon);
-		
-		getSupportActionBar().setSubtitle(filter.getName());
-		setListAdapter(new AmenityAdapter(AmenityType.getCategories()));
+
+		if (filter != null) {
+			getSupportActionBar().setSubtitle(filter.getName());
+			setListAdapter(new AmenityAdapter(AmenityType.getCategories()));
+		} else {
+			setListAdapter(new AmenityAdapter(new AmenityType[0]));
+		}
+
 	}
 
 
@@ -94,16 +98,19 @@ public class EditPOIFilterActivity extends OsmandListActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		if(filter == null) {
+			return super.onCreateOptionsMenu(menu);
+		}
 		createMenuItem(menu, SAVE_FILTER, R.string.edit_filter_save_as_menu_item, 
-				R.drawable.a_5_content_save_light ,R.drawable.a_5_content_save_dark,
+				R.drawable.ic_action_gsave_light, R.drawable.ic_action_gsave_dark ,
 				MenuItem.SHOW_AS_ACTION_IF_ROOM);
 		createMenuItem(menu, FILTER, R.string.filter_current_poiButton, 
 				0, 0,
-				// R.drawable.a_1_navigation_accept_light, R.drawable.a_1_navigation_accept_dark
-				MenuItem.SHOW_AS_ACTION_WITH_TEXT | MenuItem.SHOW_AS_ACTION_IF_ROOM);
+				//R.drawable.a_1_navigation_accept_light, R.drawable.a_1_navigation_accept_dark,
+				MenuItem.SHOW_AS_ACTION_WITH_TEXT | MenuItem.SHOW_AS_ACTION_ALWAYS);
 		if(!filter.isStandardFilter()){
 			createMenuItem(menu, DELETE_FILTER, R.string.edit_filter_delete_menu_item, 
-					R.drawable.a_5_content_discard_light ,R.drawable.a_5_content_discard_dark,
+					R.drawable.ic_action_gdiscard_light, R.drawable.ic_action_gdiscard_dark,
 					MenuItem.SHOW_AS_ACTION_IF_ROOM);
 		}
 		return super.onCreateOptionsMenu(menu);

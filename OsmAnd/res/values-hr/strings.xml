@@ -1,6 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="map_widget_gps_info">GPS informacije</string>
+<?xml version="1.0" encoding="utf-8" standalone="no"?><resources><string name="map_widget_gps_info">GPS informacije</string>
     <string name="access_arrival_time">Vrijeme dolaska</string>
     <string name="item_checked">provjereno</string>
     <string name="item_unchecked">neprovjereno</string>
@@ -42,10 +40,10 @@
     <string name="av_control_stop">stani</string>
     <string name="av_control_start">započni</string>
     <string name="map_widget_av_notes">Zvučni i video zapisi</string>
-    <string name="osmand_distance_plugin_description">Mjerenje udaljenosti između dvije ili više točaka. Dodajte točke kratkim pritiskom, a uklonite dužim pritiskom.</string>
-    <string name="osmand_distance_plugin_name">Mjerenje udaljenosti</string>
-    <string name="use_clear_distance_measurement">Dodirnite još jednom da biste uklonili točke.</string>
-    <string name="use_distance_measurement">Dodirnite kako biste označili točku, pritisnite i držite za brisanje prethodne točke, kliknite na mjerni widget za izlaz.</string>
+    
+    
+    
+    
     <string name="map_widget_distancemeasurement">Mjerenje udaljenosti</string>
     <string name="monitoring_control_stop">zaustavi</string>
     <string name="map_widget_audionotes">Zvučni zapisi</string>
@@ -71,8 +69,8 @@
     <string name="map_widget_max_speed">Ograničenje brzine</string>
     <string name="route_descr_lat_lon">Z. širina %1$.3f, z. dužina %2$.3f</string>
     <string name="route_descr_current_location">Trenutna pozicija</string>
-    <string name="route_descr_from_to">Od: %1$s\nDo: %2$s</string>
-    <string name="route_descr_from_to_via">Od: %1$s\nPreko: %2$s\nDo: %3$s</string>
+    
+    
     <string name="no_buildings_found">Građevine nisu pronađene.</string>
     <string name="incremental_search_city">Postupno traži grad</string>
     <string name="search_villages_and_postcodes">Traži sela / poštanski broj</string>
@@ -90,7 +88,6 @@
     <string name="non_optimal_route_calculation">Izračunajte moguću, neoptimalnu rutu na velike udaljenosti</string>
 	<string name="map_widget_monitoring_services">Bilježenje položaja</string>
 	<string name="no_route">Nema rute</string>
-	<string name="navigate_to">Postavi kao odredište</string>
     <string name="poi_filter_parking">Parkiralište</string>
     <string name="btn_add_tag">Dodaj oznaku</string>
     <string name="btn_advanced_mode">Napredni način rada...</string>
@@ -113,7 +110,7 @@
     <string name="filterpoi_activity">Stvori POI filter</string>
 	<string name="recalculate_route_to_your_location">Način prijevoza:</string>
 	<string name="select_navigation_mode">Odaberite načina prijevoza</string>
-	<string name="monitor_preferences">Praćenje</string>
+	
 	<string name="day_night_info_description">Izlazak sunca: %1$s
 \nZalazak sunca: %2$s</string>
 	<string name="day_night_info">Informacije dan/noć</string>
@@ -121,7 +118,7 @@
 	<string name="map_widget_renderer">Stil karte</string>
 	<string name="live_monitoring_mode_off">Pokreni\n online praćenje</string>
 	<string name="live_monitoring_mode_on">Zaustavi\n online praćenje</string>
-	<string name="layer_map_appearance">Konfiguracija zaslona...</string>
+	<string name="layer_map_appearance">Konfiguracija zaslona</string>
 	<string name="show_lanes">Prikaži staze</string>
 	<string name="avoid_unpaved">Izbjegavaj neasfaltirane ceste</string>
 	<string name="avoid_ferries">Izbjegavaj trajekte</string>
@@ -138,7 +135,7 @@
 	<string name="screen_is_locked">Za otključavanje zaslona pritisnite ikonu zaključavanja</string>
 	<string name="map_widget_top_text">Naziv ulice</string>
 	<string name="map_widget_config">Konfiguracija zaslona</string>
-	<string name="map_widget_map_select">Izvor karte</string>
+	
 	<string name="map_widget_back_to_loc">Gdje sam</string>
 	<string name="map_widget_lock_screen">Zaključaj zaslon</string>
 	<string name="map_widget_compass">Kompas</string>
@@ -188,7 +185,6 @@
 	<string name="offline_navigation_not_available">OsmAnd offline navigacija privremeno nije dostupna.</string>
 	<string name="left_side_navigation">Vožnja lijevom stranom</string>
 	<string name="left_side_navigation_descr">Označi za države s vožnjom na lijevoj strani</string>
-	<string name="context_menu_item_directions">Upute do ovdje</string>
 	<string name="local_indexes_cat_map">Offline karte (vektorske)</string>
 	<string name="online_map_settings">Online karte</string>
 	<string name="map_settings">Postavke karte</string>
@@ -204,7 +200,6 @@
 	<string name="backToMenu">Povratak na izbornik</string>
 	<string name="zoomOut">Udalji</string>
 	<string name="zoomIn">Približi</string>
-	<string name="zoomIs"/>
 	<string name="north">sjever</string>
 	<string name="north_north_east">sjever-sjeveroistok</string>
 	<string name="north_east">sjeveroistok</string>
@@ -302,7 +297,6 @@
 	<string name="osb_comment_dialog_title">Dodaj komentar na bug</string>
 	<string name="osb_comment_dialog_message">Poruka</string>
 	<string name="osb_comment_menu_item">Dodaj komentar</string>
-	<string name="favourites_context_menu_navigate">Postavi kao odredište</string>
 	<string name="favourites_context_menu_edit">Uredi favorite</string>
 	<string name="favourites_context_menu_delete">Brisanje favorita</string>
 	<string name="default_buttons_cancel">Zatvori</string>
@@ -313,7 +307,6 @@
 	<string name="default_buttons_yes">Da</string>
 	<string name="context_menu_item_add_favorite">Dodaj u favorite</string>
 	<string name="context_menu_item_create_poi">Stvori POI</string>
-	<string name="context_menu_item_navigate_point">Postavi kao odredište</string>
 	<string name="context_menu_item_update_map">Ažuriraj karte</string>
 	<string name="search_shown_on_map">Prikaži na karti</string>
 	<string name="navigate_point_cancel">Otkaži</string>
@@ -351,7 +344,6 @@
 	<string name="choose_street">Odaberite ulicu</string>
 	<string name="choose_city">Odaberite grad</string>
 	<string name="ChooseCountry">Odaberite zemlju</string>
-	<string name="map_specify_point">Postavi kao odredište</string>
 	<string name="use_english_names_descr">Odaberite između domaćih i engleski naziva</string>
 	<string name="use_english_names">Koristite engleske nazive u kartama</string>
 	<string name="app_settings">Postavke aplikacije</string>
@@ -373,7 +365,6 @@
 	<string name="saving_gpx_tracks">Spremanje GPX staza na memorijsku karticu...</string>
 	<string name="finished_task">Gotovo</string>
 	<string name="search_address_building_option">Zgrada</string>
-	<string name="navigate_to_point">Postavi kao odredište.</string>
 	<string name="map_preferences_descr">Odredite postavke karte: izvor karte, rotacija, položaj markera, orijentacija zaslona</string>
 	<string name="osm_settings">OSM uređivanje</string>
 	<string name="data_settings_descr">Odredite jezik, preuzmite ili ponovno učitajte podatke</string>
@@ -405,7 +396,7 @@
 	<string name="update_existing">Zamijeni</string>
 	<string name="only_show">Samo prikaži</string>
 	<string name="show_poi_on_map">Prikaži na karti</string>
-	<string name="downloading_file">Preuzimanje datoteka...</string>
+	
 	<string name="downloading">Preuzimanje...</string>
 	<string name="downloading_list_indexes">Preuzimam popis dostupnih regija...</string>
 	<string name="list_index_files_was_not_loaded">Popis regija nije preuzet sa osmand.net.</string>
@@ -447,7 +438,7 @@
 	<string name="route_tshl">Skrenite oštro ulijevo i nastavite voziti po</string>
 	<string name="route_tsll">Skrenite blago ulijevo i nastavite voziti po</string>
 	<string name="route_tu">Polukružno se okrenite i nastavite voziti po</string>
-	<string name="stop_routing">Zaustavite naviga.</string>
+	
 	<string name="menu_mute_off">Zvuk je uključen</string>
 	<string name="menu_mute_on">Zvuk je isključen</string>
 	<string name="voice_provider_descr">Odaberite glasovno navođenje za navigaciju</string>
@@ -466,7 +457,7 @@
 	<string name="context_menu_item_search_poi">Traži POI</string>
 	<string name="layer_transport">Postaje javnog prijevoza</string>
 	<string name="layer_poi">POI...</string>
-	<string name="context_menu_item_show_route">Prikaži rutu odavde</string>
+	
 	<string name="layer_transport_route">Putovi javnoga prijevoza</string>
 	<string name="layer_route">Ruta</string>
 	<string name="layer_favorites">Favoriti</string>
@@ -588,7 +579,7 @@
 	<string name="local_index_gpx_info_show">\n\nPritisnite i držite za opcije</string>
 	<string name="local_index_gpx_info_speed">\nSrednja brzina: %1$s
 \nMaksimalna brzina: %2$s</string>
-	<string name="local_index_gpx_info_elevation">\nSrednja visina: %1$.0f m\nMinimalna visina: %2$.0f m\nMaksimaljna visina: %3$.0f m\nUsponi: %4$.0f m\nNizbrdica: %5$.0f m</string>
+	<string name="local_index_gpx_info_elevation">\nSrednja visina: %1$s\nMinimalna visina: %2$s\nMaksimaljna visina: %3$s\nUsponi: %4$s\nNizbrdica: %5$s</string>
 	<string name="local_index_installed">Izdanje</string>
 	<string name="precise_routing_mode">Precizni način navođenja (alfa)</string>
     <string name="av_def_action_choose">Odaberite na zahtjev</string>
@@ -801,7 +792,6 @@
 	<string name="search_position_current_location">Trenutna pozicija...</string>
 	<string name="search_position_map_view">Posljednje gledano na karti</string>
 	<string name="select_search_position">Traži u blizini:</string>
-	<string name="search_select_point">Odaberi</string>
 	<string name="search_position_current_location_search">Tražim poziciju...</string>
 	<string name="search_position_current_location_found">Pozicija je pronađena</string>
 	<string name="search_position_address">Adresa...</string>
@@ -942,4 +932,9 @@
     <string name="default_buttons_do_not_show_again">Ne prikazuj ponovo</string>
     <string name="plugin_distance_point">Točka</string>
     <string name="gpx_saved_sucessfully">GPX datoteka je uspješno spremljena na {0}</string>
-    </resources>
+    <string name="destination_point">Odredište %1$s</string>
+    <string name="context_menu_item_destination_point">Postavi kao odredište</string>
+    <string name="speak_speed_limit">Najavi ograničenja brzine</string>
+    <string name="speak_cameras">Najavi kamere za kontrolu brzine</string>
+	<string name="speak_traffic_warnings">Najavi prometna upozorenja</string>
+	</resources>

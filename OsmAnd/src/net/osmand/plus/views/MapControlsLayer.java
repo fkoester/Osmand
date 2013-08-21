@@ -128,6 +128,15 @@ public class MapControlsLayer extends OsmandMapLayer {
 				hideZoomLevelInTime();
 			}
 		}
+		int sh = Color.WHITE;
+		if (nightMode != null && nightMode.isNightMode()) {
+			sh = Color.TRANSPARENT;
+		}
+		if(shadowColor != sh) {
+			shadowColor = sh;
+			zoomTextPaint.setColor(sh == Color.WHITE ? Color.BLACK : 0xffC8C8C8);
+			rulerTextPaint.setColor(sh == Color.WHITE ? Color.BLACK : 0xffC8C8C8);
+		}
 		if (showZoomLevel || !view.getSettings().SHOW_RULER.get()) {
 			drawZoomLevel(canvas);
 		} else {
@@ -142,19 +151,23 @@ public class MapControlsLayer extends OsmandMapLayer {
 	private void drawApplicationMode(Canvas canvas, boolean nightMode) {
 		ApplicationMode  appMode = view.getSettings().getApplicationMode();
 		if(appMode != cacheApplicationMode){
-			modeShadow.setBounds(backToMenuButton.getLeft() + (int) (2 * scaleCoefficient), backToMenuButton.getTop() - (int) (20 * scaleCoefficient),
+			modeShadow.setBounds(backToMenuButton.getLeft() + (int) (2 * scaleCoefficient), backToMenuButton.getTop() - (int) (24 * scaleCoefficient),
 					backToMenuButton.getRight() - (int) (4 * scaleCoefficient), backToMenuButton.getBottom());
 			if(appMode == ApplicationMode.CAR){
-				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.car_small_white : R.drawable.car_small);
+			//	cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.car_small_white : R.drawable.car_small);
+				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.ic_action_car_dark : R.drawable.ic_action_car_light);
 			} else if(appMode == ApplicationMode.BICYCLE){
-				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.bicycle_small_white : R.drawable.bicycle_small);
+//				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.bicycle_small_white : R.drawable.bicycle_small);
+				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.ic_action_bicycle_dark : R.drawable.ic_action_bicycle_light);
 			} else if(appMode == ApplicationMode.PEDESTRIAN){
-				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.pedestrian_small_white : R.drawable.pedestrian_small);
+//				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.pedestrian_small_white : R.drawable.pedestrian_small);
+				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.ic_action_pedestrian_dark : R.drawable.ic_action_pedestrian_light);
 			} else {
-				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.default_small_white : R.drawable.default_small);
+//				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.default_small_white : R.drawable.default_small);
+				cacheAppModeIcon = view.getResources().getDrawable(nightMode? R.drawable.app_mode_globus_dark : R.drawable.app_mode_globus_light);
 			}
 			int l = modeShadow.getBounds().left + (modeShadow.getBounds().width() - cacheAppModeIcon.getMinimumWidth()) / 2;
-			int t = (int) (modeShadow.getBounds().top + 5 * scaleCoefficient);
+			int t = (int) (modeShadow.getBounds().top + 2 * scaleCoefficient);
 			cacheAppModeIcon.setBounds(l, t, l + cacheAppModeIcon.getMinimumWidth(), t + cacheAppModeIcon.getMinimumHeight());	
 		}
 		modeShadow.draw(canvas);
@@ -166,7 +179,8 @@ public class MapControlsLayer extends OsmandMapLayer {
 	
 	private void onApplicationModePress() {
 		final QuickAction mQuickAction = new QuickAction(backToMenuButton);
-		int[] icons = new int[] { R.drawable.default_small, R.drawable.car_small, R.drawable.bicycle_small, R.drawable.pedestrian_small };
+		//int[] icons = new int[] { R.drawable.default_small, R.drawable.car_small, R.drawable.bicycle_small, R.drawable.pedestrian_small };
+		int[] icons = new int[] { R.drawable.ic_action_globus_light, R.drawable.ic_action_car_light, R.drawable.ic_action_bicycle_light, R.drawable.ic_action_pedestrian_light };
 		int[] values = new int[] { R.string.app_mode_default, R.string.app_mode_car, R.string.app_mode_bicycle,
 				R.string.app_mode_pedestrian };
 		final ApplicationMode[] modes = new ApplicationMode[] { ApplicationMode.DEFAULT, ApplicationMode.CAR, ApplicationMode.BICYCLE,

@@ -128,7 +128,7 @@ public class FavouritesListFragment extends SherlockListFragment implements Sear
 				}
 			};
 			MapActivityActions.createDirectionsActions(qa, location, point, name, settings.getLastKnownMapZoom(), getActivity(),
-					true, onshow);
+					true, onshow, false);
 			qa.show();
 		} else {
 			Intent intent = getActivity().getIntent();
@@ -161,7 +161,7 @@ public class FavouritesListFragment extends SherlockListFragment implements Sear
 			ImageView icon = (ImageView) row.findViewById(R.id.favourite_icon);
 			final FavouritePoint model = getItem(position);
 			if (model.isStored()) {
-				icon.setImageResource(R.drawable.list_activities_favorites);
+				icon.setImageResource(R.drawable.list_favorite);
 			} else {
 				icon.setImageResource(R.drawable.opened_poi);
 			}

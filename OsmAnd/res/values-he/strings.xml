@@ -1,5 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
+<?xml version="1.0" encoding="utf-8" standalone="no"?><resources>
 	<string name="default_buttons_no">לא</string>
 	<string name="default_buttons_yes">כן</string>
 	<string name="close_changeset">סגירת ערכת השינויים</string>
@@ -25,7 +24,6 @@
 	<string name="delete_target_point">הסרת נקודת ציון</string>
 	<string name="target_point">נקודת הציון %1$s</string>
     <string name="intermediate_point">נקודת הציון %1$s</string>
-    <string name="navigate_to">הגדרה כיעד</string>
     <string name="context_menu_item_last_intermediate_point">הוספת כנקודת הציון הסופית</string>
     <string name="context_menu_item_first_intermediate_point">הוספה כנקודת הציון ההתחלתית</string>
     <string name="add_as_last_destination_point">הוספה כנקודת הציון הסופית</string>
@@ -72,7 +70,7 @@
 	<string name="filterpoi_activity">יצירת מסנן נ״ע</string>
 	<string name="recalculate_route_to_your_location">מצב תעבורה:</string>
 	<string name="select_navigation_mode">בחירת מצב תעבורה</string>
-	<string name="monitor_preferences">מעקב</string>
+	
 	<string name="day_night_info_description">זריחה : %1$s
 \nשקיעה : %2$s</string>
 	<string name="day_night_info">פרטי יום/לילה</string>
@@ -83,7 +81,7 @@
 	<string name="live_monitoring_mode_on">הפסקת\n המעקב החי</string>
 	<string name="position_on_map_descr">יש לבחור את מיקום סמן המיקום במפה</string>
 	<string name="position_on_map">סמן מיקום</string>
-	<string name="layer_map_appearance">הגדרת המסך…</string>
+	<string name="layer_map_appearance">הגדרת המסך</string>
 	<string name="show_lanes">הצגת נתיבים</string>
 	<string name="avoid_unpaved">המנעות מדרכים שאינן סלולות</string>
 	<string name="avoid_ferries">המנעות ממעבורות</string>
@@ -102,7 +100,7 @@
 	<string name="screen_is_locked">כדי לשחרר את המסכים יש ללחוץ על סמל הנעילה</string>
 	<string name="map_widget_top_text">שם הרחוב</string>
 	<string name="map_widget_config">מסך ההגדרות</string>
-	<string name="map_widget_map_select">מקור המפה</string>
+	
 	<string name="map_widget_back_to_loc">איפה אני</string>
 	<string name="map_widget_lock_screen">נעילת המסך</string>
 	<string name="map_widget_compass">מצפן</string>
@@ -130,7 +128,6 @@
 	<string name="download_link_and_local_description">יש ללחוץ כאן כדי להוריד או לעדכן את הנתונים הבלתי מקוונים.\nניתן ללחוץ על כל פריט ברשימה כדי לצפות בפרטים נוספים, יש ללחוץ ולהחזיק כדי לנטרל או למחוק. הנתונים הנוכחיים על ההתקן (%1$s פנויים):</string>
 	<string name="unknown_from_location">נקודת ההתחלה לא נקבעה עדיין</string>
 	<string name="unknown_location">המיקום עדיין לא ידוע</string>
-	<string name="context_menu_item_directions">הנחיות כיוון לכאן</string>
 	<string name="modify_transparency">שינוי השקיפות (0 - שקוף, 255 - אטום)</string>
 	<string name="confirm_interrupt_download">האם להפריע להורדת הקובץ?</string>
 	<string name="tip_update_index_t">"\tחיוני ביותר להתעדכן בנתוני המפה. התכנית OsmAnd מספקת מנהל הורדה שיכול לבדוק האם קיימים עדכוני נתונים בלתי מקוונים.
@@ -215,7 +212,7 @@
 	<string name="select_index_file_to_download">לא נמצא כלום. אם האזור שלך לא נמצא, ניתן ליצור אותו בעצמך (לפרטים http://osmand.net).</string>
 	<string name="local_indexes_cat_tile">מפות מקוונות ואריחים</string>
 	<string name="local_indexes_cat_map">מפות בלתי מקוונות (וקטור)</string>
-	<string name="gpx_index_settings_descr">" (לרבות מנתח GPX)"</string>
+	
 	<string name="index_settings_descr">הורדה, צפייה בפרטים וניהול של מפות בלתי מקוונות</string>
 	<string name="map_online_plugin_is_not_installed">ניתן להפעיל את תוסף המפות המקוונות כדי לבחור במקורות שונים למפה</string>
 	<string name="map_online_data">מפות מקוונות ואריחים</string>
@@ -340,7 +337,7 @@
 	<string name="local_openstreetmap_uploading">מתבצעת שליחה…</string>
 	<string name="local_openstreetmap_were_uploaded">{0} נ״ע/תקלות נשלחו</string>
 	<string name="local_openstreetmap_uploadall">לשלוח הכול</string>
-	<string name="local_openstreetmap_items">‌</string>
+	
 	<string name="local_openstreetmap_show">הצגה במפה</string>
 	<string name="local_openstreetmap_upload">שליחת השינויים ל־OSM</string>
 	<string name="local_openstreetmap_delete">מחיקת השינוי</string>
@@ -351,7 +348,7 @@
 	<string name="live_monitoring">מעקב חי מקוון</string>
 	<string name="live_monitoring_interval_descr">נא לציין הפסקות בין דיווחי מעקב חי</string>
 	<string name="live_monitoring_interval">הפסקות בין דיווחי מעקב חי</string>
-	<string name="live_monitoring_url_descr">נא לציין את כתובת השרת עם תחביר הפרמטרים הבא: רוחב={0}, אורך={1}, חותמת_זמן={2}, hdop‏={3}, גובה={4}, מהירות={5}</string>
+	<string name="live_monitoring_url_descr">נא לציין את כתובת השרת עם תחביר הפרמטרים הבא: רוחב={0}, אורך={1}, חותמת_זמן={2}, hdop‏={3}, גובה={4}, מהירות={5}, bearing={6} </string>
 	<string name="live_monitoring_url">כתובת שרת המעקב החי</string>
 	<string name="gpx_monitoring_disabled_warn">נא להפעיל את \'מעקב אחר המסלול לקובץ GPX\' בהגדרות.</string>
 	<string name="show_current_gpx_title">הצגת המסלול הנוכחי</string>
@@ -469,7 +466,6 @@
 	<string name="local_index_mi_rename">שינוי שם</string>
 	<string name="show_gpx_route">הצגה על המפה</string>
 	<string name="poi_filter_nominatim">חיפוש שם מקוון (Nominatim)</string>
-	<string name="search_select_point">בחירה</string>
 	<string name="search_position_current_location_search">מתבצע חיפוש אחר מיקום…</string>
 	<string name="search_position_current_location_found">מיקום (נמצא)</string>
 	<string name="search_position_address">כתובת…</string>
@@ -515,7 +511,7 @@
 	<string name="local_index_gpx_info_show">\n\nיש ללחוץ ולהחזיק כדי להגיע לאפשרויות</string>
 	<string name="local_index_gpx_info_speed">\nמהירות ממוצעת : %1$s
 \nמהירות מרבית : %2$s</string>
-	<string name="local_index_gpx_info_elevation">\nגובה ממוצע : %1$.0f מ׳\nגובה מזערי : %2$.0f מ׳\nגובה מרבי : %3$.0f מ׳\nעליות : %4$.0f מ׳\nירידות : %5$.0f מ׳</string>
+	<string name="local_index_gpx_info_elevation">\nגובה ממוצע : %1$s\nגובה מזערי : %2$s\nגובה מרבי : %3$s\nעליות : %4$s\nירידות : %5$s</string>
 	<string name="local_index_gpx_info">תת־מסלולים : %1$d\nסך כל הנקודות : %2$d\nנקודות ציון : %3$d\nמרחק כולל : %4$s\nמועד ההתחלה : %5$tF, %5$tR\nמועד הסיום : %6$tF, %6$tR</string>
 	<string name="local_index_installed">מהדורה</string>
 	<string name="local_index_items_backuped">%1$d מתוך %2$d פריטים נוטרלו בהצלחה.</string>
@@ -536,7 +532,7 @@
 	<string name="local_index_address_data">נתוני כתובת</string>
 	<string name="local_index_transport_data">נתוני תעבורה</string>
 	<string name="local_index_map_data">נתוני מפה</string>
-	<string name="local_index_items">‌</string>
+	
 	<string name="local_indexes_cat_backup">מנוטרל</string>
 	<string name="local_indexes_cat_tts">נתוני קול (טקסט לדיבור)</string>
 	<string name="local_indexes_cat_voice">נתוני קול (מוקלטים)</string>
@@ -782,7 +778,7 @@
 	<string name="layer_favorites">מועדפים</string>
 	<string name="layer_osm_bugs">תקלות ב־OSM</string>
 	<string name="layer_transport">תחנות תחבורה</string>
-	<string name="stop_routing">הפסקת הניווט</string>
+	
 	<string name="transport_Stop">תחנה</string>
 	<string name="transport_stops">תחנות</string>
 	<string name="transport_Routes">מסלולים</string>
@@ -804,7 +800,7 @@
 	<string name="layer_map">מקור המפה…</string>
 	<string name="menu_layers">הגדרת תצוגה</string>
 	<string name="context_menu_item_search_poi">חיפוש נ״ע</string>
-	<string name="context_menu_item_show_route">הצגת מסלול מכאן</string>
+	
 	<string name="use_trackball_descr">יש להשתמש בכדור מעקב כדי להזיז את המפה</string>
 	<string name="where_am_i">איפה אני?</string>
 	<string name="update_poi_success">נתוני הנ״ע עודכנו בהצלחה ({0} נטענו)</string>
@@ -886,7 +882,7 @@
 	<string name="address">כתובת</string>
 	<string name="download_index_success">ההורדה הצליחה</string>
 	<string name="error_io_error">אירעה שגיאת קלט/פלט</string>
-	<string name="downloading_file">הקובץ בהורדה…</string>
+	
 	<string name="downloading">בהורדה…</string>
 	<string name="downloading_list_indexes">רשימת האזורים הזמינה מתקבלת…</string>
 	<string name="list_index_files_was_not_loaded">רשימת האזורים לא התקבלה מ־osmand.net.</string>
@@ -964,9 +960,7 @@
 	<string name="choose_street">נא לבחור ברחוב</string>
 	<string name="choose_city">נא לבחור בעיר</string>
 	<string name="ChooseCountry">נא לבחור במדינה</string>
-	<string name="map_specify_point">הגדרה כיעד</string>
 	<string name="show_view_angle">הצגת כיוון הצפייה</string>
-	<string name="navigate_to_point">הגדרה כיעד</string>
 	<string name="map_view_3d_descr">הפעלת הצגה תלת־ממדית של המפה</string>
 	<string name="map_view_3d">הצגת המפה בתלת־ממד</string>
 	<string name="show_poi_over_map_description">הצגת נ״ע על גבי המפה (שימוש במסנן האחרון שנבחר)</string>
@@ -1017,7 +1011,6 @@
 	<string name="search_address_building_option">בניין</string>
 	<string name="search_address_street_option">רחוב חוצה</string>
 	<string name="search_tabs_location">מיקום</string>
-	<string name="context_menu_item_navigate_point">הגדרה כיעד</string>
 	<string name="context_menu_item_add_favorite">הוספה למועדפים</string>
 	<string name="context_menu_item_update_map">עדכון המפה</string>
 	<string name="context_menu_item_open_bug">פתיחת תקלה ב־OSM</string>
@@ -1028,7 +1021,6 @@
 	<string name="add_favorite_dialog_top_text">נא להזין שם למועדף</string>
 	<string name="add_favorite_dialog_default_favourite_name">מועדף</string>
 	<string name="add_favorite_dialog_favourite_added_template">הנקודה המועדפת „{0}“ נוספה בהצלחה.</string>
-	<string name="favourites_context_menu_navigate">הגדרה כיעד</string>
 	<string name="favourites_context_menu_edit">עריכת המועדף</string>
 	<string name="favourites_context_menu_delete">מחיקת המועדף</string>
 	<string name="favourites_remove_dialog_msg">האם להסיר את הנקודה המועדפת ‚%s‘?</string>
@@ -1097,8 +1089,8 @@
 	<string name="no_buildings_found">לא נמצאו בניינים.</string>
     <string name="route_descr_lat_lon">רוחב %1$.3f אורך %2$.3f</string>
     <string name="route_descr_current_location">המיקום הנוכחי</string>
-    <string name="route_descr_from_to">מ־%1$s\nאל %2$s</string>
-    <string name="route_descr_from_to_via">מהמיקום : %1$s\nדרך : %2$s\nאל : %3$s</string>
+    
+    
     <string name="map_widget_max_speed">מהירות מותרת</string>
     <string name="tip_altitude_offset">תצוגת גובה - תיקון סטייה</string>
 	<string name="monitoring_control_start">התחלה</string>
@@ -1116,18 +1108,18 @@
     <string name="srtm_plugin_name">תוסף SRTM</string>
     <string name="download_select_map_types">מפות אחרות</string>
     <string name="download_srtm_maps">מפות SRTM</string>
-    <string name="osmand_distance_plugin_description">מדידת המרחק בין שתי נקודות. יש להגדיר את המקור / יעד / להתעלם מהמדידות על ידי לחיצה ארוכה.</string>
-	<string name="osmand_distance_plugin_name">מחשבון מרחק</string>
+    
+	
 <string name="audionotes_location_not_defined">המיקום לא מוגדר עדיין לצורכי שמירת הערות קוליות</string>
     <string name="monitoring_control_stop">עצירה</string>
     <string name="map_widget_audionotes">הערות קוליות</string>
     <string name="audionotes_plugin_description">תיאור תוסף ההערות הקוליות</string>
     <string name="audionotes_plugin_name">תוסף הערות קוליות</string>
-    <string name="srtm_plugin_attribution">ASTER הוא מוצר מבית METIS ו־NASA</string>
+    
     <string name="osmand_srtm_short_description_80_chars">תוסף ל־OsmAnd לקווי מתאר בלתי מקוונים</string>
-    <string name="use_clear_distance_measurement">יש ללחוץ פעם נוספת כדי למחוק את נקודות המדידה.</string>
+    
     <string name="map_widget_distancemeasurement">מדידת מרחק</string>
-    <string name="use_distance_measurement">יש לגעת כדי להציב נקודה, ללחוץ ולהחזיק כדי למחוק את הנקודה הקודמת, ללחוץ על וידג׳ט המדידה כדי לצאת.</string>
+    
     <string name="recording_is_recorded">השמע/וידאו מוקלטים. כדי להפסיק זאת יש ללחוץ על לחצן העצירה בווידג׳ט.</string>
     <string name="recording_playing">השמע מההקלטה שצוינה מושמע.\n%1$s</string>
     <string name="recording_open_external_player">פתיחת נגן חיצוני</string>
@@ -1267,7 +1259,10 @@
     <string name="local_osm_changes_backup_failed">גיבוי השינויים ב־OSM נכשל</string>
     <string name="local_osm_changes_backup">גיבוי כשינוי ב־OSM</string>
     <string name="search_street_in_neighborhood_cities">חיפוש רחוב בערים סמוכות</string>
-    <string name="intermediate_items_sort_return">המיקומים סודרו באופן המיטבי בין המיקום במפה אל היעד</string>
+    <string name="intermediate_items_sort_return">נקודות הביניים שבדרך סודרו מחדש באופן המיטבי בדרך אל היעד.</string>
     <string name="intermediate_items_sort_by_distance">סידור (דלת לדלת)</string>
     <string name="tip_recent_changes_1_4_t">"שינויים ב־1.4: * סידור נקודות הביניים בדרך המיטבית כדי לבקר בכולן (הסוכן הנוסע, דלת לדלת) * חיפוש רחוב לפי שם (בשכונה) * תוסף מצב תכנון (טעינה/עריכה/שמירה של מסלולי GPX) * מסך הורדה חדש (הורדה ברקע) * תמיכה בתת־תיקיות של GPX (ארגון מסלולי ה־GPX שלך) * מחיקת קובצי SRTM * תמיכה בהערות של OSM "</string>
+    <string name="please_select_address">נא לבחור בעיר או ברחוב תחילה</string>
+    <string name="context_menu_item_destination_point">הגדרה כיעד</string>
+    <string name="destination_point">יעד %1$s</string>
     </resources>

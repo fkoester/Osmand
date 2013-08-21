@@ -45,7 +45,7 @@
   <string name="gpxup_public">Publieke</string>
   <string name="gpxup_identifiable">Identifiseerbare</string>
   <string name="gpxup_trackable">Volgbare</string>
-  <string name="gpxup_private">Private</string>
+  <string name="gpxup_private">Privaat</string>
   <string name="asap">SSM</string>
   <string name="save_route_as_gpx">Berg die roete as `n GPX dokument</string>
   <string name="route_roundabout">Verkeersirkel : Neem %1$d uitgang en ry</string>
@@ -73,7 +73,6 @@
   <string name="download_link_and_local_description">Druk hier om van-lyn-af inligting af te laai of op datum te bring.\nDruk op enige bestaande item om meer inligting te sien, druk en hou om af te skakel of uit te vee. Huidige inligting op toestel (%1$s beskikbaar):</string>
   <string name="unknown_from_location">Beginpunt is nog nie bepaal nie</string>
   <string name="unknown_location">Posisie is nog nie bekend nie</string>
-  <string name="context_menu_item_directions">Aanwysings hiernatoe</string>
   <string name="modify_transparency">Verander deursigtigheid (0 - Deursigtig, 255 - Solied)</string>
   <string name="confirm_interrupt_download">Wil jy die aflaai van die dokument onderbreek?</string>
   <string name="first_time_msg">Om die belangrikste funksies van hierdie toepassing te gebruik, benodig jy sommige streeksverwante van-lyn-af inligting, wat jy kan aflaai (gebruik Stellings, Aflyn inligting). Daarna sal jy kan soek na adresse, POIs en publieke vervoer.</string>
@@ -81,7 +80,7 @@
   <string name="select_index_file_to_download">Niks gevind nie. As jy nie jou streek kan vind nie, kan jy dit self maak (besoek http://osmand.net).</string>
   <string name="local_indexes_cat_tile">Internet kaarte (teëls)</string>
   <string name="local_indexes_cat_map">Aflyn kaarte (Vektor)</string>
-  <string name="gpx_index_settings_descr">" (sluit GPX ondersoeker in)"</string>
+  
   <string name="index_settings_descr">Laai kaarte af, beskou inligting en bestuur aflyn kaarte</string>
   <string name="map_online_plugin_is_not_installed">Skakel die internet kaarte inlasmodule aan om ander kaartbronne te kies</string>
   <string name="map_online_data">Internet kaarte (teëls)</string>
@@ -104,11 +103,11 @@
   <string name="tip_recent_changes_0_8_0_t">"Veranderinge in 0.8.0:\n\t *Inlasmodule funksionaliteit*\n\t- Die meeste funksies is volgens eienskappe gegroepeer en kan aan of af geskakel word in die Inlasmodule Bestuurder. Jy kan (aanlyn of gekaste) teël kaart bronne aanskakel, natrek instel, en baie ander nuwe en reeds bestaande funksies.\n\t- *Nuut aflyn kaart inligting ondersteuning*\n\t- Kaart lewering is vinniger en meer akkuraat (kuslyn en oorstroomde gebied probleme is grootliks reggemaak).\n\t- Jy moet heeltemal nuwe aflyn inligting af laai (ou inligting sal nie meer ondersteun word)\n\t- *Aflyn Roeteberekening*\n\t- Aflyn Roeteberekening stewiger\n\t- *Bruikbaarheid en gebruikerskoppelvlak ervaring*\n\t- In baie areas verbeter "</string>
   <string name="osm_editing_plugin_description">Wys stellings nodig vir OSM terugvoer bv. versamel / aanpas van OSM POI voorwerpe, oopmaak / komentaarlewer op OSM foute, en bydra van opgeneemde GPX dokumente (vereis OSM inlog besonderhede).</string>
   <string name="vector_maps_may_display_faster_on_some_devices">Vektor kaarte vertoon waarskynlik vinniger. Dit mag egter nie goed werk op sommige toestelle nie.</string>
-  <string name="simulate_route_progression_manually">Boots roete vordering met die hand na</string>
+  
   <string name="play_commands_of_currently_selected_voice">Speel opdragte van die huidige gekose stem</string>
   <string name="debugging_and_development">OsmAnd ontwikkeling</string>
   <string name="native_rendering">Inheemse lewering</string>
-  <string name="animate_routing">Bewegende navigasie</string>
+  
   <string name="test_voice_prompts">Toets stemaanwysings</string>
   <string name="switch_to_raster_map_to_see">Geen aflyn vektor kaart teenwoordig vir hierdie ligging. Jy kan dit aflaai in instellings (Aflyn inligting), of skakel oor na internet kaarte.</string>
   <string name="tip_recent_changes_0_7_2_t">"Veranderinge in 0.7.2:\n\t- inheemse lewering vir alle toestelle\n\t- aflyn interessante plek redigering\n\t- Toeganklikheid\n\t- baie foutregstellings "</string>
@@ -119,7 +118,7 @@
   <string name="validate_gpx_upload_name_pwd">Spesifiseer asseblief die OSM gebruiker naam en wagwoord om GPX lêers op te laai.</string>
   <string name="default_buttons_support">Ondersteuning</string>
   <string name="support_new_features">Ondersteun nuwe funksies</string>
-  <string name="show_ruler_level_descr">Vertoon liniaal op die kaart</string>
+  
   <string name="show_ruler_level">Wys liniaal</string>
   <string name="info_button">Inligting</string>
   <string name="back_to_location">Terug na ligging</string>
@@ -185,24 +184,25 @@
   <string name="use_fluorescent_overlays_descr">Gebruik helder kleure om paaie en roetes te vertoon</string>
   <string name="offline_edition">Aflyn redigering</string>
   <string name="offline_edition_descr">Gebruik altyd aflyn redigering</string>
-  <string name="tip_recent_changes_0_7_1_t">"Veranderinge in 0.7.1:\n t-aflyn interessante plek redigering\n t-Lewendige natrekking opsie - stuur koördinate na web diens van tyd tot tyd (lees hoe om jou eie web op te stel in Howto Artikels)\n t-Wys opgeneemde spoor op die kaart\n t-rigting waarneming: \"Maak \'n U-draai\" word aangedui en aangekondig wanneer in die teenoorgestelde rigting beweeg word of na `n gemiste draai\n t-Nuwe-stem aankondiging \"Roete herbereken \'\n t-Sigbare aanduiding van \'n dreigende draai binne 100m deur rigting pyl wat kleur verander\n t-aktualiteit van gedeaktiveerde indeks lêers ook nou gewys op Aflaai skerm in donker groen en donker blou\n t-ander veranderinge "</string>
+  <string name="tip_recent_changes_0_7_1_t">"Veranderinge in 0.7.1:\n t-aflyn interessante plek redigering\n t-Lewendige spoor-natrek keuse - stuur koördinate na web diens van tyd tot tyd (lees hoe om jou eie web op te stel in Howto Artikels)\n t-Wys opgeneemde spoor op die kaart\n t-rigting waarneming: \"Maak \'n U-draai\" word aangedui en aangekondig wanneer in die teenoorgestelde rigting beweeg word of na `n gemiste draai\n t-Nuwe-stem aankondiging \"Roete herbereken \'\n t-Sigbare aanduiding van \'n dreigende draai binne 100m deur rigting pyl wat kleur verander\n t-aktualiteit van gedeaktiveerde indeks lêers ook nou gewys op Aflaai skerm in donker groen en donker blou\n t-ander veranderinge "
+	</string>
   <string name="update_poi_does_not_change_indexes">Interessante plek veranderinge binne die toepassing raak nie afgelaaide kaart lêers nie, veranderinge word eerder in `n plaaslike lêer gestoor.</string>
-  <string name="local_openstreetmap_uploading">Besig om op te laai…</string>
+  <string name="local_openstreetmap_uploading">Besig om op te laai …</string>
   <string name="local_openstreetmap_were_uploaded">{0} interessante plek / Foute is opgelaai</string>
   <string name="local_openstreetmap_uploadall">Laai alles op</string>
-  <string name="local_openstreetmap_items">" "</string>
+  
   <string name="local_openstreetmap_show">Wys op kaart</string>
   <string name="local_openstreetmap_upload">Laai wysigings op na OSM</string>
   <string name="local_openstreetmap_delete">Verwyder verandering</string>
   <string name="local_openstreetmap_descr_title">Uit fase OSM Redigering:</string>
   <string name="local_openstreetmap_settings">Plaaslik gestoorde OSM interessante plekke / Foute</string>
   <string name="local_openstreetmap_settings_descr">Wys en bestuur opgemerkte OSM interessante plekke / Foute in die plaaslike databasis</string>
-  <string name="live_monitoring_descr">Stuur natrek na \'n bepaalde web diens</string>
-  <string name="live_monitoring">Aanlyn lewendige natrekking</string>
-  <string name="live_monitoring_interval_descr">Spesifiseer lewendige natrekking interval</string>
-  <string name="live_monitoring_interval">Lewendige natrekking interval</string>
-  <string name="live_monitoring_url_descr">Spesifiseer die web adres met parameteroordrag sinsbou: lat = {0}, lon = {1}, tyd stempel = {2}, hdop = {3}, hoogte = {4}, spoed = {5}</string>
-  <string name="live_monitoring_url">Lewendige natrekking webadres</string>
+  <string name="live_monitoring_descr">Stuur spoor-natrek na \'n bepaalde web diens</string>
+  <string name="live_monitoring">Aanlyn lewendige spoor-natrek</string>
+  <string name="live_monitoring_interval_descr">Spesifiseer lewendige spoor-natrek interval</string>
+  <string name="live_monitoring_interval">Lewendige spoor-natrek interval</string>
+  <string name="live_monitoring_url_descr">Spesifiseer die web adres met parameteroordrag sinsbou: lat = {0}, lon = {1}, tyd stempel = {2}, hdop = {3}, hoogte = {4}, spoed = {5}, rigting={6}</string>
+  <string name="live_monitoring_url">Lewendige spoor-natrek webadres</string>
   <string name="gpx_monitoring_disabled_warn">Skakel asseblief \'Meld spoor na GPX\' aan in natrekking instellings.</string>
   <string name="show_current_gpx_title">Wys huidige spoor</string>
   <string name="tip_recent_changes_0_7_0_t">"Veranderinge in 0.7.0:\n t-die aflyn wikipedia inligting met artikels\n t-Opgedateerde kaarte\n t-ander klein funksies "</string>
@@ -226,12 +226,12 @@
   <string name="index_name_tts_voice">Stem pakkette (TTS)</string>
   <string name="amenity_type_wikiosm">Wikipedia (aflyn)</string>
   <string name="amenity_type_user_defined">gebruiker gedefinieerde</string>
-  <string name="fav_export_confirmation">Lêer met voorheen uitgevoerde gunstelinge bestaan ​​reeds. Wil jy dit vervang?</string>
+  <string name="fav_export_confirmation">Lêer met voorheen uitgevoerde gunstelinge bestaan reeds. Wil jy dit vervang?</string>
   <string name="profile_settings">Profiel Besondere Stellings</string>
   <string name="settings_preset">Gebruikersprofiel</string>
   <string name="settings_preset_descr">Kies \'n gebruiker profiel met \'n persoonlike kaart en navigasie instellings.</string>
-  <string name="monitor_preferences">- Natrekking</string>
-  <string name="monitor_preferences_descr">Spesifiseer natrekking instellings</string>
+  
+  
   <string name="routing_settings">Navigasie</string>
   <string name="routing_settings_descr">Spesifiseer navigasie opsies</string>
   <string name="global_settings">Oorhoofse instellings</string>
@@ -246,23 +246,20 @@
   <string name="osmand_service">Sluimertoestand Funksionaliteit</string>
   <string name="osmand_service_descr">Gebruik om OsmAnd aan te hou terwyl skerm af is</string>
   <string name="tip_rotation_switching">Kaart oriëntasie</string>
-  <string name="tip_rotation_switching_t">"\tJy kan kies hoe die kaart vertoon roteer word in \'Stellings\' -&gt; \'Kaart voorkoms \'-&gt;\'Kaart rotasie\'.
-\n\tDie keuses is:
-\n\t\'moet nie roteer nie\' - Kaart sal nie roteer word nie. Noord sal altyd bo wees
-\n\t\'Met rigting van beweging\'- Kaart sal deurlopend gerig word in jou bewegingsrigting
-\n\t\'Met kompas\' - Kaart sal deurlopend gerig word met toestel kompas lesing
-\n\tWenk: Om vinnig tussen rotasie deur kompas en die een wat jy gekies het in instellings te verander, kan jy net tik op die kompas naald in die kaart vertoon."</string>
-  <string name="binary_map_download_success">Aflaai suksesvol.\n\t\n\tOm te gebruik aktiveer \'Stellings\' -&gt; \'uitleg\' -&gt; \'aflyn vektor kaarte.</string>
+  
+  <string name="binary_map_download_success">Aflaai suksesvol.\n\t\n\tOm te gebruik aktiveer \'Keuselys\' -&gt; \'Definieer uitsig\'-&gt; \'Kaart bron\' -&gt; \'aflyn vektor kaarte.</string>
   <string name="tip_day_night_mode">Dag/nag gebruikswyse</string>
-  <string name="tip_day_night_mode_t">"\tdie kaart voorkoms kan vir \'n paar vektor kaarte verander word tussen die dag (helder) en nag (donker).\n\tNag kleure is veiliger vir nag bestuur.\n\tJy kan \'n beleid vir die dag / nag opstel in \'Stellings\' -&gt; \'Kaart voorkoms\'-&gt; \'Dag / nag gebruikswyse\'.\n\tKeuses is:\n\t\'Sonsopkoms / Sonsondergang\' - outomatiese gebruikswyse, beheer deur posisie van die son (verstek)\n\t\'Day\' - gebruik altyd dag gebruikswyse\n\t\'Night\' - gebruik altyd nag gebruikswyse\n\t\'Lig sensor\' - kaart voorkoms word beheer deur lig sensor van jou toestel (slegs indien toegerus)\n"</string>
+  
   <string name="tip_osm_improve">Verbetering van OSM inligting</string>
-  <string name="tip_osm_improve_t">\tOsmAnd gebruik kaarte gebaseer op Openstreetmap.org (OSM) inligting en behalwe vir besigtiging en navigasie, kan dit ook gebruik word om die kwaliteit van OSM inligting te verbeter. Jy kan nuwe interessante plekke skep of OSM foutverslae oplaai met net \'n paar klieke!\n\tHiervoor moet jy eers jou OSM login inligting in \'Stellings\' -&gt; \'Algemene verstellings\' -&gt; \'OSM Redigering\' voorsien.\n\tOm \'n nuwe interessante plek by te voeg gebruik opsie \'skep interessante plek\' in die kaart konteks kieslys. Tik die inligting oor die nuwe interessante plek in \'Skep interessante plek\' se dialoog in en stuur dit dan in.\n\tFoute in kaarte kan onmiddellik aangemeld word via OSM fout, en die OSM gemeenskap kan dan vinniger hierdie probleem oplos.\n\tOm `n OSM fout by te voeg gebruik keuse \'Open OSM fout\' in die kaart konteks kieslys. Tik dan die beskrywing van die probleem en pos dit met die \'Voeg by\' knoppie.\n\tLet daarop dat `n internet verbinding nodig is vir die OSM interessante plek en OSM fout bydraes.</string>
+  <string name="tip_osm_improve_t">\tOsmAnd gebruik kaarte gebaseer op Openstreetmap.org (OSM) inligting en behalwe vir besigtiging en navigasie, kan dit ook gebruik word om die kwaliteit van OSM inligting te verbeter. Jy kan nuwe interessante plekke skep of OSM foutverslae oplaai met net \'n paar klieke!\n\tHiervoor moet jy eers jou OSM login inligting in \'Stellings\' -&gt; \'Algemene verstellings\' -&gt; \'OSM Redigering\' voorsien.\n\tOm \'n nuwe interessante plek by te voeg gebruik keuse \'skep interessante plek\' in die kaart konteks kieslys. Tik die inligting oor die nuwe interessante plek in \'Skep interessante plek\' se dialoog in en stuur dit dan in.\n\tFoute in kaarte kan onmiddellik aangemeld word via OSM fout, en die OSM gemeenskap kan dan vinniger hierdie probleem oplos.\n\tOm `n OSM fout by te voeg gebruik keuse \'Open OSM fout\' in die kaart konteks kieslys. Tik dan die beskrywing van die probleem en pos dit met die \'Voeg by\' knoppie.\n\tLet daarop dat `n internet verbinding nodig is vir die OSM interessante plek en OSM fout bydraes.</string>
   <string name="download_files_not_enough_space">Daar is nie genoeg spasie om %1$s MB af te laai nie(beskikbaar:%2$s).</string>
   <string name="download_files_question_space">Beskibare geheue nou {2} MB! Laai {0} lêer(s) ({1} MB) af ?</string>
   <string name="tip_select_destination_point">Kies bestemming</string>
-  <string name="tip_select_destination_point_t">"\tJy kan \'n ​​bestemming direk op die kaart kies (kaartinhoud-kieslys, dan \'as bestemming\'), in al die soek aktiwiteite, of deur \'n inskrywing in jou \'Lys van gunsteling punte\' lank te druk.\n\tDie bestemming is gemerk as \'n oranje skyf op die kaart en OsmAnd toon die afstand en die rigting daarna aan (oranje driehoek). "</string>
+  <string name="tip_select_destination_point_t">"\tJy kan \'n bestemming direk op die kaart kies (kaartinhoud-kieslys, dan \'as bestemming\'), in al die soek aktiwiteite, of deur \'n inskrywing in jou \'Lys van gunsteling punte\' lank te druk.\n\tDie bestemming is gemerk as \'n oranje skyf op die kaart en OsmAnd toon die afstand en die rigting daarna aan (oranje driehoek). 
+	"
+	</string>
   <string name="tip_recent_changes_0_6_9_t">"Veranderinge in 0.6.9:\n\t-Verbeterde aflyn kaart lewering\n\t-Vinnige inheemse aflyn lewering - kyk in eksperimentele eienskappe (mag dalk op sommige toestelle nie werk nie)\n\t-Massiewe voorkoms en gevoel veranderinge\n\t-Hoogte inligting\n\t-nuwe vertalings (Vienamese, Pools)\n\t-ander klein funksies "</string>
-  <string name="use_transparent_map_theme_descr">Gebruik deursigtige kaart beheer</string>
+  
   <string name="use_transparent_map_theme">Deursigtige tema</string>
   <string name="native_library_not_supported">Inheemse biblioteek word nie op hierdie toestel ondersteun nie.</string>
   <string name="init_native_library">Besig om inheemse biblioteek gereed te maak…</string>
@@ -285,9 +282,10 @@
   <string name="layer_poi_label">Interessante plek etikette</string>
   <string name="animate_route_off">stop animasie</string>
   <string name="animate_route">Begin animasie</string>
-  <string name="tip_recent_changes_0_6_8_t">"Veranderinge in 0.6.8:\n\t-heeltemal herontwerpte soek (interessante plek, adres)! Maak adres soek baie vinniger en meer responsief. Skep \'n soektog koppelvlak met baie verskillende keuses.\n\t-Implementeer interessante plek soek met die naam in groot gebiede (lande)\n\t-Herstel flikkerende kaart skerm vir tablette (Nommer 641)\n\t-Outo-senter kaart uitsig opsie (Nommer 356)\n\t-GPX navigasie verskuif na \'Aanwysings\' en \'Berg Aanwysings \'geskuif na \' Oor roete\n\t-POI inligting in obf lêer. (alle aflaai indekse na 01/10/11)\n\t-Stem aankondiging oplossing (GPS ligging oplossing, weglating van eerste opdrag)\n\t-klein verbeteringe "</string>
+  <string name="tip_recent_changes_0_6_8_t">"Veranderinge in 0.6.8:\n\t-heeltemal herontwerpte soek (interessante plek, adres)! Maak adres soek baie vinniger en meer responsief. Skep \'n soektog koppelvlak met baie verskillende keuses.\n\t-Implementeer interessante plek soek met die naam in groot gebiede (lande)\n\t-Herstel flikkerende kaart skerm vir tablette (Nommer 641)\n\t-Outo-senter kaart uitsig keuse (Nommer 356)\n\t-GPX navigasie verskuif na \'Aanwysings\' en \'Berg Aanwysings \'geskuif na \' Oor roete\n\t-POI inligting in obf lêer. (alle aflaai indekse na 01/10/11)\n\t-Stem aankondiging oplossing (GPS ligging oplossing, weglating van eerste opdrag)\n\t-klein verbeteringe "
+	</string>
   <string name="file_can_not_be_renamed">Lêer kan nie herbenoem word nie.</string>
-  <string name="file_with_name_already_exists">Lêer met daardie naam bestaan ​​reeds.</string>
+  <string name="file_with_name_already_exists">Lêer met daardie naam bestaan reeds.</string>
   <string name="gpx_navigation">GPX roete</string>
   <string name="poi_query_by_name_matches_categories">Verskeie interessante plek kategorieë gevind vir die soektog:</string>
   <string name="data_to_search_poi_not_available">Plaaslike inligting om interessante plek te soek is nie teenwoordig nie.</string>
@@ -299,7 +297,6 @@
   <string name="local_index_mi_rename">Herbenoem</string>
   <string name="show_gpx_route">Wys op kaart</string>
   <string name="poi_filter_nominatim">Internet Nominatim</string>
-  <string name="search_select_point">Kies</string>
   <string name="search_position_current_location_search">Besig om posisie op te spoor…</string>
   <string name="search_position_current_location_found">Ligging (gevind)</string>
   <string name="search_position_address">Adres…</string>
@@ -313,8 +310,9 @@
   <string name="tip_recent_changes_0_6_7_t">"Onlangse wysigings 0.6.7:\n\t-aflyn inligting bestuurder (laai, verwyder, aktiveer / deaktiveer aflyn inligting direk in OsmAnd)\n\t-gunsteling punte en groepe (kategoriseer, verwyder, bestuur gunstelinge)\n\t- GPX Explorer in toepassing (wys spoordetail, afstand, gemiddelde spoed, hoogte, ens.)\n\t- GPX navigasie (meer keuses, gaan aan met navigasie na afskakel, ondersteun verkeersirkels)\n\t-funksie om roete te berg as GPX spoor vir aflyn gebruik\n\t-Verbeter GPX monitering (filter n paar onakkurate posisie en berg akkuraatheid/hoogte/spoed)\n\t-oplaai GPX na OSM gemeenskap (http://download.osmand.net/gpx/)\n\t-vektor lewering verbeter\n\t-Verbetering van TTS enjin (kondig presiese afstand aan, stel in staat om myle te gebruik)\n\t-Fout-herstellings "</string>
   <string name="save_route_dialog_title">Berg roete as GPX spoor</string>
   <string name="route_successfully_saved_at">Roete suksesvol geberg as \'%1$s\'.</string>
-  <string name="filename_input">"Dokument naam: "</string>
-  <string name="file_with_name_already_exist">Lêer met dieselfde naam bestaan ​​reeds.</string>
+  <string name="filename_input">"Dokument naam:
+" </string>
+  <string name="file_with_name_already_exist">Lêer met dieselfde naam bestaan reeds.</string>
   <string name="default_buttons_save">Berg</string>
   <string name="menu_save_directions">Berg aanwysings</string>
   <string name="local_index_upload_gpx_description">Laai GPX lêers op na OSM gemeenskap. Dit sal gebruik word om kaarte te verbeter.</string>
@@ -335,7 +333,7 @@
   <string name="vector_data_missing">Aanboord (\'aflyn\') inligting ontbreek op SD-kaart. Oorweeg dit asseblief om dit af te laai om die kaarte aflyn te gebruik.</string>
   <string name="local_index_gpx_info_show">\n\nDruk en hou vir keuses</string>
   <string name="local_index_gpx_info_speed">\nGemiddelde spoed: %1$s\nMaksimum spoed: %2$s</string>
-  <string name="local_index_gpx_info_elevation">\nGemiddelde hoogte: %1$.0f m\nMinimum hoogte: %2$.0f m\nMaksimum hoogte: %3$.0f m\nOpdraandes: %4$.0f m\nAfdraandes: %5$.0f m</string>
+  <string name="local_index_gpx_info_elevation">\nGemiddelde hoogte: %1$s\nMinimum hoogte: %2$s\nMaksimum hoogte: %3$s\nOpdraandes: %4$s\nAfdraandes: %5$s</string>
   <string name="local_index_gpx_info">Subspore : %1$d\nTotale punte : %2$d\nTussenpunte : %3$d\nTotale afstand : %4$s\nBegin tyd : %5$tF, %5$tR\nEnd tyd : %6$tF, %6$tR</string>
   <string name="local_index_installed">Uitgawe</string>
   <string name="local_index_items_backuped">%1$d van %2$d item(s) suksesvol afgeskakel.</string>
@@ -354,7 +352,7 @@
   <string name="local_index_address_data">Adres inligting</string>
   <string name="local_index_transport_data">Vervoer inligting</string>
   <string name="local_index_map_data">Kaart inligting</string>
-  <string name="local_index_items">" "</string>
+  
   <string name="local_indexes_cat_backup">gedeaktiveer</string>
   <string name="local_indexes_cat_tts">Stem inligting(TTS)</string>
   <string name="local_indexes_cat_voice">Stem inligting(opgeneemd)</string>
@@ -379,7 +377,7 @@
   <string name="gpx_option_reverse_route">Keer GPX rigting om</string>
   <string name="gpx_option_destination_point">Gebruik die huidige bestemming</string>
   <string name="gpx_option_from_start_point">Ry oor die hele spoor</string>
-  <string name="switch_to_vector_map_to_see">Aflyn vektor kaart is teenwoordig vir hierdie ligging.\n\t\n\tOm te gebruik aktiveer \'Kieslys\' -&gt; \'Definieer voorkoms\' -&gt; \'Kaartbron ...\' -&gt; \'Aflyn vektor kaarte\'.</string>
+  <string name="switch_to_vector_map_to_see">Aflyn vektor kaart is teenwoordig vir hierdie ligging.\n\t\n\tOm te gebruik aktiveer \'Kieslys\' -&gt; \'Definieer voorkoms\' -&gt; \'Kaartbron...\' -&gt; \'Aflyn vektor kaarte\'.</string>
   <string name="choose_audio_stream">Stem begeleiding uitset</string>
   <string name="choose_audio_stream_descr">Kies kanaal om stem begeleiding oor te speel (stelsel afhanklik)</string>
   <string name="voice_stream_voice_call">Stem oproep klank</string>
@@ -406,28 +404,32 @@
   <string name="level_to_switch_vector_raster_descr">Minimum vergroting vlak om vektor kaarte te gebruik</string>
   <string name="level_to_switch_vector_raster">Minimum vektor vergroting vlak</string>
   <string name="tip_location_sharing">Ligging deel</string>
-  <string name="tip_location_sharing_t">\tJy kan kan die ligging van interessante plekke op jou reis met familie of vriende deel.\n\tOm \'n ligging te deel:\n\tGebruik \'Kaart inhoud kieslys\' -&gt; \'Deel ligging\' kieslys.\n\tKies dan \'n ​​manier om jou ligging te deel. Die keuses is: E-pos, SMS (teks), of kopiëer net die koördinate na die knipbord.</string>
+  <string name="tip_location_sharing_t">\tJy kan kan die ligging van interessante plekke op jou reis met familie of vriende deel.\n\tOm \'n ligging te deel:\n\tGebruik \'Kaart inhoud kieslys\' -&gt; \'Deel ligging\' kieslys.\n\tKies dan \'n manier om jou ligging te deel. Die keuses is: E-pos, SMS (teks), of kopiëer net die koördinate na die knipbord.
+	</string>
   <string name="tip_favorites">Gunsteling punte</string>
-  <string name="tip_favorites_t">\tDikwels gebruikte punte kan geberg word as gunstelinge.\n\tOm `n punt te berg as `n gunsteling, gaan na die kaart inhoud kieslys, kies opsie \'Voeg by gunstelinge\' en tik dan \'n naam in daarvoor . Nadat jy \'n gunsteling geberg het,  is dit beskikbaar in _\'Hoof Kieslys\'_ -&gt; \'_gunstelinge\'_.\n\tLank druk op \'n `n gunsteling, in die \'gunstelinge\' kieslys bied keuses om dit as bestemming te stel, te wysig of te skrap.\n\tOm al die gunsteling punte op die kaart te wys, skakel die \'gunstelinge\' vel aan in \'Kaart inhoud kieslys\' -&gt; \'Definieer vertoon\'.</string>
+  <string name="tip_favorites_t">\tDikwels gebruikte punte kan geberg word as gunstelinge.\n\tOm `n punt te berg as `n gunsteling, gaan na die kaart inhoud kieslys, Keuse\'Voeg by gunstelinge\' en tik dan \'n naam in daarvoor. Nadat jy \'n gunsteling geberg het,  is dit beskikbaar in \'Hoof Kieslys\' -&gt; \'_gunstelinge\'.\n\tLank druk op \'n gunsteling, in die \'gunstelinge\' kieslys bied keuses om dit as bestemming te stel, te wysig of te skrap.\n\tOm al die gunsteling punte op die kaart te wys, skakel die \'gunstelinge\' vel aan in \'Kaart inhoud kieslys\' -&gt; \'Definieer vertoon\'.
+	</string>
   <string name="create_poi_link_to_osm_doc">"<u> Aanlyn OSM </u> kaart klassifikasie met prentjies"</string>
   <string name="error_doing_search">Fout het voorgekom tydens aflyn soek</string>
   <string name="search_offline_geo_error">Kon nie die geo opset \'%s\' ontleed nie</string>
   <string name="search_osm_offline">Soek adres met behulp van aflyn kaarte</string>
   <string name="system_locale">Stelsel</string>
   <string name="preferred_locale_descr">Kies die taal vir die program</string>
-  <string name="preferred_locale">vertoon taal</string>
+  <string name="preferred_locale">Vertoon taal</string>
   <string name="tip_map_switch">Kaartbron</string>
-  <string name="tip_map_switch_t">\tDie vinnigste manier om die kaart bron en lae getoon te verander, is deur op \'Kieslys -&gt; \'Definieer vertoon \' in die kaart te druk.\n\tOnder \'Kaartbronne…\' kan jy kies tussen die voorafgelaaide aflyn vektor kaarte , vooraf gedefinieerde (aanlyn) teël bronne, of kaarte met die hand gemaak met behulp van bv. OsmAndMapCreator op `n rekenaar. \n\tOsmAnd ondersteun ook persoonlike bronne.</string>
+  
   <string name="tip_app_mode">Gebruikersprofiel</string>
-  <string name="tip_app_mode_t">\tOsmAnd supports different (customizable) application profiles for different use cases. \n\tYou can change profiles in \'Menu\' -&gt; \'Settings\' -&gt; \'User Profile\', or when creating a route.</string>
+  
   <string name="tip_navigation">Navigasie</string>
   <string name="tip_navigation_t">\tVoordat \'n navigasie begin moet jy \'n bestemming kies. Druk daarna \'kieslys\' -&gt; \'aanwysings\' op die kaart en kies die navigasie wyse.</string>
   <string name="tip_search">op soek</string>
-  <string name="tip_search_t">\tJy kan soek vir plekke op die kaart, deur adres, deur Ligging, as interessante plek, of as voorafgedefinieerde gunsteling.\n\tDeur \'Soek\' in die hoofkieslys te druk word die soek aktiwiteite begin. Vir al die resultate bied `n kieslys 2 keuses: \'Stel as bestemming \' of \' Wys op die kaart\'.</string>
+  <string name="tip_search_t">"\tJy kan soek vir plekke op die kaart, deur adres, deur Ligging, as interessante plek, of as voorafgedefinieerde gunsteling.\n\tDeur \'Soek\' in die hoofkieslys te druk word die soek aktiwiteite begin. Vir al die resultate bied `n kieslys 2 keuses: \'Stel as bestemming \' of \' Wys op die kaart\'. "</string>
   <string name="tip_map_context_menu">Kaartinhoud kieslys</string>
-  <string name="tip_map_context_menu_t">\tDie kaart inhoud kieslys is beskikbaar deur te druk en te hou op die kaart of deur die trekbal-knoppie te druk.\n\tDit lewer \'n boks met punt koördinate. Om die kaart inhoud kieslys venster oop te maak, tik op dit. (Of druk en hou die boks om dit weer te versteek.)\n\tDie kaart inhoud kieslys bevat alle aksies met verwysing na \'n punt (ligging).</string>
+  <string name="tip_map_context_menu_t">\tDie kaart inhoud kieslys is beskikbaar deur te druk en te hou op die kaart of deur die trekbal-knoppie te druk.\n\tDit lewer \'n boks met punt koördinate. Om die kaart inhoud kieslys venster oop te maak, tik op dit. (Of druk en hou die boks om dit weer te versteek.)\n\tDie kaart inhoud kieslys bevat alle aksies met verwysing na \'n punt (ligging).
+	</string>
   <string name="tip_initial">Wenke en wyses</string>
-  <string name="tip_initial_t">\tOsmAnd is \'n navigasietoepassing met baie funksies.\n\tAs \'n basiese inleiding, is sommige gebruikswenke en wyses beskikbaar in skakels vanaf die hoof kieslys skerm.</string>
+  <string name="tip_initial_t">\tOsmAnd is \'n navigasietoepassing met baie funksies.\n\tAs \'n basiese inleiding, is sommige gebruikswenke en wyses beskikbaar in skakels vanaf die hoof kieslys skerm.
+	</string>
   <string name="next_button">Volgende</string>
   <string name="previous_button">Vorige</string>
   <string name="unit_of_length_descr">Verander eenhede van lengte en spoed</string>
@@ -471,7 +473,7 @@
   <string name="indexing_address">Besig om `n adres indeks te skep…</string>
   <string name="indexing_map">Besig om `n kaartindeks te skep…</string>
   <string name="indexing_poi">Besig om `n interessante plek indeks te skep…</string>
-  <string name="indexing_transport">Skep vervoer indeks …</string>
+  <string name="indexing_transport">Skep vervoer indeks…</string>
   <string name="input_output_error">I/O fout het voorgekom</string>
   <string name="km">km</string>
   <string name="km_h">km/h</string>
@@ -517,7 +519,7 @@
   <string name="select_all">Kies alles</string>
   <string name="reload">Verfris</string>
   <string name="fast_route_mode">Vinnigste roete</string>
-  <string name="fast_route_mode_descr">"Skakel aan om vinnigste roete te bereken of skakel af vir kortste roete"</string>
+  <string name="fast_route_mode_descr">"Skakel aan om vinnigste roete te bereken of skakel af vir kortste roete " </string>
   <string name="tiles_to_download_estimated_size">Teen vergroting {0} laai {1} teëls af ({2} MB)</string>
   <string name="context_menu_item_download_map">laai kaart af</string>
   <string name="select_max_zoom_preload_area">Kies maksimum vergroting om vooraf te laai</string>
@@ -584,7 +586,7 @@
   <string name="layer_map">Kaartbron…</string>
   <string name="menu_layers">Definieer uitsig</string>
   <string name="context_menu_item_search_poi">Soek interessante plek</string>
-  <string name="context_menu_item_show_route">Wys roete van hier af</string>
+  
   <string name="use_trackball_descr">Gebruik die trekbal om die kaart te skuif</string>
   <string name="use_trackball">Gebruik die trekbal</string>
   <string name="background_service_wait_int_descr">Stel maksimum wagtyd vir agtergrond ligging-vasstelling</string>
@@ -610,11 +612,11 @@
   <string name="menu_mute_on">Klank is af</string>
   <string name="voice_provider_descr">Kies stem begeleiding vir navigasie</string>
   <string name="voice_provider">Stem begeleiding</string>
-  <string name="voice_data_initializing">Besig om stem inligting gereed te maak…</string>
+  <string name="voice_data_initializing">Stem inligting gereedmaak…</string>
   <string name="voice_data_not_supported">Die weergawe van stem inligting word nie ondersteun nie</string>
   <string name="voice_data_corrupted">Gespesifiseerde stem is beskadig</string>
   <string name="voice_data_unavailable">gekose stem is nie beskikbaar nie</string>
-  <string name="stop_routing">Staak navigasie</string>
+  
   <string name="sd_unmounted">SD kaart is nie toeganklik nie.\nJy sal nie in staat wees om kaarte te sien of dinge te vind nie.</string>
   <string name="sd_mounted_ro">SD kaart is slegs-lees.\nJy kan net die vooraf geïnstalleerde kaart sien en kan nie van die internet aflaai nie.</string>
   <string name="unzipping_file">Haal lêer uit argief…</string>
@@ -628,13 +630,13 @@
   <string name="route_head">Mik</string>
   <string name="first_time_continue">Later</string>
   <string name="first_time_download">laai gebiede af</string>
-  <string name="search_poi_location">Besig om `n sein te soek…</string>
+  <string name="search_poi_location">Besig om sein te soek…</string>
   <string name="search_near_map">Soek naby die laaste kaart ligging</string>
   <string name="search_nearby">Soek naby</string>
   <string name="map_orientation_default">Dieselfde as toestel</string>
   <string name="map_orientation_portrait">Portret</string>
   <string name="map_orientation_landscape">Landskap</string>
-  <string name="map_screen_orientation">skerm oriëntasie</string>
+  <string name="map_screen_orientation">Skerm oriëntasie</string>
   <string name="map_screen_orientation_descr">Portret, landskap, of toestel</string>
   <string name="opening_hours_not_supported">Openingsure se formaat word nie ondersteun vir wysiging nie</string>
   <string name="add_new_rule">Voeg nuwe reël by</string>
@@ -661,8 +663,8 @@
   <string name="update_poi_is_not_available_for_zoom">opgradering van POIs is nie beskikbaar vir klein vergrotingsvlakke nie</string>
   <string name="context_menu_item_update_poi">Opdateer POI</string>
   <string name="context_menu_item_update_map_confirm">Werk plaaslike inligting by deur die internet?</string>
-  <string name="search_history_city">Stad:\n {0}</string>
-  <string name="search_history_street">Straat:\n {0}, {1}</string>
+  <string name="search_history_city">Stad:{0}</string>
+  <string name="search_history_street">Straat: {0}, {1}</string>
   <string name="search_history_int_streets">Kruising: {0} x {1} in {2}</string>
   <string name="search_history_building">Gebou: {0}, {1}, {2}</string>
   <string name="favorite">Gunsteling</string>
@@ -688,7 +690,7 @@
   <string name="address">Adres</string>
   <string name="download_index_success">Aflaai suksesvol</string>
   <string name="error_io_error">I/O fout het voorgekom</string>
-  <string name="downloading_file">Besig om lêer af te laai…</string>
+  
   <string name="downloading">Besig om af te laai…</string>
   <string name="downloading_list_indexes">Besig om die lys van beskikbare gebiede af te laai…</string>
   <string name="list_index_files_was_not_loaded">Die lys van gebiede kon nie verkry word van osmand.net nie.</string>
@@ -751,7 +753,6 @@
   <string name="save_track_interval_descr">Kies posisioneringstussenpose vir spore</string>
   <string name="save_track_to_gpx_descrp">Spore sal geberg word in die spoor bergadres in daaglikse groepe</string>
   <string name="save_track_to_gpx">Skryf die spoor in `n GPX dokument</string>
-  <string name="navigate_to">Stel as bestemming</string>
   <string name="update_tile">Opgradeer kaart</string>
   <string name="reload_tile">Laai teël weer af</string>
   <string name="mark_point">Teiken</string>
@@ -769,10 +770,8 @@
   <string name="ChooseCountry">Kies land</string>
   <string name="position_on_map_descr">Kies die plaasing van die posisie merker op die kaart</string>
   <string name="position_on_map">Posisie merker</string>
-  <string name="map_specify_point">Stel as bestemming</string>
-  <string name="show_view_angle_descr">Vertoon die kyk-rigting op die kaart</string>
+  
   <string name="show_view_angle">Wys uitsig rigting</string>
-  <string name="navigate_to_point">Stel as bestemming</string>
   <string name="map_view_3d_descr">Skakel 3D kaart aan</string>
   <string name="map_view_3d">Kaart 3D</string>
   <string name="show_poi_over_map_description">Wys interessante plekke bo-oor die kaart (gebruik die vorige gekose filter)</string>
@@ -823,7 +822,6 @@
   <string name="search_address_building_option">Gebou</string>
   <string name="search_address_street_option">Kruisende straat</string>
   <string name="search_tabs_location">Ligging</string>
-  <string name="context_menu_item_navigate_point">Stel as bestemming</string>
   <string name="context_menu_item_add_favorite">Voeg by gunstelinge</string>
   <string name="context_menu_item_update_map">opgradeer kaart</string>
   <string name="context_menu_item_open_bug">Open OSM fout</string>
@@ -836,7 +834,6 @@
   <string name="add_favorite_dialog_top_text">Tik gunsteling naam in</string>
   <string name="add_favorite_dialog_default_favourite_name">Gunsteling</string>
   <string name="add_favorite_dialog_favourite_added_template">Gunsteling punt \'{0}\' is bygevoeg.</string>
-  <string name="favourites_context_menu_navigate">Stel as bestemming</string>
   <string name="favourites_context_menu_edit">Verander gunsteling</string>
   <string name="favourites_context_menu_delete">verwyder gunsteling</string>
   <string name="favourites_remove_dialog_msg">Verwyder gunsteling punt \'%s\'?</string>
@@ -884,20 +881,23 @@
   <string name="edit_filter_create_message">Filter {0} is geskep</string>
   <string name="default_buttons_selectall">Kies alles</string>
   <string name="continue_follow_previous_route_auto">Die vorige navigasie was onvoltooid. Wil jy dit nog volg? (%1$s sekondes)</string>
-  <string name="show_cameras_descr">Wys spoedkameras (mag in sommige lande verbied wees)</string>
-  <string name="show_traffic_warnings_descr">Wys spoedbeperkings en verkeershobbels</string>
-  <string name="avoid_toll_roads_descr">Vermy tolpaaie vir roete berekening</string>
+  
+  
+  
   <string name="show_cameras">Wys spoedkameras</string>
   <string name="show_traffic_warnings">Wys spoedbeperkings</string>
   <string name="avoid_toll_roads">Vermy tolpaaie</string>
-  <string name="tip_recent_changes_0_8_2_t">"Veranderinge in 0.8.2:
- \n\t* Verbeterde Roeteberekening
- \n\t* Dinamiese kaart wiggies
- "</string>
+  <string name="tip_recent_changes_0_8_2_t">Veranderinge in 0.8.2:
+		\n\t* Verbeterde Roeteberekening
+		\n\t* Dinamiese kaart wiggies↵
+		\n\t* Kaart stellings geskuif na kaart skerm↵
+		\n\t* Sluit skerm knoppie met intekendienste↵
+		\n\t* Herstel Arabiese, Kannadese skrif en RTL tale ↵ 
+	</string>
 <string name="screen_is_locked">Om die skerm oop te sluit, druk op die slot simbool</string>
 <string name="map_widget_top_text">Straat naam</string>
-<string name="map_widget_config">Instelling</string>
-<string name="map_widget_map_select">Kaart keuse</string>
+<string name="map_widget_config">Verstelling</string>
+
 <string name="map_widget_back_to_loc">Waar is ek</string>
 <string name="map_widget_lock_screen">Sluit die skerm</string>
 <string name="map_widget_compass">Kompas</string>
@@ -906,7 +906,7 @@
 <string name="map_widget_right_stack">Regterkant:</string>
 <string name="map_widget_left_stack">Linkerkant:</string>
 <string name="map_widget_parking">Parkering</string>
-<string name="map_widget_monitoring">Besig om spoor na te volg</string>
+<string name="map_widget_monitoring">GPX opname</string>
 <string name="map_widget_speed">Spoed</string>
 <string name="map_widget_distance">Teiken</string>
 <string name="map_widget_altitude">Hoogte</string>
@@ -917,14 +917,14 @@
 <string name="map_widget_mini_route">Mini roete kaart</string>
 <string name="bg_service_screen_lock">Sluit skerm</string>
 <string name="bg_service_screen_unlock">Sluit skerm oop</string>
-<string name="bg_service_sleep_mode_off">Disable Sleep mode</string>
-<string name="bg_service_sleep_mode_on">Enable Sleep mode</string>
+<string name="bg_service_sleep_mode_off">Strem\n Slaap modus</string>
+<string name="bg_service_sleep_mode_on">Stop\n Slaap modus</string>
 <string name="bg_service_screen_lock_toast">Die skerm is gesluit</string>
 <string name="bg_service_interval">Stel die wakker-tussenpose:</string>
 <string name="rendering_attr_roadColors_description">Kies `n pad kleurskema:</string>
 	<string name="rendering_attr_roadColors_name">Pad kleurskema</string>
     <string name="map_widget_show_destination_arrow">Wys rigting na bestemming</string>
-    <string name="show_warnings_title">Toon alarms…</string>
+    <string name="show_warnings_title">Wys alarms…</string>
 	<string name="osmand_short_description_80_chars">OsmAnd is `n oopbron navigasie toepassing vir aflyn en aanlyn kaarte</string>
 	<string name="filterpoi_activity">Skep PVB filter</string>
 	<string name="select_navigation_mode">Kies vervoertipe</string>
@@ -932,7 +932,7 @@
 	<string name="map_widget_day_night">Dag/nag kaart</string>
 	<string name="map_widget_vector_attributes">Kaart voorstelling eienskappe:</string>
 	<string name="map_widget_renderer">Kaartvoorstelling-styl</string>
-	<string name="layer_map_appearance">Verstel skerm…</string>
+	<string name="layer_map_appearance">Verstel skerm</string>
 	<string name="show_lanes">Toon lane</string>
 	<string name="avoid_unpaved">Vermy ongeteerde paaie</string>
 	<string name="avoid_ferries">Vermy veerbote</string>
@@ -947,27 +947,31 @@
 	<string name="gps_wakeup_interval">GPS opwek tussenpose: %s</string>
 	<string name="int_continuosly">Aaneenlopende</string>
 	<string name="zxing_barcode_scanner_not_found">ZXing Barcode Scanner toepassing is nie geïnstaleer nie. Wil jy dit in die mark soek?</string>
-	<string name="enable_plugin_monitoring_services">Aktiveer spoorsny inlasmodule om ligging aanteken diens te gebruik(aanntekening, lewende spoorsny)</string>
+	<string name="enable_plugin_monitoring_services">Aktiveer spoorsny inlasmodule om ligging aanteken diens te gebruik (aantekening, lewende spoor-natrek)</string>
     <string name="non_optimal_route_calculation">Bereken moontlike ongunstige roete oor lang afstande</string>
-    <string name="tip_recent_changes_0_8_4_t">"Veranderings in 0.8.4:↵\n→* `n paar fout regstellings ↵\n→* Kaart verloor nie ligging klem na onderbrekings nie "</string>
+    <string name="tip_recent_changes_0_8_4_t">Veranderings in 0.8.4:
+	\n\t* Fout regstellings 
+	\n\t* Kaart verloor nie ligging klem na onderbrekings nie
+	\n\t* Stel slaap diens beskikbaar tydens navigasie↵
+    </string>
 	<string name="gps_not_available">Aktiveer GPS onder instellings</string>
     <string name="tip_recent_changes_0_8_3_t">"Veranderings in 0.8.3 : ↵\n→* Wegpunte ↵\n→* Verbeterde roete begeleiding ↵\n→* Stelling om snelweë te vermy bygevoeg ↵\n→* Een meer padtipe vir fietse bygevoeg (fietspad=spoor) ↵\n→* Fout regstellings "</string>
 	<string name="map_widget_monitoring_services">Aanteken dienste</string>
 	<string name="no_route">Geen roete</string>
-	<string name="delete_target_point">Verwyder wegpunt</string>
-	<string name="target_point">Wegpunt %1$s</string>
-    <string name="intermediate_point">" Wegpunt %1$s"</string>
-    <string name="context_menu_item_last_intermediate_point">Voeg by as laaste wegpunt</string>
-    <string name="context_menu_item_first_intermediate_point">Voeg by as eerste wegpunt</string>
-    <string name="add_as_last_destination_point">Voeg by as laaste wegpunt</string>
-    <string name="add_as_first_destination_point">Voeg by as eerste wegpunt</string>
+	<string name="delete_target_point">Verwyder oorgangspunt</string>
+	<string name="target_point">Oorgangspunt %1$s</string>
+    <string name="intermediate_point">Oorgangspunt %1$s</string>
+    <string name="context_menu_item_last_intermediate_point">Voeg by as laaste oorgangspunt</string>
+    <string name="context_menu_item_first_intermediate_point">Voeg by as eerste oorgangspunt</string>
+    <string name="add_as_last_destination_point">Voeg by as laaste oorgangspunt</string>
+    <string name="add_as_first_destination_point">Voeg by as eerste oorgangspunt</string>
     <string name="replace_destination_point">Vervang bestemmingspunt</string>
     <string name="new_destination_point_dialog">Jy het al reeds `n bestemming ingestel.</string>
     <string name="target_points">Wegpunte</string>
-    <string name="intermediate_point_too_far">Wegpunt %1$s is te ver van die naaste pad.</string>
-    <string name="arrived_at_intermediate_point">Jy het jou wegpunt bereik</string>
-    <string name="context_menu_item_intermediate_point">Voeg by as wegpunt</string>
-    <string name="map_widget_intermediate_distance">Wegpunt</string>
+    <string name="intermediate_point_too_far">Oorgangspunt %1$s is te ver van die naaste pad.</string>
+    <string name="arrived_at_intermediate_point">Jy het jou oorgangspunt bereik</string>
+    <string name="context_menu_item_intermediate_point">Voeg by as oorgangspunt</string>
+    <string name="map_widget_intermediate_distance">Oorgangspunt</string>
     <string name="ending_point_too_far">Eindpunt te ver van naaste pad.</string>
     <string name="btn_add_tag">Voeg naamplaatjie by</string>
     <string name="btn_advanced_mode">Gevorderde gebruikswyse…</string>
@@ -982,22 +986,28 @@
 	<string name="avoid_motorway">Vermy snelweë</string>
 	<string name="snap_to_road_descr">Knip posisie aan paaie vas gedurende navigasie</string>
 	<string name="snap_to_road">Knip vas aan pad</string>
-	<string name="osmand_long_description_1000_chars">" OsmAnd (OSM Automated Navigation Directions) is `n ope bron navigasie toepassing met toegang tot `n wye verskeidenheid wêreldwye OpenStreetMap (OSM) inligting. Alle kaart inligting (vektor of teël kaarte) kan gestoor word op die foon geheue kaart vir aflyn gebruik. OsmAnd bied ook aan- en aflyn routeberekening funksionaliteit insluitend draai-vir-draai stem begeleiding. Sommige van die kern funksies: - Volledege aflyn funksionaliteit (stoor afgelaaide vektor of teël kaarte in `n kiesbare leër) - Kompakte aflyn vektor kaarte vir die hele wëreld beskikbaar - aflaai van land of streek kaarte direk uit die toepassing - Oorlegging van verskeie kaart lae moontlik, bv GPX of navigasie spore, Belangepunte, gunstelinge, kontoerlyne, publieke vervoer haltes, ekstra kaarte met verstelbare deurskynendheid - Aflyn "</string>
+	<string name="osmand_long_description_1000_chars">
+		OsmAnd (OSM Automated Navigation Directions) is `n ope bron navigasie toepassing met toegang tot `n wye verskeidenheid wêreldwye OpenStreetMap (OSM) inligting. Alle kaart inligting (vektor of teël kaarte) kan gestoor word op die foon geheue kaart vir aflyn gebruik. OsmAnd bied ook aan- en aflyn routeberekening funksionaliteit insluitend draai-vir-draai stem begeleiding. Sommige van die kern funksies: - Volledege aflyn funksionaliteit (stoor afgelaaide vektor of teël kaarte in `n kiesbare leër) - Kompakte aflyn vektor kaarte vir die hele wëreld beskikbaar - aflaai van land of streek kaarte direk uit die toepassing - Oorlegging van verskeie kaart lae moontlik, bv GPX of navigasie spore, Belangepunte, gunstelinge, kontoerlyne, publieke vervoer haltes, ekstra kaarte met verstelbare deurskynendheid - Aflyn
+	</string>
 	<string name="osmand_plus_short_description_80_chars">OsmAnd is `n oop-bron navigasie toepassing vir direkte en internet kaarte</string>
-	<string name="osmand_plus_long_description_1000_chars">" OsmAnd+ (OSM Automated Navigation Directions) OsmAnd+ is `n ope bron navigasie toepassing met toegang tot `n wye verskeidenheid wêreldwye OpenStreetMap (OSM) inligting. Alle kaart inligting (vektor of teëlkaarte) kan op die foon geheuekaart gestoor word vir aflyn gebruik. OsmAnd bied ook aan- en aflyn roete berekening insluitend draai-vir-draai stem leiding. OsmAnd+ is betaalde toepassing weergawe, deur dit te koop ondersteun jy die projek, befonds die ontwikkeling van nuwe funksies, en ontvang die nuutste opgraderings. Sommige van die kern funksies: - volledige aflyn werking (stoor afgelaaide vektor of teëlkaarte in `n leër van jou keuse) - kompakte aflyn vektor vir die hele wereld beskikbaar - Onbeperkte aflaai van land en streek kaarte uit die toepassing - Aflyn Wikipedia funksies (Wikipedia belangepunte kan afgelaai word), goed vir besigtigingstoere - oorlegging van verskeie kaart lae moontlik, bv. GPX of navigasie spore, belangepunte, gunstelinge, kontoerlyne, publieke vervoer haltes, ekstra kaarte met verstelbare deursigtigheid - Aflyn soek vir adresse en belangepunte - Aflyn navigasie roete berekening vir kort roetes (eksperimenteel) - Kar, fiets, en voetganger gebruikerswyses met: - opsionele outomatiese dag/nag skakeling - opsionele spoed-afhankliket kaart vergroting - opsionele kaart rigting volgens kompas of koers - opsionele laan begeleiding, spoedbeperking vertoon, opgeneemde en TTS stemme "</string>
+	<string name="osmand_plus_long_description_1000_chars">
+		OsmAnd+ (OSM Automated Navigation Directions) OsmAnd+ is `n ope bron navigasie toepassing met toegang tot `n wye verskeidenheid wêreldwye OpenStreetMap (OSM) inligting. Alle kaart inligting (vektor of teëlkaarte) kan op die foon geheuekaart gestoor word vir aflyn gebruik. OsmAnd bied ook aan- en aflyn roete berekening insluitend draai-vir-draai stem leiding. OsmAnd+ is betaalde toepassing weergawe, deur dit te koop ondersteun jy die projek, befonds die ontwikkeling van nuwe funksies, en ontvang die nuutste opgraderings. Sommige van die kern funksies: - volledige aflyn werking (stoor afgelaaide vektor of teëlkaarte in `n leër van jou keuse) - kompakte aflyn vektor vir die hele wereld beskikbaar - Onbeperkte aflaai van land en streek kaarte uit die toepassing - Aflyn Wikipedia funksies (Wikipedia belangepunte kan afgelaai word), goed vir besigtigingstoere - oorlegging van verskeie kaart lae moontlik, bv. GPX of navigasie spore, belangepunte, gunstelinge, kontoerlyne, publieke vervoer haltes, ekstra kaarte met verstelbare deursigtigheid - Aflyn soek vir adresse en belangepunte - Aflyn navigasie roete berekening vir kort roetes (eksperimenteel) - Kar, fiets, en voetganger gebruikerswyses met: - opsionele outomatiese dag/nag skakeling - opsionele spoed-afhankliket kaart vergroting - opsionele kaart rigting volgens kompas of koers - opsionele laan begeleiding, spoedbeperking vertoon, opgeneemde en TTS stemme "
+	</string>
 	<string name="day_night_info_description">Sonopkoms : %1$s ↵\nSonsondergang : %2$s</string>
-	<string name="live_monitoring_mode_off">Begin↵\nlewende spoorsny</string>
-	<string name="live_monitoring_mode_on">Stop↵\nlewende spoorsny</string>
+	<string name="live_monitoring_mode_off">Begin↵\nlewende spoor-natrek</string>
+	<string name="live_monitoring_mode_on">Stop↵\nlewende spoor-natrek</string>
 	<string name="monitoring_mode_on">Stop↵\nGPX opname.</string>
 	<string name="tip_rotation_switching_t_v2">"→Jy kan stel hoe die kaart draai deur die kompasnaald links bo op die skerm te tik. ↵\n→Die keuses is: ↵\n→\'Moet nie draai nie (noord is bo)\' - Kaart sal nie draai nie. Noord sal altyd bo wees ↵\n→\'Koers\' - Kaart sal heeltyd gerig word in jou koers ↵\n→\'Kompas\' -Kaart sal heeltyd gerig word met die kompas lesing "</string>
 	<string name="tip_day_night_mode_t_v2">"\tDie kaart voorkoms kan vir sommige vektor kaarte verander word tussen dag (helder) en nag (dof).
-\n\tNag kleure is veiliger vir nagbestuur. \t\n\tJy kan `n beleid opstel vir dag/nag oorskakeling in \'Keuselys\' -&gt; \'Verstel skerm ...\' -&gt;\'Dag/nag kaart\'.
+\n\tNag kleure is veiliger vir nagbestuur. \t\n\tJy kan `n beleid opstel vir dag/nag oorskakeling in \'Keuselys\' -&gt; \'Verstel skerm\' -&gt;\'Dag/nag kaart\'.
 \n\tKeuses is:
 \n\t\'Sonopkoms/Sonondergang\' - outomaties, beheer deur die posisie van die son (verstek)
 \n\t\'Dag\' - altyd dag kleure
 \n\t\'Nag\' - altyd nag kleure
-\n\t\'Ligsensor\' - Beheer deur toestel se ligsensor (indien beskikbaar) "</string>	
-	<string name="tip_map_switch_t_v2">"→Die kaart bron en lae vertoon word verander in \'Keuselys\' -&gt; \'Definieër vertoon\' in kaart vertoon. ↵\n→Onder \'Kaart bron…\' kan jy kies tussen die gebruik van voorafgelaaide aflyn vektor kaarte, voorafgedefinieërde (aanlyn) teël bronne (aktiveer die \'aanlyn en teël kaarte\' inlasmodule hiervoor), of kaarte met die hand geskep met bv. OsmAndMapCreator op `n rekenaar. ↵\n→OsmAnd ondersteun ook persoonlike bronne. "</string>
+\n\t\'Ligsensor\' - Beheer deur toestel se ligsensor (indien beskikbaar) "
+	</string>	
+	<string name="tip_map_switch_t_v2">"→Die kaart bron en lae vertoon word verander in \'Keuselys\' -&gt; \'Definieër voorkoms\' in kaart vertoon. ↵\n→Onder \'Kaart bron…\' kan jy kies tussen die gebruik van voorafgelaaide aflyn vektor kaarte, voorafgedefinieërde (aanlyn) teël bronne (aktiveer die \'aanlyn en teël kaarte\' inlasmodule hiervoor), of kaarte met die hand geskep met bv. OsmAndMapCreator op `n rekenaar. ↵\n→OsmAnd ondersteun ook persoonlike bronne. "
+	</string>
 	<string name="tip_app_mode_t_v2">"\tOsmAnd ondersteun verskillende (verstelbare) toepassingsprofiele vir verskillende gebruiksgevalle.
 \n\tJy kan profiele verander deur die profiel knoppie in linker onder hoek van die kaart skerm (simbool kar, fiets, of voetganger), of tydens die bou van `n roete. "</string>
 	<string name="email">e-pos</string>
@@ -1010,22 +1020,27 @@
 	<string name="prefer_in_routing_title">Verkies…</string>
 	<string name="prefer_in_routing_descr">Verkies snelweë</string>
     <string name="tip_recent_changes_1_2_t">"Herstellings in 1.2.1:
-\n\t*Herstel Geo Intent (Foursquare, c:geo)
-\n\t*Herstel skerm trilling tydens navigasie
-\n\t*Ander klein herstellings\nVeranderings in 1.2:
-\n\t* Foute herstel (verstellings aan roeteberekening, soek, AV opname, stem-leiding, beeld verbeterings)
-\n\t* Makliker heuwel-skadu vel instellings (vereis Kontoer Lyne module)
-\n\t* Aanvaar nou maps.google.com ligging skakels
-\n\t* Nuwe programmetjie (GPS inligting)
-\n\t* Multi-venster vermoë bygevoeg vir nuwe Samsung toestelle
-\n\t* Kalman filter vir kompas
-\n\t* Pebble horlosie ondersteuning "</string>
+	\n\t*Herstel Geo Intent (Foursquare, c:geo)
+	\n\t*Herstel skerm trilling tydens navigasie
+	\n\t*Ander klein herstellings
+\n\nVeranderings in 1.2:
+		\n\t* Foute herstel (roeteberekening, soek, AV opname, stem-leiding, beeld verbeterings)
+		\n\t* Makliker heuwel skadu-vel instellings (vereis Kontoer Lyne module)
+		\n\t* Aanvaar nou maps.google.com ligging skakels
+		\n\t* Nuwe funksie (GPS inligting)
+		\n\t* Multi-venster vermoë bygevoeg vir nuwe Samsung toestelle
+		\n\t* Kalman filter vir kompas
+		\n\t* Pebble horlosie ondersteuning
+	</string>
     <string name="download_hillshade_item">Heuwelskadu</string>
     <string name="max_speed_none">geen</string>
     <string name="download_hillshade_maps">Heuwelskadu-oorleggings</string>
-    <string name="tip_recent_changes_1_1_2_t">"Veranderings in 1.1.2:\n\t* Oudio/video inlasmodule verbeterings (fotos met EXIF inligting)
-\n\t* Bruikbaarheid reggemaak en Kontoerlyn-inlasmodule herstruktureer
-\n\t* Foute reggemaak (nie-optimum roetebepaling) "</string>
+    <string name="tip_recent_changes_1_1_2_t">"Veranderings in 1.1.2:
+→→\n\t* Oudio/video inlasmodule verbeterings (fotos met EXIF inligting)
+→→\n\t* Bruikbaarheid reggemaak en Kontoerlyn-inlasmodule herstruktureer
+→→\n\t* Heuwelskadu pakkette vir Kontoer-lyne inlasmodule↵
+→→\n\t* Foute reggemaak (nie-optimum roetebepaling)
+    </string>
     <string name="dist_control_start">begin</string>
     <string name="local_indexes_cat_av">Oudio/video inligting</string>
     <string name="stop_routing_confirm">Is jy seker jy wil die navigasie staak?</string>
@@ -1054,8 +1069,10 @@
     <string name="av_use_external_camera">Gebruik kamera toepassing</string>
     <string name="animate_routing_using_gpx">Wil jy bestaande GPX lêer gebruik?</string>
     <string name="av_settings_descr">Maak oudio en video verstellings</string>
-    <string name="av_settings">"Oudio/video verstellings "</string>
-    <string name="recording_error">"`n fout het tydens die opname voorgekom "</string>
+    <string name="av_settings">"Oudio/video verstellings 
+" </string>
+    <string name="recording_error">"\'n fout het tydens die opname voorgekom
+ " </string>
     <string name="recording_camera_not_available">Kamera is nie beskikbaar nie</string>
     <string name="recording_is_recorded">Oudio/video word opgeneem. Om te stop druk op die OV programmetjie.</string>
     <string name="recording_playing">Oudio van die gespesifiseerde opname is besig om te speel.\n%1$s</string>
@@ -1067,7 +1084,9 @@
 \n\t* Kontoer-lyn inlasmodule
 \n\t* Foute nasorg
 \n\t* \'Toer uitsig\' kaartstyl keuse met meer kaart detail, nuwe pad-style, meer kontras, en Alpe-staproete (SAC skaal) keuse
-\n\t* EGM96 geoid kompensering vir GPS hoogte-lesings "</string>
+\n\t* EGM96 geoid kompensering vir GPS hoogte-lesings
+ "
+    </string>
     <string name="recording_unavailable">nie beskikbaar nie</string>
     <string name="recording_context_menu_arecord">Neem `n oudio nota</string>
     <string name="recording_context_menu_vrecord">Neem `n video nota</string>
@@ -1081,10 +1100,10 @@
     <string name="map_widget_av_notes">Oudio/video notas</string>
     <string name="osmand_srtm_short_description_80_chars">OsmAnd inlasmodule vir aflyn kontoerlyne</string>
     <string name="osmand_srtm_long_description_1000_chars">Hierdie inlasmodule verskaf kontoerlyne wat in OsmAnd aflyn kaarte getoon kan word.Die wêreld inligting (van 70 grade noord tot 70 grade suid) is gebaseer op metings deur SRTM (Shuttle Radar Topography Mission)en ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer),`n beeld-instrument aanboord Terra, die vlagskip sateliet van NASA se Aarde Observasie Stelsel. ASTER is `n samewerkingsprojek tussen NASA, Japan se Ministerie van Ekonomie, Handel en Industrie (MEHI), en Japan Ruimte Stelsels (J-spacesystems).</string>
-    <string name="osmand_distance_plugin_description">meet die afstand tussen twee of meer punte. Voeg punte by deur kort te kliek en verwyder punte met `n lang druk.</string>
-    <string name="osmand_distance_plugin_name">Afstandsberekening</string>
-    <string name="use_clear_distance_measurement">Kliek nog een keer om metingspunte skoon te maak.</string>
-    <string name="use_distance_measurement">Tik om `n punt te merk, druk en hou om vorige punte te verwyder, kliek op metingsprogrammetjie om uit te gaan.</string>
+    
+    
+    
+    
     <string name="map_widget_distancemeasurement">Afstandsmeting</string>
     <string name="index_srtm_parts">dele</string>
     <string name="audionotes_plugin_name">Oudio/video notas</string>
@@ -1096,7 +1115,7 @@
     <string name="download_roads_only_maps">Paaie-uitsluitlik kaarte</string>
     
 	<string name="rendering_attr_noAdminboundaries_name">Versteek grense</string>
-	<string name="audionotes_location_not_defined">Ligging om met die nota te asosieer is nog nie gedefinieer nie. Gebruik liggin… om `n nota aan `n spesifieke ligging toe te ken</string>
+	<string name="audionotes_location_not_defined">Ligging om met die nota te asosieer is nog nie gedefinieer nie. Gebruik ligging … om `n nota aan `n spesifieke ligging toe te ken</string>
     <string name="audionotes_plugin_description">Neem oudio/video notas tydens die rit</string>
     <string name="srtm_plugin_name">Kontoerlyn inlasmodule</string>
     <string name="download_regular_maps">Algemene kaarte</string>
@@ -1111,38 +1130,46 @@
     <string name="native_library_not_running">Die toepassing werk in beskermde wyse (skakel dit af in Instellings).</string>
     <string name="srtm_plugin_description">Vergemoontlik dei aflaai van aflyn kontoerlyne en heuwelsakdus (Instellings-&gt; Inligtingsbestuur -&gt; Aflaai -&gt; Kies verlangde kaart-tipe).</string>
     <string name="osmodroid_plugin_old_ver_not_supported">OsMoDroid inlasmodule is `n ou weergawe en het `n opgradering nodig.</string>
-    <string name="osmodroid_plugin_description">OsMoDroid inlasmodule is `n OsmAnd uitbreiding vir die OsModroid toepassing vir aanlyn naspoor funksies. Inligting oor die diens is beskikbaar op http://esya.ru.</string>
+    <string name="osmodroid_plugin_description">OsMoDroid inlasmodule is `n OsmAnd uitbreiding vir die OsModroid toepassing vir aanlyn spoor-natrek funksies. Inligting oor die diens is beskikbaar op http://esya.ru.</string>
     <string name="osmodroid_plugin_name">OsMoDroid inlasmodule</string>
 	<string name="tip_altitude_offset">Hoogte voorstelling - Kompensering</string>
     <string name="route_descr_lat_lon">Breedtegraad %1$.3f, lengtegraad %2$.3f</string>
     <string name="route_descr_current_location">Huidige posisie</string>
-    <string name="route_descr_from_to">Van: %1$s\nTot: %2$s</string>
-    <string name="route_descr_from_to_via">Van: %1$s\nDeur: %2$s\nTot: %3$s</string>
+    
+    
     <string name="background_service_is_enabled_question">OsmAnd slaapwyse diens is nog aan. Wil jy dit afskakel?</string>
     <string name="tip_recent_changes_1_0_0_t">"Veranderings in 1.0.0:
 \n\t* Verbeterde roeteberekening: vinniger, meer presiese, tot 250 km
 \n\t* Bekendstelling van paaie-uitsluitlik kaarte
-\n\t* Kaart verloor nie posisie slot na onderbrekings nie.\n\t* Vergemoontlik slaap-wyse diens tydens navigasie "</string>
+\n\t* Kaart verloor nie posisie slot na onderbrekings nie.\n\t* Vergemoontlik slaap-wyse diens tydens navigasie
+ "
+    </string>
     <string name="support_new_features_descr">Maak donasies om die implementering van nuwe funksies in die toepassing moontlik te maak</string>
 	<string name="incomplete_locale">Onvolledig</string>
     <string name="tip_altitude_offset_t">"\tMeeste GPS toestelle gee hoogte-metings in die ellipsoide-gebaseerde WGS84 verwysingstelsel, waarvan die omskakeling na plaaslik gebruikte stelsels `n posisie-afhanklike regstelling benodig.\n\t`n Beter benadering na hierdie plaaslike stelsels, is die EGM96 verwysing. OSMAnd ondersteun nou ook die outomatiese aanduiding van hoogtes in die EGM96 stelsel.\n\tOm dit te kan gebruik, laai die lêer WW15MGH.DAC af onder Inligting Bestuur (of by http://earth-info.nga.mil/GandG/wgs84/gravitymod/egm96/binary/WW15MGH.DAC). "</string>
     <string name="save_current_track_widget">Berg\n huidige GPX spoor</string>
 	<string name="layer_hillshade">Heuwelskadu-vel</string>
     <string name="map_widget_gps_info">GPS inligting</string>
-    <string name="tip_recent_changes_1_1_4_t">"Veranderinge in 1.1.4:↵\n→* Gebruiker-skakeling her-ontwerp ↵\n→* Foute reggemaak "</string>
+    <string name="tip_recent_changes_1_1_4_t">"Veranderinge in 1.1.4:↵\n→* Gebruiker-skakeling her-ontwerp ↵\n→* Foute reggemaak 
+"
+    </string>
     <string name="index_name_openmaps">\\\'OpenMaps EU\\\'</string>
     <string name="monitoring_control_start">\\\'GPX\\\'</string>
     <string name="osmand_play_title_30_chars">OsmAnd Kaarte &amp; Navigasie</string>
-	<string name="osmand_extended_description_4000_chars">" OsmAnd (OSM Automated Navigation Directions) is \\\'n kaart en navigasie toepassing met toegang tot die vrye, wêreldwye, en hoë-kwaliteit OpenStreetMap (OSM) inligting. Alle kaart inligting kan gestoor word op jou toestel se geheue kaart vir direkte gebruik. Via die toestel GPS, bied OsmAnd roete-berekening, met visuele en stem gbegeleiding, vir motor, fiets, en voetgangers. Al die hoof funksies werk beide op internet en direk sonder internet. Sommige hoof eienskappe: Navigasie - Werk van internet (vinnig) of direk (sonder swerfkoste) - draai-vir-draai stem-begeleiding (opgeneemde en sintetiese stemme is beskikbaar) - Opsionele laan-leiding, straat-naam vertoon, en beraamde tyd van aankoms - Ondersteuning vir oorgangs-punte op jou roete - Outomatiese her-berekening wanneer jy van die roete afwyk - Soek plekke per adres, tipe(bv.: restourant, hotel, brandstof, museum), of met geografiese koordinate. Kaart aansig - vertoon jou posisie en oriëntasie op die kaart - Optioneel: rig die kaart met die kompas of bewegings-rigting - Bewaar belangrikke plekke as gunstelinge- Vertoon PVBs (punte van belang) rondom jou - Kan gespesialliseerde internet kaart-teëls vertoon - sateliet foto(vanaf Bing) - verskeie bo-lae soos toer/navigasie GPX spores en additionele kaarte met verstelbare deursigtigheid - Opsioneel: vertoon name in Engels, lokale naam, of fonetiese spelling. gebruik OpenStreetMap en Wikipedie Inligting: - Hoë kwaliteit inligting van die beste samewerkings-projekte in die wêreld- wêreldwye kaarte van OpenStreetMap, beskikbaar per land of streek- Wikipedia PVBs, goed vir besigtigingstoere (nie beskikbaar in gratis weergawe nie) - Onbeperkte gratis aflaai, uit die toepassing (beperk tot 16 kaarte in gratis weergawe) - Altyd op-datum kaarte (maandeliks onderhou) - Kompakte direkte vektor kaarte - Kies tussen volledige kaart inligting of slegs-paaie-netwerk (bv: Alles van Japan is 700 MB, of 200 MB vir die paaie network alleenlik) - Ondersteun ook internet an \\\'cached\\\' kaart-teëls. Veiligheids-eienskappe - Opsionele outomatiese dag/nag vibeeld oorskakeling - Opsionele spoed beperking vertoon, met aanmaning wanneer jy dit oorskry - Opsionele spoed-afhanklike kaart vergroting - Deel jou posisie sodat vriende jou kan vind. Fiets en voetganger eienskappe - Die kaarte sluit voetpaaie, staproetes en fietspaaie in vir fantastiee buite-aktiwiteite - Spesiale roete-berekening en beeld-tipes  vir fietse en voetgangers - Opsionele publieke vervoer stoppe (bus, trem, trein) ingesluit lyn name - Opsionele trip opname in GPX lêer of na internet - Opsionele spoed en hoogte vertoon - Kontoer lyne en heuwel-skadu (met addisionele module). Direkte bydrae tot OpenStreetMap - Raporteer kaart foute - stuur GPX spore na OSM direk van die toepassing - Voeg PVBs by en stuur dit direk na OSM (of later) - Opsionele trip opname ook in agtergrond gebruik (terwyl toestel slaap) OsmAnd is oop-bron en in aktiewe ontwikkeling. Almal kan bydra tot die toepassing deur foutrapportering, vrtaling-verbetering, og codiprogrammering van nuwe funksies. Die projek is in \\\'n lewendige toestand van volgehoue verbetering deur al hierdie vorms van ontwikkelaar, en gebruikers bydraes. Die projek vooruitgang verg ook finansiële bystand vir die programmering en toets van nuwe funksies. Deur OsmAnd+ aan te koop kan jy help om die toepassing selfs meer asemrowend te maak! Dit is ook moontlik om spesifieke ontwikkelings te befonds, of om \\\'n algemene skenking te maak op osmand.net. Beraamde kaart-dekking en kwaliteit: - Wes Europa: **** - Oos Europa: *** - Rusland: *** - Noord Amerika: *** - Suid Amerika: ** - Asië: ** - Japan &amp; Korea: *** - Middel Ooste: ** - Afrika: ** - Antartika: * Lys lande ingesluit (basies wêreld wyd!): Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belarus, Belgium, Belize, Benin, Bermuda, Bhutan, Bolivia, Bonaire, Bosnia and Herzegovina, Botswana, Brazil, British Virgin Islands, Brunei, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Cape Verde, Central African Republic, Chad, Chile, China, Colombia, Comoros, Congo, Costa Rica, Ivory Coast, Croatia, Cuba, Curaçao, Cyprus, Czech Republic, Denmark, Djibouti, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Equatorial Guinea, Eritrea, Estonia, Ethiopia, Fiji, Finland, France, French Guiana, French Polynesia, Gabon, Gambia, Georgia, Germany, Ghana, Gibraltar, Greece, Greenland, Grenada, Guadeloupe, Guam, Guatemala, Guernsey, Guinea, Guinea-Bissau, Guyana, Haiti, Vatican, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Iran, Iraq, Ireland, Isle of Man, Israel, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kiribati, North Korea and South Korea, Kuwait, Kyrgyzstan, Laos, Latvia, Lebanon, Lesotho, Liberia, Libya, Liechtenstein, Lithuania, Luxembourg, Macao, Macedonia, Madagascar, Malawi, Malaysia, Maldives, Mali, Malta, Martinique, Mauritania, Mauritius, Mayotte, Mexico, Micronesia, Moldova, Monaco, Mongolia, Montenegro, Montserrat, Morocco, Mozambique, Myanmar, Namibia, Nauru, Nepal, Netherlands, Netherlands Antilles, New Caledonia, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Palau, Palestinian Territory, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Romania, Russia, Rwanda, Saint Barthelemy, Saint Helena, Saint Kitts and Nevis, Saint Lucia, Saint Martin, Saint Pierre and Miquelon, Saint Vincent and the Grenadines, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, Somalia, South Africa, South Georgia, South Sudan, Spain, Sri Lanka, Sudan, Suriname, Swaziland, Sweden, Switzerland, Syria, Taiwan, Tajikistan, Tanzania, Thailand, Timor-Leste, Togo, Tokelau, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Tuvalu, Uganda, Ukraine, United Arab Emirates, United Kingdom (UK), United States of America (USA), Uruguay, Uzbekistan, Vanuatu, Venezuela, Vietnam, Wallis and Futuna, Western Sahara, Yemen, Zambia, Zimbabwe. "</string>
+	<string name="osmand_extended_description_4000_chars">
+OsmAnd (OSM Automated Navigation Directions) is \\\'n kaart en navigasie toepassing met toegang tot die vrye, wêreldwye, en hoë-kwaliteit OpenStreetMap (OSM) inligting. Alle kaart inligting kan gestoor word op jou toestel se geheue kaart vir direkte gebruik. Via die toestel GPS, bied OsmAnd roete-berekening, met visuele en stem gbegeleiding, vir motor, fiets, en voetgangers. Al die hoof funksies werk beide op internet en direk sonder internet. Sommige hoof eienskappe: Navigasie - Werk van internet (vinnig) of direk (sonder swerfkoste) - draai-vir-draai stem-begeleiding (opgeneemde en sintetiese stemme is beskikbaar) - Opsionele laan-leiding, straat-naam vertoon, en beraamde tyd van aankoms - Ondersteuning vir oorgangs-punte op jou roete - Outomatiese her-berekening wanneer jy van die roete afwyk - Soek plekke per adres, tipe(bv.: restourant, hotel, brandstof, museum), of met geografiese koordinate. Kaart aansig - vertoon jou posisie en oriëntasie op die kaart - Optioneel: rig die kaart met die kompas of bewegings-rigting - Bewaar belangrikke plekke as gunstelinge- Vertoon PVBs (punte van belang) rondom jou - Kan gespesialliseerde internet kaart-teëls vertoon - sateliet foto(vanaf Bing) - verskeie bo-lae soos toer/navigasie GPX spores en additionele kaarte met verstelbare deursigtigheid - Opsioneel: vertoon name in Engels, lokale naam, of fonetiese spelling. gebruik OpenStreetMap en Wikipedie Inligting: - Hoë kwaliteit inligting van die beste samewerkings-projekte in die wêreld- wêreldwye kaarte van OpenStreetMap, beskikbaar per land of streek- Wikipedia PVBs, goed vir besigtigingstoere (nie beskikbaar in gratis weergawe nie) - Onbeperkte gratis aflaai, uit die toepassing (beperk tot 16 kaarte in gratis weergawe) - Altyd op-datum kaarte (maandeliks onderhou) - Kompakte direkte vektor kaarte - Kies tussen volledige kaart inligting of slegs-paaie-netwerk (bv: Alles van Japan is 700 MB, of 200 MB vir die paaie network alleenlik) - Ondersteun ook internet an \\\'cached\\\' kaart-teëls. Veiligheids-eienskappe - Opsionele outomatiese dag/nag vibeeld oorskakeling - Opsionele spoed beperking vertoon, met aanmaning wanneer jy dit oorskry - Opsionele spoed-afhanklike kaart vergroting - Deel jou posisie sodat vriende jou kan vind. Fiets en voetganger eienskappe - Die kaarte sluit voetpaaie, staproetes en fietspaaie in vir fantastiee buite-aktiwiteite - Spesiale roete-berekening en beeld-tipes  vir fietse en voetgangers - Opsionele publieke vervoer stoppe (bus, trem, trein) ingesluit lyn name - Opsionele trip opname in GPX lêer of na internet - Opsionele spoed en hoogte vertoon - Kontoer lyne en heuwel-skadu (met addisionele module). Direkte bydrae tot OpenStreetMap - Raporteer kaart foute - stuur GPX spore na OSM direk van die toepassing - Voeg PVBs by en stuur dit direk na OSM (of later) - Opsionele trip opname ook in agtergrond gebruik (terwyl toestel slaap) OsmAnd is oop-bron en in aktiewe ontwikkeling. Almal kan bydra tot die toepassing deur foutrapportering, vrtaling-verbetering, og codiprogrammering van nuwe funksies. Die projek is in \\\'n lewendige toestand van volgehoue verbetering deur al hierdie vorms van ontwikkelaar, en gebruikers bydraes. Die projek vooruitgang verg ook finansiële bystand vir die programmering en toets van nuwe funksies. Deur OsmAnd+ aan te koop kan jy help om die toepassing selfs meer asemrowend te maak! Dit is ook moontlik om spesifieke ontwikkelings te befonds, of om \\\'n algemene skenking te maak op osmand.net. Beraamde kaart-dekking en kwaliteit: - Wes Europa: **** - Oos Europa: *** - Rusland: *** - Noord Amerika: *** - Suid Amerika: ** - Asië: ** - Japan &amp; Korea: *** - Middel Ooste: ** - Afrika: ** - Antartika: * Lys lande ingesluit (basies wêreld wyd!): Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belarus, Belgium, Belize, Benin, Bermuda, Bhutan, Bolivia, Bonaire, Bosnia and Herzegovina, Botswana, Brazil, British Virgin Islands, Brunei, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Cape Verde, Central African Republic, Chad, Chile, China, Colombia, Comoros, Congo, Costa Rica, Ivory Coast, Croatia, Cuba, Curaçao, Cyprus, Czech Republic, Denmark, Djibouti, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Equatorial Guinea, Eritrea, Estonia, Ethiopia, Fiji, Finland, France, French Guiana, French Polynesia, Gabon, Gambia, Georgia, Germany, Ghana, Gibraltar, Greece, Greenland, Grenada, Guadeloupe, Guam, Guatemala, Guernsey, Guinea, Guinea-Bissau, Guyana, Haiti, Vatican, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Iran, Iraq, Ireland, Isle of Man, Israel, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kiribati, North Korea and South Korea, Kuwait, Kyrgyzstan, Laos, Latvia, Lebanon, Lesotho, Liberia, Libya, Liechtenstein, Lithuania, Luxembourg, Macao, Macedonia, Madagascar, Malawi, Malaysia, Maldives, Mali, Malta, Martinique, Mauritania, Mauritius, Mayotte, Mexico, Micronesia, Moldova, Monaco, Mongolia, Montenegro, Montserrat, Morocco, Mozambique, Myanmar, Namibia, Nauru, Nepal, Netherlands, Netherlands Antilles, New Caledonia, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Palau, Palestinian Territory, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Romania, Russia, Rwanda, Saint Barthelemy, Saint Helena, Saint Kitts and Nevis, Saint Lucia, Saint Martin, Saint Pierre and Miquelon, Saint Vincent and the Grenadines, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, Somalia, South Africa, South Georgia, South Sudan, Spain, Sri Lanka, Sudan, Suriname, Swaziland, Sweden, Switzerland, Syria, Taiwan, Tajikistan, Tanzania, Thailand, Timor-Leste, Togo, Tokelau, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Tuvalu, Uganda, Ukraine, United Arab Emirates, United Kingdom (UK), United States of America (USA), Uruguay, Uzbekistan, Vanuatu, Venezuela, Vietnam, Wallis and Futuna, Western Sahara, Yemen, Zambia, Zimbabwe.
+	</string>
 	<string name="osmand_plus_play_title_30_chars">OsmAnd+ Kaarte &amp; Navigasie</string>
-	<string name="osmand_plus_extended_description_4000_chars">" OsmAnd (OSM Automated Navigation Directions) is \\\'n kaart en navigasie toepassing met toegang tot die vrye, wêreldwye, en hoë-kwaliteit OpenStreetMap (OSM) inligting. Alle kaart inligting kan gestoor word op jou toestel se geheue kaart vir direkte gebruik. Via die toestel GPS, bied OsmAnd roete-berekening, met visuele en stem gbegeleiding, vir motor, fiets, en voetgangers. Al die hoof funksies werk beide op internet en direk sonder internet. Sommige hoof eienskappe: Navigasie - Werk van internet (vinnig) of direk (sonder swerfkoste) - draai-vir-draai stem-begeleiding (opgeneemde en sintetiese stemme is beskikbaar) - Opsionele laan-leiding, straat-naam vertoon, en beraamde tyd van aankoms - Ondersteuning vir oorgangs-punte op jou roete - Outomatiese her-berekening wanneer jy van die roete afwyk - Soek plekke per adres, tipe(bv.: restourant, hotel, brandstof, museum), of met geografiese koordinate. Kaart aansig - vertoon jou posisie en oriëntasie op die kaart - Optioneel: rig die kaart met die kompas of bewegings-rigting - Bewaar belangrikke plekke as gunstelinge- Vertoon PVBs (punte van belang) rondom jou - Kan gespesialliseerde internet kaart-teëls vertoon - sateliet foto(vanaf Bing) - verskeie bo-lae soos toer/navigasie GPX spores en additionele kaarte met verstelbare deursigtigheid - Opsioneel: vertoon name in Engels, lokale naam, of fonetiese spelling. gebruik OpenStreetMap en Wikipedie Inligting: - Hoë kwaliteit inligting van die beste samewerkings-projekte in die wêreld- wêreldwye kaarte van OpenStreetMap, beskikbaar per land of streek- Wikipedia PVBs, goed vir besigtigingstoere (nie beskikbaar in gratis weergawe nie) - Onbeperkte gratis aflaai, uit die toepassing (beperk tot 16 kaarte in gratis weergawe) - Altyd op-datum kaarte (maandeliks onderhou) - Kompakte direkte vektor kaarte - Kies tussen volledige kaart inligting of slegs-paaie-netwerk (bv: Alles van Japan is 700 MB, of 200 MB vir die paaie network alleenlik) - Ondersteun ook internet an \\\'cached\\\' kaart-teëls. Veiligheids-eienskappe - Opsionele outomatiese dag/nag vibeeld oorskakeling - Opsionele spoed beperking vertoon, met aanmaning wanneer jy dit oorskry - Opsionele spoed-afhanklike kaart vergroting - Deel jou posisie sodat vriende jou kan vind. Fiets en voetganger eienskappe - Die kaarte sluit voetpaaie, staproetes en fietspaaie in vir fantastiee buite-aktiwiteite - Spesiale roete-berekening en beeld-tipes  vir fietse en voetgangers - Opsionele publieke vervoer stoppe (bus, trem, trein) ingesluit lyn name - Opsionele trip opname in GPX lêer of na internet - Opsionele spoed en hoogte vertoon - Kontoer lyne en heuwel-skadu (met addisionele module). Direkte bydrae tot OpenStreetMap - Raporteer kaart foute - stuur GPX spore na OSM direk van die toepassing - Voeg PVBs by en stuur dit direk na OSM (of later) - Opsionele trip opname ook in agtergrond gebruik (terwyl toestel slaap) OsmAnd is oop-bron en in aktiewe ontwikkeling. Almal kan bydra tot die toepassing deur foutrapportering, vrtaling-verbetering, og codiprogrammering van nuwe funksies. Die projek is in \\\'n lewendige toestand van volgehoue verbetering deur al hierdie vorms van ontwikkelaar, en gebruikers bydraes. Die projek vooruitgang verg ook finansiële bystand vir die programmering en toets van nuwe funksies. Deur OsmAnd+ aan te koop kan jy help om die toepassing selfs meer asemrowend te maak! Dit is ook moontlik om spesifieke ontwikkelings te befonds, of om \\\'n algemene skenking te maak op osmand.net. Beraamde kaart-dekking en kwaliteit: - Wes Europa: **** - Oos Europa: *** - Rusland: *** - Noord Amerika: *** - Suid Amerika: ** - Asië: ** - Japan &amp; Korea: *** - Middel Ooste: ** - Afrika: ** - Antartika: * Lys lande ingesluit (basies wêreld wyd!): Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belarus, Belgium, Belize, Benin, Bermuda, Bhutan, Bolivia, Bonaire, Bosnia and Herzegovina, Botswana, Brazil, British Virgin Islands, Brunei, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Cape Verde, Central African Republic, Chad, Chile, China, Colombia, Comoros, Congo, Costa Rica, Ivory Coast, Croatia, Cuba, Curaçao, Cyprus, Czech Republic, Denmark, Djibouti, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Equatorial Guinea, Eritrea, Estonia, Ethiopia, Fiji, Finland, France, French Guiana, French Polynesia, Gabon, Gambia, Georgia, Germany, Ghana, Gibraltar, Greece, Greenland, Grenada, Guadeloupe, Guam, Guatemala, Guernsey, Guinea, Guinea-Bissau, Guyana, Haiti, Vatican, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Iran, Iraq, Ireland, Isle of Man, Israel, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kiribati, North Korea and South Korea, Kuwait, Kyrgyzstan, Laos, Latvia, Lebanon, Lesotho, Liberia, Libya, Liechtenstein, Lithuania, Luxembourg, Macao, Macedonia, Madagascar, Malawi, Malaysia, Maldives, Mali, Malta, Martinique, Mauritania, Mauritius, Mayotte, Mexico, Micronesia, Moldova, Monaco, Mongolia, Montenegro, Montserrat, Morocco, Mozambique, Myanmar, Namibia, Nauru, Nepal, Netherlands, Netherlands Antilles, New Caledonia, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Palau, Palestinian Territory, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Romania, Russia, Rwanda, Saint Barthelemy, Saint Helena, Saint Kitts and Nevis, Saint Lucia, Saint Martin, Saint Pierre and Miquelon, Saint Vincent and the Grenadines, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, Somalia, South Africa, South Georgia, South Sudan, Spain, Sri Lanka, Sudan, Suriname, Swaziland, Sweden, Switzerland, Syria, Taiwan, Tajikistan, Tanzania, Thailand, Timor-Leste, Togo, Tokelau, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Tuvalu, Uganda, Ukraine, United Arab Emirates, United Kingdom (UK), United States of America (USA), Uruguay, Uzbekistan, Vanuatu, Venezuela, Vietnam, Wallis and Futuna, Western Sahara, Yemen, Zambia, Zimbabwe. "</string>
+	<string name="osmand_plus_extended_description_4000_chars">
+OsmAnd (OSM Automated Navigation Directions) is \\\'n kaart en navigasie toepassing met toegang tot die vrye, wêreldwye, en hoë-kwaliteit OpenStreetMap (OSM) inligting. Alle kaart inligting kan gestoor word op jou toestel se geheue kaart vir direkte gebruik. Via die toestel GPS, bied OsmAnd roete-berekening, met visuele en stem gbegeleiding, vir motor, fiets, en voetgangers. Al die hoof funksies werk beide op internet en direk sonder internet. Sommige hoof eienskappe: Navigasie - Werk van internet (vinnig) of direk (sonder swerfkoste) - draai-vir-draai stem-begeleiding (opgeneemde en sintetiese stemme is beskikbaar) - Opsionele laan-leiding, straat-naam vertoon, en beraamde tyd van aankoms - Ondersteuning vir oorgangs-punte op jou roete - Outomatiese her-berekening wanneer jy van die roete afwyk - Soek plekke per adres, tipe(bv.: restourant, hotel, brandstof, museum), of met geografiese koordinate. Kaart aansig - vertoon jou posisie en oriëntasie op die kaart - Optioneel: rig die kaart met die kompas of bewegings-rigting - Bewaar belangrikke plekke as gunstelinge- Vertoon PVBs (punte van belang) rondom jou - Kan gespesialliseerde internet kaart-teëls vertoon - sateliet foto(vanaf Bing) - verskeie bo-lae soos toer/navigasie GPX spores en additionele kaarte met verstelbare deursigtigheid - Opsioneel: vertoon name in Engels, lokale naam, of fonetiese spelling. gebruik OpenStreetMap en Wikipedie Inligting: - Hoë kwaliteit inligting van die beste samewerkings-projekte in die wêreld- wêreldwye kaarte van OpenStreetMap, beskikbaar per land of streek- Wikipedia PVBs, goed vir besigtigingstoere (nie beskikbaar in gratis weergawe nie) - Onbeperkte gratis aflaai, uit die toepassing (beperk tot 16 kaarte in gratis weergawe) - Altyd op-datum kaarte (maandeliks onderhou) - Kompakte direkte vektor kaarte - Kies tussen volledige kaart inligting of slegs-paaie-netwerk (bv: Alles van Japan is 700 MB, of 200 MB vir die paaie network alleenlik) - Ondersteun ook internet an \\\'cached\\\' kaart-teëls. Veiligheids-eienskappe - Opsionele outomatiese dag/nag vibeeld oorskakeling - Opsionele spoed beperking vertoon, met aanmaning wanneer jy dit oorskry - Opsionele spoed-afhanklike kaart vergroting - Deel jou posisie sodat vriende jou kan vind. Fiets en voetganger eienskappe - Die kaarte sluit voetpaaie, staproetes en fietspaaie in vir fantastiee buite-aktiwiteite - Spesiale roete-berekening en beeld-tipes  vir fietse en voetgangers - Opsionele publieke vervoer stoppe (bus, trem, trein) ingesluit lyn name - Opsionele trip opname in GPX lêer of na internet - Opsionele spoed en hoogte vertoon - Kontoer lyne en heuwel-skadu (met addisionele module). Direkte bydrae tot OpenStreetMap - Raporteer kaart foute - stuur GPX spore na OSM direk van die toepassing - Voeg PVBs by en stuur dit direk na OSM (of later) - Opsionele trip opname ook in agtergrond gebruik (terwyl toestel slaap) OsmAnd is oop-bron en in aktiewe ontwikkeling. Almal kan bydra tot die toepassing deur foutrapportering, vrtaling-verbetering, og codiprogrammering van nuwe funksies. Die projek is in \\\'n lewendige toestand van volgehoue verbetering deur al hierdie vorms van ontwikkelaar, en gebruikers bydraes. Die projek vooruitgang verg ook finansiële bystand vir die programmering en toets van nuwe funksies. Deur OsmAnd+ aan te koop kan jy help om die toepassing selfs meer asemrowend te maak! Dit is ook moontlik om spesifieke ontwikkelings te befonds, of om \\\'n algemene skenking te maak op osmand.net. Beraamde kaart-dekking en kwaliteit: - Wes Europa: **** - Oos Europa: *** - Rusland: *** - Noord Amerika: *** - Suid Amerika: ** - Asië: ** - Japan &amp; Korea: *** - Middel Ooste: ** - Afrika: ** - Antartika: * Lys lande ingesluit (basies wêreld wyd!): Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, Argentina, Armenia, Aruba, Australia, Austria, Azerbaijan, Bahamas, Bahrain, Bangladesh, Barbados, Belarus, Belgium, Belize, Benin, Bermuda, Bhutan, Bolivia, Bonaire, Bosnia and Herzegovina, Botswana, Brazil, British Virgin Islands, Brunei, Bulgaria, Burkina Faso, Burundi, Cambodia, Cameroon, Canada, Cape Verde, Central African Republic, Chad, Chile, China, Colombia, Comoros, Congo, Costa Rica, Ivory Coast, Croatia, Cuba, Curaçao, Cyprus, Czech Republic, Denmark, Djibouti, Dominica, Dominican Republic, Ecuador, Egypt, El Salvador, Equatorial Guinea, Eritrea, Estonia, Ethiopia, Fiji, Finland, France, French Guiana, French Polynesia, Gabon, Gambia, Georgia, Germany, Ghana, Gibraltar, Greece, Greenland, Grenada, Guadeloupe, Guam, Guatemala, Guernsey, Guinea, Guinea-Bissau, Guyana, Haiti, Vatican, Honduras, Hong Kong, Hungary, Iceland, India, Indonesia, Iran, Iraq, Ireland, Isle of Man, Israel, Italy, Jamaica, Japan, Jersey, Jordan, Kazakhstan, Kenya, Kiribati, North Korea and South Korea, Kuwait, Kyrgyzstan, Laos, Latvia, Lebanon, Lesotho, Liberia, Libya, Liechtenstein, Lithuania, Luxembourg, Macao, Macedonia, Madagascar, Malawi, Malaysia, Maldives, Mali, Malta, Martinique, Mauritania, Mauritius, Mayotte, Mexico, Micronesia, Moldova, Monaco, Mongolia, Montenegro, Montserrat, Morocco, Mozambique, Myanmar, Namibia, Nauru, Nepal, Netherlands, Netherlands Antilles, New Caledonia, New Zealand, Nicaragua, Niger, Nigeria, Norway, Oman, Pakistan, Palau, Palestinian Territory, Panama, Papua New Guinea, Paraguay, Peru, Philippines, Poland, Portugal, Puerto Rico, Qatar, Romania, Russia, Rwanda, Saint Barthelemy, Saint Helena, Saint Kitts and Nevis, Saint Lucia, Saint Martin, Saint Pierre and Miquelon, Saint Vincent and the Grenadines, Samoa, San Marino, Saudi Arabia, Senegal, Serbia, Seychelles, Sierra Leone, Singapore, Slovakia, Slovenia, Somalia, South Africa, South Georgia, South Sudan, Spain, Sri Lanka, Sudan, Suriname, Swaziland, Sweden, Switzerland, Syria, Taiwan, Tajikistan, Tanzania, Thailand, Timor-Leste, Togo, Tokelau, Tonga, Trinidad and Tobago, Tunisia, Turkey, Turkmenistan, Tuvalu, Uganda, Ukraine, United Arab Emirates, United Kingdom (UK), United States of America (USA), Uruguay, Uzbekistan, Vanuatu, Venezuela, Vietnam, Wallis and Futuna, Western Sahara, Yemen, Zambia, Zimbabwe.
+	</string>
 	<string name="download_using_mobile_internet">WiFi is nie gekoppel nie. Wil jy voortgaan om af te laai met die beskikbare internet diens?</string>
     <string name="street_name">Straat</string>
 	<string name="hno">Huisnommer</string>
-    <string name="tip_recent_changes_1_5_t">"Verandering in 1.5: ↵\n→* Holo Tema (tema aanpassing) "</string>
+    
     <string name="monitoring_settings">Aanteken dienste &amp; Sluimertoestand</string>
     <string name="monitoring_settings_descr">Verstel hoe om roetes op te neem en sluimertoestand aan te skakel</string>
-    <string name="osmand_monitoring_plugin_description">Sakel spoor-natrek en navigasie aan in sluimertoestand deur kort-kort die GPS op te wek. Wys stellings om roete op te neem na plaaslike GPX lêers of deur a web-diensop die internet.</string>
+    <string name="osmand_monitoring_plugin_description">Sakel spoor-natrek en navigasie aan in sluimertoestand deur kort-kort die GPS op te wek. Wys stellings om roete op te neem na plaaslike GPX lêers of deur a web-diens op die internet.</string>
     <string name="osmand_monitoring_plugin_name">Aanteken dienste &amp; Sluimertoestand</string>
     <string name="choose_osmand_theme_descr">Kies toepassing tema</string>
     <string name="choose_osmand_theme">Toepassing tema</string>
@@ -1160,8 +1187,12 @@
     <string name="files_limit">%1$d lêers oor</string>
     <string name="available_downloads_left">%1$d lêers beskikbaar om af te laai</string>
     <string name="install_paid">Vol weergawe</string>
-    <string name="tip_recent_changes_1_3_t">"Verandering in 1.3:
-\n\t* Holo Tema (tema aanpassing) "</string>
+    <string name="tip_recent_changes_1_3_t">"Verandering in 1.3:↵
+ \n\t* Hervestig tablet en grootskerm steun↵
+ \n\t* Holo Tema (aanpassing)↵
+ \n\t* Addisionele stellings om die kompas te stabiliseer↵
+ \n\t* Top linker knoppie op die kaart skerm vervang kieslys knoppie↵
+    </string>
     <string name="wait_current_task_finished">Wag asseblief terwyl huidige taak afhandel</string>
     <string name="use_kalman_filter_compass_descr">Gebruik Kalman filter om kompas afwykings te vermy</string>
     <string name="use_kalman_filter_compass">Gebruik Kalman filter</string>
@@ -1169,7 +1200,7 @@
     <string name="use_magnetic_sensor_descr">Gebruik die magnetiese sensor om die kompas waarde te bepaal in plaas van die oriëntasie sensor</string>
     <string name="use_magnetic_sensor">Gebruik magnetiese sensor</string>
     <string name="local_indexes_cat_srtm">Kontoer lyne inligting</string>
-    <string name="downloading_file_new">"Aflaai besig "</string>
+    <string name="downloading_file_new">Aflaai besig …</string>
 	<string name="delete_point">Vee punt uit</string>
     <string name="plugin_distance_point_time">Tyd</string>
     <string name="plugin_distance_point_speed">spoed</string>
@@ -1181,4 +1212,69 @@
     <string name="osmand_distance_planning_plugin_description">Skep paaie (of gebruik / pas bestaande GPX lêers aan) om die afstand tussen punte te meet. Berg as GPX, kan gebruik word om GPX roetes te beplan.</string>
     <string name="osmand_distance_planning_plugin_name">Afstand rekenaar &amp; beplanning gereedskap</string>
     <string name="local_osm_changes_backup_successful">OSM veranderingslêer %1$s suskesvol geskep</string>
+    <string name="destination_point">Bestemming %1$s</string>
+    <string name="context_menu_item_destination_point">Stel as bestemming</string>
+    <string name="please_select_address">Kies eers die stad of straat</string>
+    <string name="search_street_in_neighborhood_cities">Soek straat in nabygeleë stede</string>
+    <string name="intermediate_items_sort_return">Tussen-punte is hergesorteer om die volgorde op pad na die bestemming te optimaliseer.</string>
+    <string name="intermediate_items_sort_by_distance">Sorteer (deur-tot-deur)</string>
+    <string name="local_osm_changes_backup_failed">Berg van OSM veranderings het gefaal</string>
+    <string name="local_osm_changes_backup">Berg as OSM verandering</string>
+    <string name="use_distance_measurement_help">* Tik om punt te merk.\n * Tik en hou op die kaart om vorige punt te verwyder.\n * Tik en hou op punt om beskrywing te sien of verander.\n * Tik op meting widget om meer aksies te sien.</string>
+    <string name="default_buttons_do_not_show_again">Moet nie weer wys nie</string>
+    <string name="distance_measurement_start_editing">Begin verandering</string>
+    <string name="distance_measurement_finish_editing">Eindig verandering</string>
+    <string name="distance_measurement_finish_subtrack">Begin `n nuwe sub-spoor</string>
+    <string name="distance_measurement_clear_route">Verwyder all punte</string>
+    <string name="distance_measurement_save_gpx">Berg as GPX</string>
+    <string name="distance_measurement_load_gpx">Maak bestaande GPX oop</string>
+    <string name="tip_recent_changes_1_4_t">"Veranderings in 1.4:
+\n\t* Sorteer punte optimaal om almal te besoek (Reisende verkoopsman, deur-tot-deur)
+\n\t* Soek straat met naam (in omgewing)
+\n\t* Beplanningsgebruikswyse inlasmodule (laai/redigeer/berg GPX spore)
+\n\t* Nuwe aflaai skerm (aflaai in agtergrond)
+\n\t* Ondersteun GPX sub-lêers (organiseer jou GPX spore)
+\n\t* Verwyder SRTM lêers\n\t* Ondersteun OSM Notas 
+" 
+    </string>
+    <string name="local_index_gpx_timespan">\nTydperk: %1$d:%2$02d:%3$02d</string>
+	<string name="local_index_gpx_timemoving">\nTyd in beweging: %1$d:%2$02d:%3$02d</string>
+	<string name="av_camera_focus">Kamera fokus tipe</string>
+	<string name="av_camera_focus_descr">Kies interne kamera fokus tipe</string>
+	<string name="av_camera_focus_auto">Outo fokus</string>
+	<string name="av_camera_focus_hiperfocal">Hiperfokale fokus</string>
+	<string name="av_camera_focus_edof">Uitgebreide velddiepte (EDOF)</string>
+	<string name="av_camera_focus_infinity">Fokus is op oneindig gestel</string>
+	<string name="av_camera_focus_macro">Makro (naby) fokus</string>
+	<string name="av_camera_focus_continuous">Die kamera prbeer heeltyd in fokus bly</string>
+	<string name="av_photo_play_sound">Speel geluid wanneer foto geneem word</string>
+	<string name="av_photo_play_sound_descr">Kies of geluid gespeel sal word wanneer foto geneem word</string>
+
+	<string name="speak_warnings_descr">Verstel verkeer waarskuwings (geforseerde stoppe, spoedbulte), spoedkamera waarskuwings, spoedbeperkings</string>
+    <string name="speak_speed_limit">Kondig spoedbeperking aan</string>
+    <string name="speak_cameras">Kondig spoedkameras aan</string>
+	<string name="speak_traffic_warnings">Kondig verkeerswaarskuwings aan</string>
+	<string name="tip_recent_changes_1_5_t">Veranderings in 1.5:
+	\n\t* Stem waarskuwings oor spoed beperkings en kameras
+	\n\t* Hoë ditheid kaart simbole
+	\n\t* Baie UI veranderings
+	\n\t* Bugfixes in afstand vertoon, GPX analiseerder, oorgangspunt hantering, beplanning funksie, OSM oplaai, https hantering
+    </string>
+    <string name="osb_author_or_password_not_specified">Spesifiseer asseblief OSM gebruiker en kodewoord in Stellings</string>
+    <string name="clear_intermediate_points">Verwyder tussenpunte</string>
+    <string name="keep_intermediate_points">Hou tussenpunte</string>
+    <string name="new_directions_point_dialog">Jy het alreeds tussenpunte gestel.</string>
+    <string name="context_menu_item_directions_to">Aanwysings Na</string>
+    <string name="context_menu_item_directions_from">Aanwysings Van</string>
+    <string name="route_descr_map_location">Kaart: </string>
+    <string name="route_to">Na:</string>
+    <string name="route_via">Via:</string>
+    <string name="route_from">Van:</string>
+    <string name="osb_author_dialog_password">OSM kodewoord (opsioneel)</string>
+	<string name="announce_gpx_waypoints">Kondig GPX oorgangspunte aan</string>
+    <string name="speak_title">Aankondig…</string>
+	<string name="speak_descr">Verstel aankondig van straatname, verkeerswaarskuwings(geforseerde stoppe, spoed-hobbels), spoedkamera, spoedbeperkings</string>
+	<string name="speak_street_names">Kondig straatname aan(TTS)</string>
+    <string name="osmodroid_mode_on">Staak OsMoDroid</string>    
+    <string name="osmodroid_mode_off">Begin OsMoDroid</string>
     </resources>

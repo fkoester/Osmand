@@ -142,15 +142,15 @@ public class SettingsGeneralActivity extends SettingsBaseActivity {
 		String incompleteSuffix = " (" + getString(R.string.incomplete_locale) + ")";
 		//getResources().getAssets().getLocales();
 		entrieValues = new String[] { "",
-				"en", "af", "hy", "eu", "bs", "bg",
+				"en", "af", "hy", "eu", "be", "bs", "bg",
 				"ca", "cs",  "da", "nl", "fi", "fr", "ka",
-				"de", "el", "he", "hi", "hu", "id",
+				"de", "el", "iw", "hi", "hu", "id",
 				"it", "ja", "ko", "lv", "lt", "mr",
 				"no", "pl", "pt", "ro", "ru", "sk",
 				"sl", "es", "sv", "tr", "uk", "vi",
 				"cy" };
 		entries = new String[] { getString(R.string.system_locale), 
-				"English", "Afrikaans", "Armenian" + incompleteSuffix, "Basque" + incompleteSuffix, "Bosnian" + incompleteSuffix, "Bulgarian" + incompleteSuffix,
+				"English", "Afrikaans", "Armenian" + incompleteSuffix, "Basque" + incompleteSuffix, "Belarusian" + incompleteSuffix, "Bosnian" + incompleteSuffix, "Bulgarian" + incompleteSuffix,
 				"Catalan", "Czech", "Danish", "Dutch", "Finnish" + incompleteSuffix, "French", "Georgian",
 				"German", "Greek", "Hebrew", "Hindi" + incompleteSuffix, "Hungarian", "Indonesian" + incompleteSuffix,
 				"Italian", "Japanese" + incompleteSuffix, "Korean" + incompleteSuffix, "Latvian", "Lithuanian", "Marathi" +incompleteSuffix,

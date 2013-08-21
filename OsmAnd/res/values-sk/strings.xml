@@ -1,13 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<resources>
-  <string name="recording_context_menu_show">Zobraziť</string>
+<resources><string name="recording_context_menu_show">Zobraziť</string>
   <string name="recording_photo_description">Fotografia %1$s zachytená dňa %2$s</string>
   <string name="av_def_action_picture">Zachytiť fotografiu</string>
   <string name="recording_context_menu_precord">Zachytiť fotografiu</string>
   <string name="enable_plugin_monitoring_services">Na použitie služieb pre záznam pozície zapnite monitorovacie zásuvné moduly (stopovanie, stopovanie naživo)</string>
   <string name="non_optimal_route_calculation">Vypočítať pravdepodobne neoptimálnu cestu s dlhšou vzdialenosťou</string>
   <string name="tip_recent_changes_0_8_4_t">Zmeny vo verzii 0.8.4 :
-  </string>
+    </string>
   <string name="tip_recent_changes_0_8_3_t">Zmeny vo verzii 0.8.3 :
   \n\t* Prechodné body
   \n\t* Vylepšené hlasové povely pri navigácii
@@ -15,8 +14,7 @@
   \n\t* Zobrazenie Cycleway=track
   \n\t* Vylepšený vzhľad rozhrania (ikony)
   \n\t* Opravy mnohých chýb
-  </string>
-  <string name="navigate_to">Určiť ako cieľ</string>
+	</string>
   <string name="context_menu_item_last_intermediate_point">Určiť ako posledný prechodný bod</string>
   <string name="context_menu_item_first_intermediate_point">Určiť ako prvý prechodný bod</string>
   <string name="add_as_last_destination_point">Pridať ako posledný prechodný bod</string>
@@ -25,7 +23,7 @@
   <string name="new_destination_point_dialog">Už máte určený cieľový bod.</string>
   <string name="target_point">Cieľový bod %1$s</string>
   <string name="target_points">Ciele</string>
-  <string name="intermediate_point_too_far">Prechodný bod %1$s je príliš daľeko od najbližšej cesty.</string>
+  <string name="intermediate_point_too_far">Prechodný bod %1$s je príliš ďaleko od najbližšej cesty.</string>
   <string name="arrived_at_intermediate_point">Dorazili ste k Vášmu prechodnému bodu</string>
   <string name="context_menu_item_intermediate_point">Pridať prechodný bod</string>
   <string name="map_widget_intermediate_distance">Prechodný bod</string>
@@ -48,7 +46,7 @@
   <string name="avoid_motorway">Diaľniciam</string>
   <string name="live_monitoring_mode_off">Spustiť\n stopovanie naživo</string>
   <string name="live_monitoring_mode_on">Zastaviť\n stopovanie naživo</string>
-  <string name="layer_map_appearance">Konfigurovať obrazovku…</string>
+  <string name="layer_map_appearance">Konfigurovať obrazovku</string>
   <string name="show_lanes">Jazdné pruhy</string>
   <string name="avoid_unpaved">Nespevneným cestám</string>
   <string name="avoid_ferries">Trajektom</string>
@@ -69,7 +67,7 @@
   <string name="bg_service_sleep_mode_on">Vypnúť\n režim spánku</string>  
   <string name="map_widget_top_text">Názov ulice</string>
   <string name="map_widget_config">Konfigurácia</string>
-  <string name="map_widget_map_select">Výber mapy</string>
+  
   <string name="map_widget_back_to_loc">Kde som</string>
   <string name="map_widget_lock_screen">Zámok obrazovky</string>
   <string name="map_widget_compass">Kompas</string>
@@ -129,7 +127,7 @@
   <string name="validate_gpx_upload_name_pwd">Prosím, určťe OSM užívateľské meno a heslo pre nahratie GPX súborov.</string>
   <string name="default_buttons_support">Podpora</string>
   <string name="support_new_features">Podporiť nové funkcie</string>
-  <string name="show_ruler_level_descr">Zobrazí pravítko na mape</string>
+  
   <string name="show_ruler_level">Zobraziť pravítko</string>
   <string name="info_button">Info</string>
   <string name="back_to_location">Späť na umiestnenie</string>
@@ -208,7 +206,7 @@
   <string name="local_openstreetmap_uploading">Nahráva sa…</string>
   <string name="local_openstreetmap_were_uploaded">{0} POI/chyby boli nahraté</string>
   <string name="local_openstreetmap_uploadall">Nahrať všetko</string>
-  <string name="local_openstreetmap_items">" "</string>
+  
   <string name="local_openstreetmap_show">Zobraziť na mape</string>
   <string name="local_openstreetmap_upload">Nahrať úpravu na OSM</string>
   <string name="local_openstreetmap_delete">Vymazať úpravu</string>
@@ -219,9 +217,9 @@
   <string name="live_monitoring">Zapnúť stopovanie naživo</string>
   <string name="live_monitoring_interval_descr">Určenie intervalu stopovania naživo</string>
   <string name="live_monitoring_interval">Interval stopovania naživo</string>
-  <string name="live_monitoring_url_descr">Určenie webovej adresy stopovania naživo so syntaxom parametrov: lat={0}, lon={1}, timestamp={2}, hdop={3}, altitude={4}, speed={5}</string>
+  <string name="live_monitoring_url_descr">Určenie webovej adresy stopovania naživo so syntaxom parametrov: lat={0}, lon={1}, timestamp={2}, hdop={3}, altitude={4}, speed={5}, bearing={6}</string>
   <string name="live_monitoring_url">Webová adresa stopovania naživo</string>
-  <string name="gpx_monitoring_disabled_warn">Prosím, zapnite \'Zaznemať stopu do GPX\' v stopovacích nastaveniach.</string>
+  <string name="gpx_monitoring_disabled_warn">Prosím, zapnite \'Logovať stopu do GPX súboru\' v stopovacích nastaveniach.</string>
   <string name="show_current_gpx_title">Zobraziť aktuálnu stopu</string>
   <string name="tip_recent_changes_0_7_0_t">"Zmeny vo verzii 0.7.0 :
 \n\t- Údaje článkov offline wikipedie
@@ -247,7 +245,7 @@
   <string name="index_name_tts_voice">Hlasové balíky (TTS)</string>
   <string name="amenity_type_wikiosm">Wikipedia (offline)</string>
   <string name="amenity_type_user_defined">Užívateľský</string>
-  <string name="fav_export_confirmation">Súbor s predošle exporotvanými obľúbenými bodmi už existuje. Chcete ho nahradiť?</string>
+  <string name="fav_export_confirmation">Súbor s predošle exportovanými obľúbenými bodmi už existuje. Chcete ho nahradiť?</string>
   <string name="profile_settings">Profilovo špecifické nastavenia</string>
   <string name="global_settings">Globálne nastavenia</string>
   <string name="global_app_settings">Globálne nastavenia aplikácie</string>
@@ -263,7 +261,7 @@
 \n\t- Informácie o nadmorskej výške
 \n\t- Nové preklady (Vietnamský, Polský)
 \n\t- Iné malé funkcie "</string>
-  <string name="use_transparent_map_theme_descr">Použije priehľadné ovládače mapy</string>
+  
   <string name="use_transparent_map_theme">Priehľadná téma</string>
   <string name="native_library_not_supported">Natívna knižnica nie je podporovaná na tomto zariadení.</string>
   <string name="init_native_library">Inicializácia natívnej knižnice…</string>
@@ -302,13 +300,12 @@
   <string name="data_to_search_poi_not_available">Miestne údaje na hľadanie POI nie sú dostupné.</string>
   <string name="poi_filter_by_name">Hľadať podľa názvu</string>
   <string name="old_poi_file_should_be_deleted">Súbor POI údajov \'%1$s\' je zbytočný a môže byť vymazaný.</string>
-  <string name="update_poi_file_not_found">Miestný súbor na udržiavanie POI zmien sa nenašiel a nemôže byť vytvorený.</string>
+  <string name="update_poi_file_not_found">Miestny súbor na udržiavanie POI zmien sa nenašiel a nemôže byť vytvorený.</string>
   <string name="button_upgrade_osmandplus">Aktualizovať OsmAnd+</string>
   <string name="map_version_changed_info">Na serveri sú nekompatibilné mapové súbory s Vašou aktuálnou verziou aplikácie. Na ich stiahnutie a použitie, prosím, aktualizujte aplikáciu na novšiu verziu.</string>
   <string name="local_index_mi_rename">Premenovať</string>
   <string name="show_gpx_route">Zobraziť na mape</string>
   <string name="poi_filter_nominatim">Online Nominatim</string>
-  <string name="search_select_point">Vybrať</string>
   <string name="search_position_current_location_search">Hľadám umiestnenie…</string>
   <string name="search_position_current_location_found">Umiestnenie [Nájdené]</string>
   <string name="search_position_address">Adresa…</string>
@@ -353,7 +350,7 @@
   <string name="local_index_gpx_info_show">\n\nKliknite a podržte pre možnosti</string>
   <string name="local_index_gpx_info_speed">\nPriemerná rýchlosť : %1$s
 \nMaximálna rýchlosť : %2$s</string>
-  <string name="local_index_gpx_info_elevation">\nPriemerná nadm. výška : %1$.0f metrov\nNajnižšia nadm. výška : %2$.0f metrov\nNajvyššia nadm. výška : %3$.0f metrov\nStúpanie hore : %4$.0f metrov\nStúpanie dole : %5$.0f metrov</string>
+  <string name="local_index_gpx_info_elevation">\nPriemerná nadm. výška : %1$s\nNajnižšia nadm. výška : %2$s\nNajvyššia nadm. výška : %3$s\nStúpanie hore : %4$s\nStúpanie dole : %5$s</string>
   <string name="local_index_gpx_info">Pod-stopy : %1$d\nCelkovo bodov : %2$d\nWay-pointy : %3$d\nCelková vzdialenosť : %4$s
 \nČas spustenia : %5$tF, %5$tR\nČas ukončenia : %6$tF, %6$tR</string>
   <string name="local_index_installed">Vydanie</string>
@@ -375,7 +372,7 @@
   <string name="local_index_address_data">Adresné údaje</string>
   <string name="local_index_transport_data">Dopravné údaje</string>
   <string name="local_index_map_data">Mapové údaje</string>
-  <string name="local_index_items">" "</string>
+  
   <string name="local_indexes_cat_backup">Záloha</string>
   <string name="local_indexes_cat_tts">Hlasové údaje (TTS)</string>
   <string name="local_indexes_cat_voice">Hlasové údaje (mediálne)</string>
@@ -409,12 +406,7 @@
   <string name="gpx_option_destination_point">Použiť aktuálny cieľový bod</string>
   <string name="gpx_option_from_start_point">Prejsť celú trasu</string>
   <string name="tip_rotation_switching">Otáčanie mapy</string>
-  <string name="tip_rotation_switching_t">Môžete určiť ako bude otáčaná mapa cez \'Hlavné menu\' -&gt; \'Nastavenia\' -&gt; \'Vzhľad mapy\' -&gt; \'Otáčanie mapy\'.
-\nNa výber máte možnosti:
-\n\t\'Neotáčať\' - Mapa nebude otáčaná. Sever bude vždy hore.
-\n\t\'Podľa smeru pohybu\' - Mapa sa bude otáčať podľa toho kam smerujete.
-\n\t\'Podľa kompasu\' - Mapa sa bude otáčať podľa kompasu a Vášho otočenia.
-\nPre rýchle prepnutie medzi otáčaním podľa kompasu a Vami zvoleným v nastaveniach, môžete ťuknúť na strelku kompasu počas zobrazenia mapy.</string>
+  
   <string name="switch_to_vector_map_to_see">Je dostupná offline vektorová mapa pre túto oblasť.
 \n\t\n\tNa jej použitie aktivujte \'Ponuka\' -&gt; \'Zobrazenie\' -&gt; \'Zdroj mapy…\' -&gt; \'Vektorové OSM mapy\'.</string>
   <string name="binary_map_download_success">Sťahovanie úspešné.\n\t\n\tPre jej použitie aktivujte \'Nastavenia\' -&gt; \'Konfigurácia mapy\' -&gt; \'Vektorové mapy\'.</string>
@@ -449,17 +441,10 @@
   <string name="level_to_switch_vector_raster_descr">Max. úroveň priblíženia použitá pri vektorovom vykresľovaní a nie rastrovom</string>
   <string name="level_to_switch_vector_raster">Úroveň vektorového zoomu</string>
   <string name="tip_day_night_mode">Denný/Nočný režim</string>
-  <string name="tip_day_night_mode_t">Môžete zmeniť vzhľad mapy, podľa toho, či používate OsmAnd cez deň(jasné svetelné podmienky) alebo v noci(tmavé svetelné podmienky).
-\nKeď jazdíte v noci, je bezpečnejšie, keď sú farby mapy tmavšie, pretože nie ste tak oslepovaný ako s jasnejšími farbami na displeji.
-\n\tMôžete nastaviť ako meniť režim cez \'Hlavné menu\' -&gt; \'Nastavenia\' -&gt; \'Vzhľad mapy\' -&gt; \'Denný/nočný režim\'.
-\nMožnosti sú:
-\n\t\'Východ/Západ slnka\' - automatický režim, ovládaný polohou slnka(štandardný)
-\n\t\'Deň\' - vždy použiť denný režim
-\n\t\'Noc\' - vždy použiť nočný režim
-\n\t\'Svetelný senzor\' - vzhľad mapy je ovládaný svetelným senzorom Vášho zariadenia(iba ak je dostupný)</string>
+  
   <string name="tip_location_sharing">Zdieľanie umiestnenia</string>
   <string name="tip_location_sharing_t">"Objavili ste nejaké zaujímavé miesto na Vašom výlete a chcete zdieľať jeho pozíciu s Vašimi priateľmi alebo rodinou?
-\nOsmAnd Vám umožňuje jednoducho zdieľať hodcijaké umiestnenie chcete.
+\nOsmAnd Vám umožňuje jednoducho zdieľať hocijaké umiestnenie chcete.
 \nMôžete to urobiť cez \'Kontextové menu mapy\' -&gt; \'Zdieľať umiestnenie\'.
 \nPotom vyberiete spôsob ako zdieľať Vaše umiestnenie. Na výber je: E-Mail, SMS alebo len skopírovanie súradníc umiestnenia do schránky. "</string>
   <string name="tip_favorites">Obľúbené miesta</string>
@@ -482,12 +467,9 @@
   <string name="preferred_locale_descr">Zmeniť zobrazovaný jazyk</string>
   <string name="preferred_locale">Jazyk zobrazenia</string>
   <string name="tip_map_switch">Zdroj mapy</string>
-  <string name="tip_map_switch_t">Najrýchlejšia cesta ako zmeniť zdroj mapy a vrstvy je stlačením \'Menu\' -&gt; \'Zobrazenie\' na mape.
-\n\tPoložkou \'Zdroj mapy…\' možete vybrať predefinovaný zdroj dlaždíc alebo ručne vytvorený s OsmAndMapCreator-om na PC.
-\n\tOsmAnd podporuje užívateľom definované zdroje.</string>
+  
   <string name="tip_app_mode">Režim aplikácie</string>
-  <string name="tip_app_mode_t">OsmAnd podporuje rozličné režimy reprezentujúce mapu pre typické situácie.
-\n\tMôžete zmeniť režim v \'Menu\' -&gt; \'Nastavenia\' -&gt; \'Režim aplikácie\'.</string>
+  
   <string name="tip_navigation">Navigácia</string>
   <string name="tip_navigation_t">Na zapnutie navigácie musíte najskôr vybrať cieľový bod. Potom stlačte \'Menu\'-&gt;\'Pokyny\' na mape a vyberte typ navigovania.</string>
   <string name="tip_search">Vyhľadávanie</string>
@@ -549,7 +531,7 @@
   <string name="km_h">km/h</string>
   <string name="m">m</string>
   <string name="old_map_index_is_not_supported">Verzia indexu \'\'{0}\'\' nie je podporovaná</string>
-  <string name="poi_filter_closest_poi">Najbližsí bod záujmu</string>
+  <string name="poi_filter_closest_poi">Najbližší bod záujmu</string>
   <string name="poi_filter_custom_filter">Vlastný filter</string>
   <string name="poi_filter_namefinder">Online hľadač mien</string>
   <string name="reading_cached_tiles">Načítavajú sa dlaždice zo zásobníka…</string>
@@ -621,7 +603,7 @@
   <string name="map_index">Mapa</string>
   <string name="voice">Hlasové údaje</string>
   <string name="no_vector_map_loaded">Vektorové mapy neboli načítané</string>
-  <string name="map_route_by_gpx">Cestovať použítim GPX</string>
+  <string name="map_route_by_gpx">Cestovať použitím GPX</string>
   <string name="gpx_files_not_found">GPX súbory neboli nájdene v adresári /osmand/tracks</string>
   <string name="layer_gpx_layer">GPX záznam…</string>
   <string name="error_reading_gpx">Chyba pri načítavaní GPX údajov</string>
@@ -659,7 +641,7 @@
   <string name="layer_map">Zdroj mapy…</string>
   <string name="menu_layers">Zobrazenie</string>
   <string name="context_menu_item_search_poi">Hľadať bod záujmu (POI)</string>
-  <string name="context_menu_item_show_route">Zobraziť trasu odtiaľto</string>
+  
   <string name="use_trackball_descr">Použitie trackballu na pohyb po mape</string>
   <string name="use_trackball">Použiť trackball</string>
   <string name="background_service_wait_int_descr">Nastaví max. čakaciu dobu pre každú ustálenú pozíciu na pozadí</string>
@@ -691,7 +673,7 @@
   <string name="voice_data_not_supported">Nepodporovaná verzia hlasových údajov</string>
   <string name="voice_data_corrupted">Vybrané hlasové údaje sú poškodené</string>
   <string name="voice_data_unavailable">Aktuálne hlasové údaje nie sú dostupné</string>
-  <string name="stop_routing">Zastaviť navigáciu</string>
+  
   <string name="sd_unmounted">SD karta nie je prístupná.\nNebudete schopný vidieť mapu alebo niečo nájsť.</string>
   <string name="sd_mounted_ro">SD karta je iba na čítanie.\nMôžete iba vidieť prednačítanú mapu a nemôžete sťahovať z internetu.</string>
   <string name="unzipping_file">Rozbaľuje sa súbor…</string>
@@ -729,7 +711,7 @@
   <string name="transport_route_distance">Vzdialenosť trasy</string>
   <string name="transport">Doprava</string>
   <string name="default_buttons_ok">OK</string>
-  <string name="show_transport_over_map_description">Zobrazenie zastáviek verejnej dopravy na mape</string>
+  <string name="show_transport_over_map_description">Zobrazenie zástaviek verejnej dopravy na mape</string>
   <string name="show_transport_over_map">Zobraziť zastávky dopravy</string>
   <string name="hello">Navigačná aplikácia OsmAnd</string>
   <string name="update_poi_success">Údaje POI boli úspešne aktualizované ({0} bolo načítaných)</string>
@@ -751,7 +733,7 @@
   <string name="search_nothing_found">Nič sa nenašlo</string>
   <string name="searching">Vyhľadávanie…</string>
   <string name="searching_address">Hľadá sa adresa…</string>
-  <string name="search_osm_nominatim">Hľadanie adresy použiťím OSM Nominatim</string>
+  <string name="search_osm_nominatim">Hľadanie adresy použitím OSM Nominatim</string>
   <string name="hint_search_online">Číslo domu, ulica, mesto</string>
   <string name="search_offline_address">Offline</string>
   <string name="search_online_address">Internet</string>
@@ -766,7 +748,7 @@
   <string name="address">Adresa</string>
   <string name="download_index_success">Sťahovanie úspešne dokončené</string>
   <string name="error_io_error">Vyskytla sa vstupno/výstupná chyba</string>
-  <string name="downloading_file">Sťahuje sa súbor…</string>
+  
   <string name="downloading">Sťahovanie…</string>
   <string name="downloading_list_indexes">Sťahuje sa zoznam dostupných oblastí…</string>
   <string name="list_index_files_was_not_loaded">Zoznam oblastí nebol prijatý z osmand.net.</string>
@@ -788,7 +770,7 @@
   <string name="loading_poi_obj">Načítavajú sa POI…</string>
   <string name="auth_failed">Autorizácia zlyhala</string>
   <string name="failed_op">zlyhanie</string>
-  <string name="converting_names">Konvertujú sa domáce/anglicke názvy…</string>
+  <string name="converting_names">Konvertujú sa domáce/anglické názvy…</string>
   <string name="loading_streets_buildings">Načítavajú sa ulice/budovy…</string>
   <string name="loading_postcodes">Načítavajú sa PSČ…</string>
   <string name="loading_streets">Načítavajú sa ulice…</string>
@@ -818,7 +800,7 @@
   <string name="user_password_descr">Vaše OSM heslo</string>
   <string name="user_password">Užívateľské heslo</string>
   <string name="osm_settings_descr">Určenie nastavení Openstreetmap.org (OSM) pre OSM nahrávanie</string>
-  <string name="monitor_preferences_descr">Určenie stopovacích nastavení</string>
+  
   <string name="data_settings_descr">Výber jazyka, stiahnutie/znovu načítanie údajov</string>
   <string name="data_settings">Údaje</string>
   <string name="map_preferences_descr">Určenie nastavení mapy: zdroj mapy, otáčanie, stredová pozícia, orientácia obrazovky</string>
@@ -833,7 +815,7 @@
   <string name="save_current_track">Uložiť aktuálnu stopu</string>
   <string name="save_track_interval_descr">Výber umiestňovacieho intervalu pre stopy</string>
   <string name="save_track_interval">Logovací interval</string>
-  <string name="monitor_preferences">- Stopovanie</string>
+  
   <string name="save_track_to_gpx_descrp">Stopy budú ukladané do adresára stôp, zoskupené podľa dní</string>
   <string name="save_track_to_gpx">Logovať stopu do GPX súboru</string>
   <string name="update_tile">Aktualizovať mapu</string>
@@ -855,10 +837,8 @@
   <string name="ChooseCountry">Vybrať krajinu</string>
   <string name="position_on_map_descr">Výber umiestnenia ukazovateľa pozície na mape</string>
   <string name="position_on_map">Ukazovateľ pozície</string>
-  <string name="map_specify_point">Určiť ako cieľ</string>
-  <string name="show_view_angle_descr">Uhol pohľadu zobrazenia podľa kompasu</string>
+  
   <string name="show_view_angle">Zobraziť uhol pohľadu</string>
-  <string name="navigate_to_point">Označiť bod</string>
   <string name="map_view_3d_descr">Zapnutie 3D zobrazenia mapy</string>
   <string name="map_view_3d">3D zobrazenie mapy</string>
   <string name="show_poi_over_map_description">Zobrazenie POI na mape (použije sa posledný vybraný filter)</string>
@@ -906,7 +886,6 @@
   <string name="search_address_building_option">Popisné číslo</string>
   <string name="search_address_street_option">Pretínajúca ulica</string>
   <string name="search_tabs_location">Pozícia</string>
-  <string name="context_menu_item_navigate_point">Určiť ako cieľ</string>
   <string name="context_menu_item_add_favorite">Pridať medzi Obľúbené miesta</string>
   <string name="context_menu_item_update_map">Aktualizovať mapu</string>
   <string name="context_menu_item_open_bug">Otvoriť OSM chybu</string>
@@ -919,7 +898,6 @@
   <string name="add_favorite_dialog_top_text">Zadajte meno obľúbeného bodu</string>
   <string name="add_favorite_dialog_default_favourite_name">Obľúbený bod</string>
   <string name="add_favorite_dialog_favourite_added_template">Obľúbený bod \'\'{0}\'\' bol úspešne pridaný.</string>
-  <string name="favourites_context_menu_navigate">Určiť ako cieľ</string>
   <string name="favourites_context_menu_edit">Upraviť obľúbený bod</string>
   <string name="favourites_context_menu_delete">Vymazať obľúbený bod</string>
   <string name="favourites_remove_dialog_msg">Odstrániť obľúbený bod \'%s\'?</string>
@@ -968,10 +946,9 @@
   <string name="default_buttons_selectall">Vybrať všetko</string>
   <string name="download_link_and_local_description">Kliknite sem na stiahnutie alebo aktualizáciu offline údajov.\nNa zobrazenie podrobností kliknite na položku, na deaktiváciu alebo zmazanie offline údaju kliknite a podržte.\nAktuálne údaje v zariadení (%1$s voľných):</string>
   <string name="unknown_from_location">Štartovací bod nebol zatiaľ zistený</string>
-  <string name="context_menu_item_directions">Pokyny k tomuto miestu</string>
-  <string name="confirm_interrupt_download">Chcete prerusiť sťahovanie súboru?</string>
+  <string name="confirm_interrupt_download">Chcete prerušiť sťahovanie súboru?</string>
   <string name="basemap_was_selected_to_download">Základná mapa je potrebná pre správne fungovanie aplikácie a bola vybratá na stiahnutie.</string>
-  <string name="gpx_index_settings_descr">(zahŕňa GPX analyzéra)</string>
+  
   <string name="favourites_edit_dialog_name">Názov</string>
   <string name="favourites_edit_dialog_category">Kategória</string>
   <string name="navigate_point_format_D">DDD.DD</string>
@@ -1041,9 +1018,9 @@
   <string name="use_compass_navigation">Použiť kompas</string>
   <string name="route_updated_loc_found">Cesta bude prepočítaná, keď sa nájde umiestnenie</string>
   <string name="continue_follow_previous_route_auto">Predošlá navigácia nebola dokončená. Pokračovať v jej nasledovaní? (%1$s sekúnd)</string>
-  <string name="show_cameras_descr">Zobrazenie radarov (môže byť zakázané v niektorých krajinách)</string>
-  <string name="show_traffic_warnings_descr">Zobrazenie radarov a spomaľovačov</string>
-  <string name="avoid_toll_roads_descr">Vyvarovanie sa plateným cestám pri kalkulácii trasy</string>
+  
+  
+  
   <string name="show_cameras">Radary</string>
   <string name="show_traffic_warnings">Rýchlostné obmedzenia</string>
   <string name="avoid_toll_roads">Spoplatneným cestám</string>
@@ -1069,16 +1046,16 @@
 <string name="rendering_attr_contourLines_description">Výber minimálneho priblíženia na zobrazenie na mape, ak sú dostupné. Môže byť vyžadovaný oddelený SRTM súbor:</string>
   <string name="osmand_long_description_1000_chars">"OsmAnd (OSM Automatizované navigačné pokyny) OsmAnd je open source navigačná aplikácia s prístupom k širokej škále globálnych dát OpenStreetMap (OSM). Všetky mapové podklady (vektorové alebo dlaždice máp) môžu byť uložené na karte pamäti telefónu pre offline použitie. OsmAnd tiež ponúka offline a online smerovacie funkcie, vrátane turn-by-turn hlasových pokynov. Niektoré z hlavných funkcií:\n- Kompletné funkcie v režime offline (uloženie stiahnutých vektorových alebo dlaždicových máp vo voliteľnej zložke)
 \n- Kompaktné offline vektorové mapy pre celý svet\n- Stiahnutie máp pre krajinu alebo región priamo z aplikácie
-\n- Možné prekrytia niekoľkých mapových vrstiev ako GPX alebo navigačná trasa, bodz záujmu, obľúbené, vrstevnice, dopravné spojenie verejnými dopravnými zastávky, ďalšie mapy s prispôsobiteľnou transparentnosťou\n- Offline vyhľadávanie adries a miest (POI) - Offline smerovania pre krátke vzdialenosti (experimentálne)
-\n- Režimi pre auto, bicykel, a peší režim s:
-\n - voliteľným/automatickým denným / nočným režimom\n - voliteľné približovanie mapz v závislosti na rýchlosti\n - voliteľné otáčanie mapy podľa kompasu alebo smeru pohybu\n - voliteľne navádzanie do jazdných pruhov, yobrayenie obmedzenie rýchlosti, nahrané a TTS hlasy
+\n- Možné prekrytia niekoľkých mapových vrstiev ako GPX alebo navigačná trasa, body záujmu, obľúbené, vrstevnice, dopravné spojenie verejnými dopravnými zastávky, ďalšie mapy s prispôsobiteľnou transparentnosťou\n- Offline vyhľadávanie adries a miest (POI) - Offline smerovania pre krátke vzdialenosti (experimentálne)
+\n- Režimy pre auto, bicykel, a peší režim s:
+\n - voliteľným/automatickým denným / nočným režimom\n - voliteľné približovanie mapz v závislosti na rýchlosti\n - voliteľné otáčanie mapy podľa kompasu alebo smeru pohybu\n - voliteľne navádzanie do jazdných pruhov, zobrazenie obmedzenie rýchlosti, nahrané a TTS hlasy
 \nObmedzenia tejto voľnej verzie OsmAndu:
-\n- Počet stiahnutí máp je obmedzené\n- Žiadny prístup k POI offline Wikipédii\nOsmAnd je aktívne vyvíjaný a náš projekt a jeho ďalší pokrok závisí od finančných príspevkov na financovanie rozvoja a testovanie nových funkcii. Prosím, zvážte nákup OsmAnd+, alebo financovanie konkrétných nových funkcii (bidforfix) alebo všeobecný dar. Viac na www.osmand.net. "</string>
+\n- Počet stiahnutí máp je obmedzené\n- Žiadny prístup k POI offline Wikipédii\nOsmAnd je aktívne vyvíjaný a náš projekt a jeho ďalší pokrok závisí od finančných príspevkov na financovanie rozvoja a testovanie nových funkcii. Prosím, zvážte nákup OsmAnd+, alebo financovanie konkrétnych nových funkcii (bidforfix) alebo všeobecný dar. Viac na www.osmand.net. "</string>
 	<string name="osmand_plus_long_description_1000_chars">"OsmAnd (OSM Automatizované navigačné pokyny) OsmAnd je open source navigačná aplikácia s prístupom k širokej škále globálnych dát OpenStreetMap (OSM). Všetky mapové podklady (vektorové alebo dlaždice máp) môžu byť uložené na karte pamäti telefónu pre offline použitie. OsmAnd tiež ponúka offline a online smerovacie funkcie, vrátane turn-by-turn hlasových pokynov. Niektoré z hlavných funkcií:\n- Kompletné funkcie v režime offline (uloženie stiahnutých vektorových alebo dlaždicových máp vo voliteľnej zložke)
 \n- Kompaktné offline vektorové mapy pre celý svet\n- Neobmedzené stiahnutie máp pre krajinu alebo región priamo z aplikácie
-\n- Offlinové body záujmu z Wikipedie (Stiahnite si Wikipedia POIs)\n- Možné prekrytia niekoľkých mapových vrstiev ako GPX alebo navigačná trasa, bodz záujmu, obľúbené, vrstevnice, dopravné spojenie verejnými dopravnými zastávky, ďalšie mapy s prispôsobiteľnou transparentnosťou\n- Offline vyhľadávanie adries a miest (POI) - Offline smerovania pre krátke vzdialenosti (experimentálne)
+\n- Offlinové body záujmu z Wikipedie (Stiahnite si Wikipedia POIs)\n- Možné prekrytia niekoľkých mapových vrstiev ako GPX alebo navigačná trasa, body záujmu, obľúbené, vrstevnice, dopravné spojenie verejnými dopravnými zastávky, ďalšie mapy s prispôsobiteľnou transparentnosťou\n- Offline vyhľadávanie adries a miest (POI) - Offline smerovania pre krátke vzdialenosti (experimentálne)
 \n- Režimi pre auto, bicykel, a peší režim s:
-\n - voliteľným/automatickým denným / nočným režimom\n - voliteľné približovanie mapz v závislosti na rýchlosti\n - voliteľné otáčanie mapy podľa kompasu alebo smeru pohybu\n - voliteľne navádzanie do jazdných pruhov, yobrayenie obmedzenie rýchlosti, nahrané a TTS hlasy "</string>
+\n - voliteľným/automatickým denným / nočným režimom\n - voliteľné približovanie mapy v závislosti na rýchlosti\n - voliteľné otáčanie mapy podľa kompasu alebo smeru pohybu\n - voliteľne navádzanie do jazdných pruhov, zobrazenie obmedzenie rýchlosti, nahrané a TTS hlasy "</string>
 	<string name="tip_rotation_switching_t_v2">"Môžete prepínať, či a ako sa zobrazenie mapy otáča tým, že opakovane kliknete na ikonu kompasu v obrazovke mapy. Možnosti sú:\n\'Neotáčať (sever je hore)\' - Mapa sa nebude otáčať. Sever bude vždy hore\n\'Otáčať v smeru pohybu\' - Mapa bude priebežne otáčaná podľa smeru pohybu\n\'Kompas\' - Mapa bude priebežne otáčaná podľa kompasu v zariadení (ak je k dispozícii) "</string>
 	<string name="tip_day_night_mode_t_v2">"Vzhľad mapy sa môže u niektorých vektorových máp meniť medzi dňom (svetlejší) a nocou (tmavšie).\nNočné farby sú bezpečnejšie pre jazdu v noci.\nMôžete nastaviť pravidlá pre prepínanie deň / noc v \'Menu\' -&gt; \'Konfigurácia obrazovky…\' -&gt; \'Deň / noc mapy\'.
 \nMožnosti sú:
@@ -1100,7 +1077,8 @@
 	<string name="safe_mode">Bezpečný režim</string>
     <string name="safe_mode_description">Spustenie aplikácie v bezpečnom režime (namiesto natívneho kódu sa použije pomalší kód pre Android).</string>
     <string name="background_service_is_enabled_question">Služba na pozadí je stále spustená. Chcete ju zrušiť?</string>
-    <string name="tip_recent_changes_1_0_0_t">"Zmeny vo verzii 1.0.0 :\n\t* Vylepšená navigácia: rýchlejšia a precíznejšia, až do vzdialenosti 250 km\n\t* Zavedené mapy obsahujúce iba cestnú sieť\n\t* Umiestnenie na mape nie je po prerušeniach stratené\n\t* Zapnutie služby na pozadí počas navigácie "</string>
+    <string name="tip_recent_changes_1_0_0_t">Zmeny vo verzii 1.0.0 :\n\t* Vylepšená navigácia: rýchlejšia a precíznejšia, až do vzdialenosti 250 km\n\t* Zavedené mapy obsahujúce iba cestnú sieť\n\t* Umiestnenie na mape nie je po prerušeniach stratené\n\t* Zapnutie služby na pozadí počas navigácie
+    </string>
     <string name="native_library_not_running">Aplikácia je spustená v bezpečnom režime (vypnete ho v nastaveniach).</string>
     <string name="download_roads_only_maps">Iba mapy ciest</string>
     <string name="download_roads_only_item">Cesty</string>
@@ -1112,8 +1090,8 @@
     <string name="search_villages_and_postcodes">Vyhľadať obce/PSČ</string>
 	<string name="route_descr_lat_lon">Šírka %1$.3f dĺžka %2$.3f</string>
     <string name="route_descr_current_location">Aktuálna pozícia</string>
-    <string name="route_descr_from_to">Z %1$s\nDo %2$s</string>
-    <string name="route_descr_from_to_via">Z : %1$s\nCez : %2$s\nDo : %3$s</string>
+    
+    
     <string name="map_widget_max_speed">Obmedzenie rýchlosti</string>
     <string name="monitoring_control_start">spustiť</string>
     <string name="rendering_attr_noAdminboundaries_name">Skryť hranice</string>
@@ -1136,14 +1114,15 @@
     <string name="av_use_external_recorder_descr">Použiť systémový rekordér videa</string>
     <string name="av_use_external_recorder">Použiť externý rekordér</string>
     <string name="av_settings_descr">Konfigurácia nastavení zvuku a videa</string>
-    <string name="av_settings">"Nastavenia zvuku a videa "</string>
-    <string name="recording_error">"Vyskytla sa chyba pri nahrávaní "</string>
+    <string name="av_settings">Nastavenia zvuku a videa </string>
+    <string name="recording_error">Vyskytla sa chyba pri nahrávaní </string>
     <string name="recording_camera_not_available">Fotoaparát nie je k dispozícii</string>
     <string name="recording_is_recorded">Zvuk/video sa zaznamenáva. Záznam môžete zastaviť stlačením stop tlačidla na widgete.</string>
     <string name="recording_playing">Je prehrávaný zvuk zo zadaného záznamu.\n%1$s</string>
     <string name="recording_open_external_player">Otvoriť externý prehrávač</string>
     <string name="recording_delete_confirm">Chcete odstrániť tento záznam?</string>
-    <string name="tip_recent_changes_1_1_0_t">"Zmeny v 1.1.0:\n\t* Modul vzdialenostná kalkulačka\n\t* Modul zvukový záznam\n\t* Modul vrstevníc\n\t* Opravené chyby\n\t* \"Touristický náhľad\" ako štýl mapy s väčšími detailami, nový cestný štýl, viac kontrastu, a štýl Alpská turistika (SAC meradle)\n\t* EGM96 geoid korekcia nadmorskej výšky získanej z GPS "</string>
+    <string name="tip_recent_changes_1_1_0_t">Zmeny v 1.1.0:\n\t* Modul vzdialenostná kalkulačka\n\t* Modul zvukový záznam\n\t* Modul vrstevníc\n\t* Opravené chyby\n\t* \"Touristický náhľad\" ako štýl mapy s väčšími detailami, nový cestný štýl, viac kontrastu, a štýl Alpská turistika (SAC meradle)\n\t* EGM96 geoid korekcia nadmorskej výšky získanej z GPS
+    </string>
     <string name="recording_unavailable">nedostupné</string>
     <string name="recording_context_menu_arecord">Zaznamenať zvukovú poznámku</string>
     <string name="recording_context_menu_vrecord">Zaznamenať video poznámku</string>
@@ -1158,10 +1137,10 @@
     <string name="map_widget_av_notes">Zvukové poznámky</string>
     <string name="osmand_srtm_short_description_80_chars">OsmAnd modul pre vrstevnice</string>
     <string name="osmand_srtm_long_description_1000_chars">Tento module poskytuje vrstevnice, ktoré môžu byť zobrazené v OsmAnd\'s offline mapách. Globálne údaje (medzi 70 stupňov sever a juh 70 stupňov) je založený na meraní SRTM (Shuttle Radar Topographz Mission) a ASTER (Advanced Spaceborne tepelné vyžarovanie a reflexie rádiometre), zobrazovanie nástroj na palube Terra, vlajkový satelit NASA Earth Observing System. ASTER je kooperatívne úsilie medzi NASA, Japonským ministerstvom hospodárstva, obchodu a priemyslu (METI) a Japonským vesmírnych systémov (J-spacesystems).</string>
-    <string name="osmand_distance_plugin_description">Zmerajte vzdialenosť medzi dvoma a viac bodmi. Pridať bodz môžete krátkym kliknutím a odstrániť dlhým stlačením.</string>
-    <string name="osmand_distance_plugin_name">Kalkulačka vzdialenosti</string>
-    <string name="use_clear_distance_measurement">Kliknite ešte raz pre zmazanie meracích bodov.</string>
-    <string name="use_distance_measurement">Ťuknite pre pridanie bodu, stlačte a podržte pre odstránenie predchádzajúceho bodu, kliknite na merací widget pre ukončenie.</string>
+    
+    
+    
+    
     <string name="map_widget_distancemeasurement">Meranie vzdialenosti</string>
     <string name="audionotes_location_not_defined">Umiestnenie spojené s poznámkou, ešte nie je definované. Ak chcete použiť špecifické umiestnenie, použite: \"Použiť umiestnenie...\"</string>
     <string name="monitoring_control_stop">zastaviť</string>
@@ -1184,11 +1163,12 @@
     <string name="dist_control_start">Začiatok</string>
     <string name="precise_routing_mode">Precízna navigácia (vo vývoji)</string>
     <string name="index_name_openmaps">OpenMaps EU</string>
-    <string name="tip_recent_changes_1_1_2_t">"Zmeny vo verzii 1.1.2:
+    <string name="tip_recent_changes_1_1_2_t">Zmeny vo verzii 1.1.2:
 \n\t* Vylepšenie zásuvného modulu pre Audio/video (fotografie s informáciami EXIF)
 \n\t* Opravená použiteľnosť a prepracovaný zásuvný modul pre vrstevnice
 \n\t* Balíky s tieňovanými rleiéfmi pre zás. modul s vrstevnicami
-\n\t* Opravy chýb (suboptimálna navigácia) "</string>
+\n\t* Opravy chýb (suboptimálna navigácia)
+    </string>
     <string name="av_use_external_camera_descr">Použiť systémovú aplikáciu na zachytenie fotografie</string>
     <string name="av_use_external_camera">Použiť aplikáciu Fotoaparát</string>
     <string name="download_hillshade_item">Tieňovaný reliéf</string>
@@ -1210,13 +1190,14 @@
     <string name="layer_hillshade">Vrstva s tieňovaným reliéfom</string>
     <string name="osmand_play_title_30_chars">OsmAnd mapy a navigácia</string>
 	<string name="osmand_plus_play_title_30_chars">OsmAnd+ mapy a navigácia</string>
-	<string name="tip_recent_changes_1_1_4_t">"Zmeny vo verzii 1.1.4:
+	<string name="tip_recent_changes_1_1_4_t">Zmeny vo verzii 1.1.4:
 \n\t* Opravy chýb (doladená navigácia, hľadanie, audio/video záznam, hlasové povely, niekoľko vylepšení zobrazenia)
 \n\t* Jednoduchšia konfigurácia prekrývacej vrstvy s tieňovanými reliéfmi (vyžaduje zás. modul s vrstevnicami)
 \n\t* Prijímanie odkazov umiestnení z maps.google.com
 \n\t* Pridaná podpora viacerých okien pre najnovšie zariadenia Samsung
 \n\t* Kalmanov filter pre kompas
-\n\t* Podpora hodiniek Pebble "</string>
+\n\t* Podpora hodiniek Pebble
+    </string>
     <string name="save_current_track_widget">Uložiť
 \n aktuálnu stopu GPX</string>
 	<string name="street_name">Ulica</string>
@@ -1232,8 +1213,9 @@
     <string name="local_openstreetmap_act_title">OSM úpravy</string>
     <string name="default_buttons_other_actions">Ostatné akcie</string>
     <string name="download_using_mobile_internet">Momentálne nie ste pripojený cez WiFi. Chcete pokračovať so sťahovaním pomocou aktuálneho internetového pripojenia?</string>
-    <string name="tip_recent_changes_1_3_t">"Zmeny vo verzii 1.5:
-\n\t* Téma Holo (prispôsobenie témy) "</string>
+    <string name="tip_recent_changes_1_3_t">Zmeny vo verzii 1.5:
+\n\t* Téma Holo (prispôsobenie témy)
+    </string>
     <string name="cancel_route">Zrušiť cestu</string>
     <string name="cancel_navigation">Zastaviť navigáciu</string>
     <string name="clear_destination">Zmazať cieľ</string>
@@ -1246,7 +1228,7 @@
     <string name="wait_current_task_finished">Prosím, čakajte, kým sa dokončí aktuálna úloha</string>
     <string name="use_kalman_filter_compass_descr">Použiť Kalmanov filter na zabránenie odchýliek kompasu</string>
     <string name="use_kalman_filter_compass">Upožiť Kalmanov filter</string>
-    <string name="access_mark_final_location_first">Režim zjednodušeného obládania: prosím, najskôr vyberte cieľ</string> 
+    <string name="access_mark_final_location_first">Režim zjednodušeného ovládania: prosím, najskôr vyberte cieľ</string> 
     <string name="delete_point">Odstrániť bod</string>
     <string name="plugin_distance_point_time">čas</string>
     <string name="plugin_distance_point_hdop">presnosť</string>
@@ -1258,4 +1240,51 @@
     <string name="search_street_in_neighborhood_cities">Vyhľadať ulicu v susednom meste</string>
     <string name="local_osm_changes_backup_failed">Záloha OSM zmien zlyhala</string>
     <string name="local_osm_changes_backup">Zálohovať ako OSM zmenu</string>
-    </resources>
+    <string name="please_select_address">Najskôr vyberte mesto alebo ulicu</string>
+    <string name="local_osm_changes_backup_successful">Zmenový súbor pre OSM bol úspešne vygenerovaný %1$s</string>
+    <string name="context_menu_item_destination_point">Určiť ako cieľ</string>
+    <string name="tip_recent_changes_1_4_t">Zmeny vo verzii 1.4:
+\n\t* Usporiadanie waypointov pre optimálne navštívenie všetkých (Obchdoný cestujúci, od dvier k dverám)
+\n\t* Vyhľadávanie ulíc podľa názvu (v susedstve)
+\n\t* Zásuvný modul Plánovací režim (načítanie/úprava/uloženie stôp GPX)
+\n\t* Nová sťahovacia obrazovka (sťahovanie na pozadí)
+\n\t* Podpora podpriečinkov pre GPX (organizujte vaše GPX stopy)
+\n\t* Odstránenie súborov SRTM
+\n\t* Podpora poznámok OSM 
+    </string>
+    <string name="destination_point">Cieľ %1$s</string>
+    <string name="intermediate_items_sort_return">Cesta bola zoptimalizovaná.</string>
+    <string name="intermediate_items_sort_by_distance">Zoptimalizuj</string>
+    <string name="local_index_gpx_timespan">\nČasové rozpätie: %1$d:%2$02d:%3$02d</string>
+	<string name="local_index_gpx_timemoving">\nČas pohybu: %1$d:%2$02d:%3$02d</string>
+	<string name="osmand_distance_planning_plugin_description">Vytvorenie cesty (alebo použite/upravite existujúce GPX súbory) pre meranie vzdialenosti medzi bodmi. Uložiť ako GPX, možno použiť pre plánovanie GPX trasy.</string>
+    <string name="osmand_distance_planning_plugin_name">Kalkulačka vzdialenosti a plánovač cesty</string>
+    <string name="use_distance_measurement_help">* Kliknutím označiť miesto.\n
+    * Stlačte a podržte na mape na odstránenie predchádzajúceho bodu.\n
+    * Stlačte a podržte na bode pre zobrazenie alebo pridanie popisu.\n
+    * Kliknite na iconu merania pre ďaľšie možnosti.</string>
+    <string name="default_buttons_do_not_show_again">Znovu nezobrazovať</string>
+    <string name="distance_measurement_start_editing">Začni úpravy</string>
+    <string name="distance_measurement_finish_editing">Ukonči úpravy</string>
+    <string name="distance_measurement_finish_subtrack">Začnite novú podtrasu</string>
+    <string name="distance_measurement_clear_route">Vymazať všetky body</string>
+    <string name="distance_measurement_save_gpx">Uložiť ako GPX</string>
+    <string name="distance_measurement_load_gpx">Otvoriť existujúci GPX</string>
+    <string name="osmand_monitoring_plugin_description">Povoliť sledovanie a navigáciu na pozadí (obrazovka vypnutá) cez periodické používanie GPS zariadenia.
+    Zobraziť nastavenia pre sledovanie vašej cesty do GPX súboru alebo pomocou on-line webovej služby.</string>
+    <string name="local_indexes_cat_srtm">Dáta s vrstevnicami</string>
+    <string name="downloading_file_new">Sťahovanie…</string>
+	<string name="keep_intermediate_points">Zachovať prechodné body</string>
+    <string name="new_directions_point_dialog">Už máte určené prechodné body.</string>
+    <string name="context_menu_item_directions_to">Pokyny sem</string>
+    <string name="context_menu_item_directions_from">Pokyny odtiaľto</string>
+    <string name="route_descr_map_location">Mapa: </string>
+    <string name="route_to">Kam:</string>
+    <string name="route_via">Cez:</string>
+    <string name="route_from">Odkiaľ:</string>
+    <string name="speak_warnings_title">Ohlasovať varovania…</string>
+	<string name="speak_warnings_descr">Konfigurácia dopravných varovaní (vynútené zastavenie, spomaľovače), upozornenie pred radarom, rýchlostné obmedzenia</string>
+    <string name="speak_speed_limit">Ohlásiť obmedzenie rýchlosti</string>
+    <string name="speak_cameras">Ohlásiť radary</string>
+	<string name="speak_traffic_warnings">Ohlásiť dopravné varovania</string>
+	</resources>

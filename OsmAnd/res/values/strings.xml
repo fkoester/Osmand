@@ -9,6 +9,44 @@
          3. All your modified/created strings are in the top of the file (to make easier find what\'s translated).
     PLEASE: Have a look at http://code.google.com/p/osmand/wiki/UIConsistency, it may really improve your and our work  :-)  Thx - Hardy
     -->
+
+	<string name="osmodroid_mode_on">Stop OsMoDroid</string>    
+    <string name="osmodroid_mode_off">Start OsMoDroid</string>
+    <string name="announce_gpx_waypoints">Announce GPX waypoints</string>
+    <string name="speak_title">Announce&#8230;</string>
+	<string name="speak_descr">Configure to announce street names, traffic warnings (forced stops, speed bumps), speed camera warnings, speed limits</string>
+	<string name="speak_street_names">Announce street names (TTS)</string>
+    <string name="speak_speed_limit">Announce speed limit</string>
+    <string name="speak_cameras">Announce speed cameras</string>
+	<string name="speak_traffic_warnings">Announce traffic warnings</string>
+    <string name="tip_recent_changes_1_5_t">Changes in 1.5:
+	\n\t* Voice warnings about speed limits and cameras
+	\n\t* More voice prompt capabilities (street names announced)
+	\n\t* High density map icons
+	\n\t* Lots of UI changes
+	\n\t* Bugfixes in distance display, GPX analyzer, waypoint handling, planning widget, OSM uploading, https handling
+    </string>
+    <string name="osb_author_or_password_not_specified">Please specify OSM user and password in Settings</string>
+    <string name="clear_intermediate_points">Clear intermediate points</string>
+    <string name="keep_intermediate_points">Keep intermediate points</string>
+    <string name="new_directions_point_dialog">You already have intermediate points set.</string>
+    <string name="context_menu_item_directions_to">Directions To</string>
+    <string name="context_menu_item_directions_from">Directions From</string>
+    <string name="route_descr_map_location">Map: </string>
+    <string name="route_descr_lat_lon">Lat %1$.3f, lon %2$.3f</string>
+    <string name="route_descr_current_location">Current position</string>
+    <string name="route_descr_destination"></string>
+    <string name="route_to">To:</string>
+    <string name="route_via">Via:</string>
+    <string name="route_from">From:</string>
+	<string name="local_index_gpx_timespan">\nTime span: %1$d:%2$02d:%3$02d</string>
+	<string name="local_index_gpx_timemoving">\nTime moving: %1$d:%2$02d:%3$02d</string>
+	<string name="app_mode_default">Browse map</string>
+	<string name="settings_preset">Default profile</string>
+	<string name="settings_preset_descr">Map view and navigation settings are remembered per use profile. Set your default profile here.</string>
+    <string name="destination_point">Destination %1$s</string>
+    <string name="context_menu_item_destination_point">Set as destination</string>
+    <string name="please_select_address">Select city or street first</string>
     <string name="tip_recent_changes_1_4_t">Changes in 1.4:
 	\n\t* Order waypoints in optimal way to visit all (Travelling salesman, door-to-door)
 	\n\t* Search street by name (in neighborhood) 
@@ -19,7 +57,7 @@
 	\n\t* Support OSM Notes 
     </string>
     <string name="search_street_in_neighborhood_cities">Search street in neighborhood cities</string>
-    <string name="intermediate_items_sort_return">Positions ordered to form optimal way from map position to the target location</string>
+    <string name="intermediate_items_sort_return">Intermediate waypoints resorted to optimize their order on the way to the destination.</string>
     <string name="intermediate_items_sort_by_distance">Sort (door-to-door)</string>
     <string name="local_osm_changes_backup_successful">OSM change file succesfully generated %1$s</string>
     <string name="local_osm_changes_backup_failed">Backup OSM changes failed</string>
@@ -77,7 +115,7 @@
     <string name="osmand_background_plugin_description">Show settings to enable tracking and navigation in sleep (screen off) mode via periodically waking up the GPS device.</string>
     <string name="contribution_activity">Install version</string>
     <string name="choose_osmand_theme_descr">Choose application theme</string>
-    <string name="choose_osmand_theme">App Theme</string>
+    <string name="choose_osmand_theme">App theme</string>
     <string name="accessibility_options">Accessibility options</string>
     <string name="select_address_activity">Select address</string>
     <string name="favourites_list_activity">Select favorite</string>
@@ -126,7 +164,7 @@
     <string name="local_indexes_cat_srtm">Contour lines data</string>
     <string name="local_indexes_cat_av">Audio/Video data</string>
     <string name="stop_routing_confirm">Are you sure you want to stop the navigation?</string>
-    <string name="clear_dest_confirm">Are you sure you want to clear your destination point?</string>
+    <string name="clear_dest_confirm">Are you sure you want to clear your destination point (and waypoints)?</string>
     <string name="precise_routing_mode_descr">Enable precise routing to calculate precise routes without glitches. It is very limited by distance and doesn\'t use native library.</string>
     <string name="precise_routing_mode">Precise routing (alpha)</string>
     <string name="recording_context_menu_show">Show</string>
@@ -181,7 +219,7 @@
     <string name="osmand_srtm_short_description_80_chars">OsmAnd plugin for offline contour lines</string>
     <string name="osmand_srtm_long_description_1000_chars">This plugin provides contour lines which can be displayed in OsmAnd\'s offline maps. The global data (between 70 degrees north and 70 degrees south) is based on measurements by SRTM (Shuttle Radar Topography Mission) and ASTER (Advanced Spaceborne Thermal Emission and Reflection Radiometer), an imaging instrument onboard Terra, the flagship satellite of NASA\'s Earth Observing System. ASTER is a cooperative effort between NASA, Japan\'s Ministry of Economy, Trade and Industry (METI), and Japan Space Systems (J-spacesystems).</string>
     <string name="map_widget_distancemeasurement">Distance measurement</string>
-    <string name="audionotes_location_not_defined">Location to associate with the note is not defined yet. \"Use location...\" to assign a note to the specified location</string>
+    <string name="audionotes_location_not_defined">Location to associate with the note is not defined yet. \"Use location …\" to assign a note to the specified location</string>
     <string name="monitoring_control_stop">stop</string>
     <string name="map_widget_audionotes">Audio notes</string>
     <string name="audionotes_plugin_description">Take audio/video notes during the trip</string>
@@ -208,10 +246,6 @@
 	</string>
     <string name="map_widget_max_speed">Speed limit</string>
     <string name="monitoring_control_start">GPX</string>
-    <string name="route_descr_lat_lon">Lat %1$.3f, lon %2$.3f</string>
-    <string name="route_descr_current_location">Current position</string>
-    <string name="route_descr_from_to">From: %1$s\nTo: %2$s</string>
-    <string name="route_descr_from_to_via">From: %1$s\nVia: %2$s\nTo: %3$s</string>
     <string name="no_buildings_found">No buildings found.</string>
     <string name="incremental_search_city">Search city incrementally</string>
     <string name="search_villages_and_postcodes">Search villages/postcode</string>
@@ -252,7 +286,6 @@
 	<string name="delete_target_point">Remove waypoint</string>
 	<string name="target_point">Waypoint %1$s</string>
     <string name="intermediate_point">Waypoint %1$s</string>
-    <string name="navigate_to">Set as destination</string>
     <string name="context_menu_item_last_intermediate_point">Add as last waypoint</string>
     <string name="context_menu_item_first_intermediate_point">Add as first waypoint</string>
     <string name="add_as_last_destination_point">Add as last waypoint</string>
@@ -271,7 +304,7 @@
     <string name="poi_filter_emergency">Emergency</string>
     <string name="poi_filter_public_transport">Public Transport</string>
     <string name="poi_filter_entertainment">Entertainment</string>
-    <string name="poi_filter_accomodation">Accomodation</string>
+    <string name="poi_filter_accomodation">Accommodation</string>
     <string name="poi_filter_restaurants">Restaurants</string>
     <string name="poi_filter_sightseeing">Sightseeing</string>
     <string name="poi_filter_car_aid">Car aid</string>
@@ -505,7 +538,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="live_monitoring_mode_on">Stop\n online tracking</string>
 	<string name="position_on_map_descr">Choose location of position marker on the map</string>
 	<string name="position_on_map">Position marker</string>
-	<string name="layer_map_appearance">Configure screen&#8230;</string>
+	<string name="layer_map_appearance">Configure screen</string>
 	<string name="show_lanes">Show lanes</string>
 	<string name="avoid_unpaved">Avoid unpaved roads</string>
 	<string name="avoid_ferries">Avoid ferries</string>
@@ -525,7 +558,6 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="screen_is_locked">To unlock screen press lock icon</string>
 	<string name="map_widget_top_text">Street name</string>
 	<string name="map_widget_config">Configure screen</string>
-	<string name="map_widget_map_select">Map source</string>
 	<string name="map_widget_back_to_loc">Where am I</string>
 	<string name="map_widget_lock_screen">Lock screen</string>
 	<string name="map_widget_compass">Compass</string>
@@ -564,7 +596,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 		\n\t* Parking plugin (\'Where is my car parked at?\')
 		\n\t* Enable/disable logging widget
 	</string>
-	<string name="select_animate_speedup">Select animate route acceleration</string>
+	<string name="select_animate_speedup">Select speed of route simulation</string>
     	<string name="global_app_allocated_memory_descr">Allocated memory %1$s MB (Android limit %2$s MB, Dalvik %3$s MB).</string>
 	<string name="global_app_allocated_memory">Allocated memory</string>
 	<string name="native_app_allocated_memory_descr">Total native memory allocated by app %1$s MB (Dalvik %2$s MB, other %3$s MB).
@@ -626,7 +658,6 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="download_link_and_local_description">Click here to download or update offline data. \nClick any existing item to see more details, press and hold to deactivate or delete. Current data on device (%1$s free):</string>
 	<string name="unknown_from_location">Starting point is not yet determined</string>
 	<string name="unknown_location">Position not yet known</string>
-	<string name="context_menu_item_directions">Directions to here</string>
 	<string name="modify_transparency">Modify transparency (0 - transparent, 255 - opaque)</string>
 	<string name="confirm_interrupt_download">Do you want to interrupt file downloading?</string>
 	<string name="first_time_msg">Thank you for using OsmAnd. For many features of this application you need some regional offline data which you can download via \'Settings\' ->  \'Data Management\'. Afterwards you will be able to view maps, locate addresses, look up POIs, and find public transportation.</string>    
@@ -648,7 +679,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="extra_settings">Advanced settings</string>
 	<string name="osmand_monitoring_description">Show settings facilitating to record your trips to local GPX files or online using a web service.</string>
 	<string name="osmand_extra_settings_description">Display settings for advanced map configuration (like increase map details) and some device-specifics.</string>
-	<string name="osmand_development_plugin_description">Show settings for development and debugging features like animated navigation or rendering performance display.</string>
+	<string name="osmand_development_plugin_description">Show settings for development and debugging features like route simulation or rendering performance display.</string>
 	<string name="plugins_screen">Plugins</string>
 	<string name="select_plugin_to_activate">Touch a Plugin to activate or deactivate it. (Restarting OsmAnd may be required.)</string>
 	<string name="prefs_plugins_descr">Plugins activate advanced settings and additional functionality</string>
@@ -762,10 +793,9 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 		\n\t- Other changes
 	</string>
 	<string name="update_poi_does_not_change_indexes">POI changes inside application do not affect downloaded map files, changes are saved to local file instead.</string>
-	<string name="local_openstreetmap_uploading">Uploading…</string>
+	<string name="local_openstreetmap_uploading">Uploading …</string>
 	<string name="local_openstreetmap_were_uploaded">{0} POI/Bugs were uploaded</string>
 	<string name="local_openstreetmap_uploadall">Upload all</string>
-	<string name="local_openstreetmap_items"></string>
 	<string name="local_openstreetmap_show">Show on map</string>
 	<string name="local_openstreetmap_upload">Upload modification to OSM</string>
 	<string name="local_openstreetmap_delete">Delete modification</string>
@@ -776,7 +806,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="live_monitoring">Online tracking</string>
 	<string name="live_monitoring_interval_descr">Specify online tracking interval</string>
 	<string name="live_monitoring_interval">Online tracking interval</string>
-	<string name="live_monitoring_url_descr">Specify the web address with parameter syntax: lat={0}, lon={1}, timestamp={2}, hdop={3}, altitude={4}, speed={5}</string>
+	<string name="live_monitoring_url_descr">Specify the web address with parameter syntax: lat={0}, lon={1}, timestamp={2}, hdop={3}, altitude={4}, speed={5}, bearing={6}</string>
 	<string name="live_monitoring_url">Online tracking web address</string>
 	<string name="gpx_monitoring_disabled_warn">Please enable \'Log track to GPX file\' settings.</string>
 	<string name="show_current_gpx_title">Show current track</string>
@@ -801,18 +831,16 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="index_name_oceania">Oceania</string>
 	<string name="index_name_other">Worldwide and topic maps</string>
 	<string name="index_name_wiki">Worldwide Wikipedia POIs</string>
-	<string name="index_name_voice">Voice packs (recorded)</string>
-	<string name="index_name_tts_voice">Voice packs (TTS)</string>
+	<string name="index_name_voice">Voice packs (recorded, limited features)</string>
+	<string name="index_name_tts_voice">Voice packs (TTS-synthesized, prefer)</string>
 	<string name="amenity_type_wikiosm">Wikipedia (offline)</string>
 	<string name="amenity_type_user_defined">User defined</string>
 	<string name="fav_export_confirmation">File with previously exported favorites already exists. Do you want to replace it?</string>
 	<string name="profile_settings">Profile Specific Settings</string>
-	<string name="settings_preset">User Profile</string>
-	<string name="settings_preset_descr">Select a user profile with custom map and navigation settings.</string>
 	<string name="routing_settings">Navigation</string>
 	<string name="routing_settings_descr">Specify options for the navigation</string>
 	<string name="global_settings">Global Settings</string>
-	<string name="index_settings">Data Management</string>
+	<string name="index_settings">Data management</string>
 	<string name="general_settings">General</string>
 	<string name="general_settings_descr">Configure display and common settings for the application</string>
 	<string name="global_app_settings">Global app settings</string>
@@ -833,7 +861,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="tip_day_night_mode">Day/Night Mode</string>
 	<string name="tip_day_night_mode_t_v2">\tThe map appearance can for some vector maps be changed between day (brighter) and night (darker).
 		\n\tNight colors are safer for night driving.
-		\n\tYou can set a policy for day/night switching in \'Menu\' -> \'Configure screen&#8230;\' ->\'Day/night map\'.
+		\n\tYou can set a policy for day/night switching in \'Menu\' -> \'Configure screen\' ->\'Day/night map\'.
 		\n\tChoices are:
 		\n\t\'Sunrise/Sunset\' - automatic mode, controlled by position of the sun (default)
 		\n\t\'Day\' - always use day mode
@@ -849,9 +877,9 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 		\n\tPlease note that Internet connectivity is needed for OSM POI and and OSM bug contributions.</string>
 	<string name="download_files_not_enough_space">There is not enough free space to download %1$s MB (free: %2$s).</string>
 	<string name="download_files_question_space">Free space now {2} MB! Download {0} file(s) ({1} MB)?</string>
-	<string name="tip_select_destination_point">Select Destination</string>
-	<string name="tip_select_destination_point_t">\tYou can select a destination directly in the map (context menu, then \'Set as destination\'), in all search activities, or via long pressing an entry in your \'List of Favorite Points\'. 
-		\n\tThe destination is marked as an orange disk on the map and OsmAnd displays the distance to it and the direction to it (orange triangle).
+	<string name="tip_select_destination_point">Get Directions</string>
+	<string name="tip_select_destination_point_t">\tYou get directions to a place in the map directly (context menu, then \'Directions\'), in all search activities, or via long pressing an entry in your \'List of Favorite Points\'. 
+		\n\tThe destination is marked as an orange target flag marker on the map and OsmAnd displays the distance to it and the direction to it (orange triangle).
 	</string> 
 	<string name="tip_recent_changes_0_6_9_t">Changes in 0.6.9 :
 		\n\t- Improved offline map rendering
@@ -881,8 +909,8 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="city_type_town">Town</string>
 	<string name="city_type_city">City</string>
 	<string name="layer_poi_label">POI labels</string>
-	<string name="animate_route_off">Stop animation</string>
-	<string name="animate_route">Start animation</string>
+	<string name="animate_route_off">Stop simulation</string>
+	<string name="animate_route">Start simulation</string>
 	<string name="tip_recent_changes_0_6_8_t">Changes in 0.6.8:
 		\n\t- Completely redesigned search (POI, Address)! Make address search much faster and more responsive. Create one Search interface with many different options.
 		\n\t- Implement POI search by name in big areas (countries)  
@@ -906,7 +934,6 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="local_index_mi_rename">Rename</string>
 	<string name="show_gpx_route">Show on map</string>
 	<string name="poi_filter_nominatim">Online Nominatim</string>
-	<string name="search_select_point">Select</string>
 	<string name="search_position_current_location_search">Searching position&#8230;</string>
 	<string name="search_position_current_location_found">Position (found)</string>
 	<string name="search_position_address">Address&#8230;</string>
@@ -953,7 +980,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="vector_data_missing">On board (\'offline\') data is missing on SD card. Please consider to download it in order to use maps offline.</string>
 	<string name="local_index_gpx_info_show">\n\nPress and hold for options</string>
 	<string name="local_index_gpx_info_speed">\nAverage speed: %1$s \nMaximum speed: %2$s</string>
-	<string name="local_index_gpx_info_elevation">\nAverage altitude: %1$.0f m\nMinimum altitude: %2$.0f m\nMaximum altitude: %3$.0f m\nAscents: %4$.0f m\nDescents: %5$.0f m</string>
+	<string name="local_index_gpx_info_elevation">\nAverage altitude: %1$s\nMinimum altitude: %2$s\nMaximum altitude: %3$s\nAscents: %4$s\nDescents: %5$s</string>
 	<string name="local_index_gpx_info">Subtracks: %1$d\nTotal points: %2$d\nWaypoints: %3$d\nTotal distance: %4$s\nStart time: %5$tF,  %5$tR\nEnd time: %6$tF,  %6$tR</string>
 	<string name="local_index_installed">Edition</string>
 	<string name="local_index_items_backuped">%1$d of %2$d item(s) successfully deactivated.</string>
@@ -972,7 +999,6 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="local_index_address_data">Address data</string>
 	<string name="local_index_transport_data">Transportation data</string>
 	<string name="local_index_map_data">Map data</string>
-	<string name="local_index_items"></string>
 	<string name="local_indexes_cat_backup">Deactivated</string>
 	<string name="local_indexes_cat_tts">Voice data (TTS)</string>
 	<string name="local_indexes_cat_voice">Voice data (recorded)</string>
@@ -1061,7 +1087,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="tip_navigation_t">\tBefore starting a navigation you need to select a destination. Afterwards press \'Menu\' -> \'Directions\' on map and select the navigation type.</string>
 	<string name="tip_search">Searching</string>
 	<string name="tip_search_t">\tYou can search for places directly on the map, or by address, by location, as POI, or as predefined favorite.
-		\n\tPressing \'Search\' on the main screen opens the search activities. For all hits a context menu offers 2 options: \'Set as destination\' or \'Show on map\'.
+		\n\tPressing \'Search\' on the main screen opens the search activities. For all hits a context menu offers the options \'Directions\' or \'Show on map\'.
 	</string>
 	<string name="tip_map_context_menu">Map Context Menu</string>
 	<string name="tip_map_context_menu_t">\tThe map context menu is available by pressing and holding on the map or by pressing the trackball button.
@@ -1088,7 +1114,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="send_location_email_pattern">To see location follow the web browser link %1$s or android intent link %2$s</string>
 	<string name="send_location">Send location</string>
 	<string name="context_menu_item_share_location">Share location</string>
-	<string name="add_waypoint_dialog_added">Waypoint \'\'{0}\'\' was successfully added</string>
+	<string name="add_waypoint_dialog_added">GPX Waypoint \'\'{0}\'\' was successfully added</string>
 	<string name="add_waypoint_dialog_title">Add waypoint to recorded GPX track</string>
 	<string name="context_menu_item_add_waypoint">Add GPX waypoint</string>
 	<string name="amenity_type_administrative">Administrative</string>
@@ -1164,7 +1190,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="continuous_rendering">Continuous rendering</string>
 	<string name="continuous_rendering_descr">Display continuous rendering instead of image-at-once</string>
 	<string name="rendering_exception">Error occurred while rendering selected area</string>
-	<string name="show_point_options">Use location...</string>
+	<string name="show_point_options">Use location …</string>
 	<string name="renderer_load_sucess">Renderer sucessfully loaded</string>
 	<string name="renderer_load_exception">Exception occured: renderer was not loaded</string>
 	<string name="renderers">Vector renderer</string>
@@ -1221,7 +1247,6 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="layer_map">Map source&#8230;</string>
 	<string name="menu_layers">Define view</string>
 	<string name="context_menu_item_search_poi">Search POI</string>
-	<string name="context_menu_item_show_route">Show route from here</string>
 	<string name="use_trackball_descr">Use trackball to move map</string>
 	<string name="use_trackball">Use trackball</string>
 	<string name="background_service_wait_int_descr">Set maximum waiting time for each background position fix</string>
@@ -1245,7 +1270,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="search_poi_filter">Filter</string>
 	<string name="menu_mute_off">Sound is on</string>
 	<string name="menu_mute_on">Sound is off</string>
-	<string name="voice_provider_descr">Select voice guidance for navigation</string>
+	<string name="voice_provider_descr">Select voice guidance for navigation (language codes see ISO 639-1)</string>
 	<string name="voice_provider">Voice guidance</string>
 	<string name="voice_data_initializing">Initializing voice data&#8230;</string>
 	<string name="voice_data_not_supported">Unsupported version of voice data</string>
@@ -1297,8 +1322,8 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="update_poi_is_not_available_for_zoom">Updating POIs is not available for small zoom levels</string>
 	<string name="context_menu_item_update_poi">Update POI</string>
 	<string name="context_menu_item_update_map_confirm">Update local data via Internet?</string>
-	<string name="search_history_city">City:\n {0}</string>
-	<string name="search_history_street">Street:\n {0}, {1}</string>
+	<string name="search_history_city">City: {0}</string>
+	<string name="search_history_street">Street: {0}, {1}</string>
 	<string name="search_history_int_streets">Intersection: {0} x {1} in {2}</string>
 	<string name="search_history_building">Building: {0}, {1}, {2}</string>
 	<string name="favorite">Favorite</string>
@@ -1309,10 +1334,10 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="search_nothing_found">Nothing found</string>
 	<string name="searching">Searching&#8230;</string>
 	<string name="searching_address">Searching address&#8230;</string>
-	<string name="search_osm_nominatim">Search address using OSM Nominatim</string>
+	<string name="search_osm_nominatim">Online search using OSM Nominatim</string>
 	<string name="hint_search_online">House number, street, city</string>
-	<string name="search_offline_address">Offline</string>
-	<string name="search_online_address">Internet</string>
+	<string name="search_offline_address">Offline search</string>
+	<string name="search_online_address">Online search</string>
 	<string name="max_level_download_tile">Max. online zoom</string>
 	<string name="max_level_download_tile_descr">Choose maximum zoom level to download for online map tiles</string>
 	<string name="route_general_information">Total distance %1$s, travelling time %2$d h %3$d m.</string>
@@ -1324,7 +1349,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="address">Address</string>
 	<string name="download_index_success">Download successful</string>
 	<string name="error_io_error">I/O error occured</string>
-	<string name="downloading_file_new">Downloading </string>
+	<string name="downloading_file_new">Downloading …</string>
 	<string name="downloading">Downloading&#8230;</string>
 	<string name="downloading_list_indexes">Downloading list of available regions&#8230;</string>
 	<string name="list_index_files_was_not_loaded">The list of regions was not retrieved from osmand.net.</string>
@@ -1399,10 +1424,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="choose_street">Choose street</string>
 	<string name="choose_city">Choose city</string>
 	<string name="ChooseCountry">Choose country</string>
-	<string name="map_specify_point">Set as destination</string>
 	<string name="show_view_angle">Display viewing direction</string>
-	
-	<string name="navigate_to_point">Set as dest.</string>
 	<string name="map_view_3d_descr">Enable 3D view of the map</string>
 	<string name="map_view_3d">Map View 3D</string>
 	<string name="show_poi_over_map_description">Show POI over map (use last chosen filter)</string>
@@ -1430,7 +1452,6 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="choose_available_region">Choose region from list</string>
 	<string name="choose_intersected_street">Choose intersecting street</string>
 	<string name="Closest_Amenities">Closest amenities</string>
-	<string name="app_mode_default">Default</string>
 	<string name="app_mode_car">Car</string>
 	<string name="app_mode_bicycle">Bicycle</string>
 	<string name="app_mode_pedestrian">Pedestrian</string>
@@ -1452,7 +1473,6 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="search_address_building_option">Building</string>
 	<string name="search_address_street_option">Intersecting street</string>
 	<string name="search_tabs_location">Location</string>
-	<string name="context_menu_item_navigate_point">Set as destination</string>
 	<string name="context_menu_item_add_favorite">Add to favorites</string>
 	<string name="context_menu_item_update_map">Update map</string>
 	<string name="context_menu_item_open_bug">Open OSM bug</string>
@@ -1465,7 +1485,6 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="add_favorite_dialog_top_text">Enter favorite name</string>
 	<string name="add_favorite_dialog_default_favourite_name">Favorite</string>
 	<string name="add_favorite_dialog_favourite_added_template">Favorite point \'\'{0}\'\' was added successfully.</string>
-	<string name="favourites_context_menu_navigate">Set as destination</string>
 	<string name="favourites_context_menu_edit">Edit favorite</string>
 	<string name="favourites_context_menu_delete">Delete favorite</string>
 	<string name="favourites_remove_dialog_msg">Remove favorite point \'%s\'?</string>
@@ -1473,6 +1492,7 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="osb_add_dialog_title">Enter bug text</string>
 	<string name="osb_add_dialog_success">Bug successfully created</string>
 	<string name="osb_add_dialog_error">Exception occured: bug was not created</string>
+	<string name="osb_author_dialog_password">OSM password (optional)</string>
 	<string name="osb_comment_menu_item">Add comment</string>
 	<string name="osb_comment_dialog_message">Message</string>
 	<string name="osb_comment_dialog_author">Author name</string>
@@ -1513,22 +1533,14 @@ Afghanistan, Albania, Algeria, Andorra, Angola, Anguilla, Antigua and Barbuda, A
 	<string name="edit_filter_create_message">Filter {0} has been created</string>
 	<string name="default_buttons_selectall">Select All</string>
 	<string name="email">email</string>
-	
-	<string name="map_widget_vehiclediagnostics_speed">Vehicle speed</string>
-	<string name="map_widget_vehiclediagnostics_engineload">Engine load</string>
-	<string name="map_widget_vehiclediagnostics_enginerpm">Engine RPM</string>
-	<string name="map_widget_vehiclediagnostics_fuelconsumption">Fuel consumption</string>
-	<string name="map_widget_vehiclediagnostics_tour">Tour data</string>
-	<string name="map_widget_vehiclediagnostics_range">Range</string>
-	
-	<string name="vehiclediagnostics_options_reset_tour">Reset Tour</string>
-	<string name="vehiclediagnostics_options_refuel">Refuel</string>
-	
-	<string name="vehiclediagnostics_dialog_reset_confirm">Really reset tour?</string>
-	<string name="vehiclediagnostics_dialog_reset_tour">Reset</string>
-	
-	<string name="vehiclediagnostics_dialog_add_fuel">Add fuel</string>
-	<string name="vehiclediagnostics_dialog_set_fuel">Set total fuel</string>
-	<string name="vehiclediagnostics_dialog_input_hint">Fuel amount</string>
-	<string name="vehiclediagnostics_dialog_refuel">Refuel</string>
+	<string name="av_camera_focus">Camera focus type</string>
+	<string name="av_camera_focus_descr">Select internal camera focus type</string>
+	<string name="av_camera_focus_auto">Auto focus</string>
+	<string name="av_camera_focus_hiperfocal">Hyperfocal focus</string>
+	<string name="av_camera_focus_edof">Extended depth of field (EDOF)</string>
+	<string name="av_camera_focus_infinity">Focus is set at infinity</string>
+	<string name="av_camera_focus_macro">Macro (close-up) focus mode</string>
+	<string name="av_camera_focus_continuous">The camera continuously tries to focus</string>
+	<string name="av_photo_play_sound">Play sound on photo shot</string>
+	<string name="av_photo_play_sound_descr">Choose whether to play a sound when shooting photos</string>
 </resources>

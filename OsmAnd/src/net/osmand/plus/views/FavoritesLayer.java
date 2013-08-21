@@ -182,7 +182,8 @@ public class FavoritesLayer extends OsmandMapLayer implements ContextMenuLayer.I
 				}
 			};
 			
-			adapter.registerItem(R.string.favourites_context_menu_delete, R.drawable.list_activities_fav_delete, listener, -1);
+			adapter.item(R.string.favourites_context_menu_delete).icons(R.drawable.ic_action_delete_dark, 
+					R.drawable.ic_action_delete_light).listen(listener).reg();
 		}
 	}
 	

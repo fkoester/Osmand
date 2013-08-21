@@ -193,10 +193,10 @@ public class FavouritesActivity extends OsmandExpandableListActivity {
 				}
 			};
 			MapActivityActions.createDirectionsActions(qa, location, point, name, settings.getLastKnownMapZoom(), this, 
-					true, onshow);
+					true, onshow, false);
 			if (point.isStored()) {
 				ActionItem edit = new ActionItem();
-				edit.setIcon(getResources().getDrawable(R.drawable.list_activities_fav_edit));
+				edit.setIcon(getResources().getDrawable(R.drawable.ic_action_edit_light));
 				edit.setTitle(getString(R.string.favourites_context_menu_edit));
 				edit.setOnClickListener(new OnClickListener() {
 					@Override
@@ -209,7 +209,7 @@ public class FavouritesActivity extends OsmandExpandableListActivity {
 
 				ActionItem delete = new ActionItem();
 				delete.setTitle(getString(R.string.favourites_context_menu_delete));
-				delete.setIcon(getResources().getDrawable(R.drawable.list_activities_fav_delete));
+				delete.setIcon(getResources().getDrawable(R.drawable.ic_action_delete_light));
 				delete.setOnClickListener(new OnClickListener() {
 					@Override
 					public void onClick(View v) {
@@ -241,7 +241,7 @@ public class FavouritesActivity extends OsmandExpandableListActivity {
 		builder.setPositiveButton(R.string.default_buttons_apply, new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				boolean editied = helper.editFavouriteName(point, editText.getText().toString(), cat.getText().toString());
+				boolean editied = helper.editFavouriteName(point, editText.getText().toString().trim(), cat.getText().toString());
 				if (editied) {
 					favouritesAdapter.synchronizeGroups();
 					favouritesAdapter.sort(favoritesComparator);
@@ -299,11 +299,11 @@ public class FavouritesActivity extends OsmandExpandableListActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(com.actionbarsherlock.view.Menu menu) {
-		createMenuItem(menu, EXPORT_ID, R.string.export_fav, R.drawable.a_5_content_save_light, R.drawable.a_5_content_save_dark,
+		createMenuItem(menu, EXPORT_ID, R.string.export_fav, R.drawable.ic_action_gsave_light, R.drawable.ic_action_gsave_dark,
 				MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-		createMenuItem(menu, IMPORT_ID, R.string.import_fav, R.drawable.a_5_content_import_export_light, R.drawable.a_5_content_import_export_dark,
+		createMenuItem(menu, IMPORT_ID, R.string.import_fav, R.drawable.ic_action_grefresh_light, R.drawable.ic_action_grefresh_dark,
 				MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT);
-		createMenuItem(menu, DELETE_ID, R.string.default_buttons_delete, R.drawable.a_5_content_discard_light, R.drawable.a_5_content_discard_dark,
+		createMenuItem(menu, DELETE_ID, R.string.default_buttons_delete, R.drawable.ic_action_delete_light, R.drawable.ic_action_delete_dark,
 				MenuItem.SHOW_AS_ACTION_IF_ROOM | MenuItem.SHOW_AS_ACTION_WITH_TEXT) ;
 		return super.onCreateOptionsMenu(menu);
 	}
@@ -323,7 +323,7 @@ public class FavouritesActivity extends OsmandExpandableListActivity {
 			@Override
 			public boolean onCreateActionMode(ActionMode mode, Menu menu) {
 				selectionMode = true;
-				createMenuItem(menu, DELETE_ACTION_ID, R.string.default_buttons_delete, R.drawable.a_5_content_discard_light, R.drawable.a_5_content_discard_dark,
+				createMenuItem(menu, DELETE_ACTION_ID, R.string.default_buttons_delete, R.drawable.ic_action_delete_light, R.drawable.ic_action_delete_dark,
 						MenuItem.SHOW_AS_ACTION_IF_ROOM);
 				favoritesToDelete.clear();
 				groupsToDelete.clear();
@@ -635,7 +635,7 @@ public class FavouritesActivity extends OsmandExpandableListActivity {
 			final FavouritePoint model = (FavouritePoint) getChild(groupPosition, childPosition);
 			row.setTag(model);
 			if(model.isStored()){
-				icon.setImageResource(R.drawable.list_activities_favorites);
+				icon.setImageResource(R.drawable.list_favorite);
 			} else {
 				icon.setImageResource(R.drawable.opened_poi);
 			}

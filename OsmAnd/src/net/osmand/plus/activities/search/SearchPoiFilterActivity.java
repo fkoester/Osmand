@@ -16,6 +16,7 @@ import net.osmand.plus.R;
 import net.osmand.plus.SearchByNameFilter;
 import net.osmand.plus.activities.EditPOIFilterActivity;
 import net.osmand.plus.activities.search.SearchActivity.SearchActivityChild;
+import net.osmand.plus.render.RenderingIcons;
 import net.osmand.plus.resources.ResourceManager;
 import android.content.Intent;
 import android.os.Bundle;
@@ -41,11 +42,7 @@ public class SearchPoiFilterActivity extends SherlockListFragment  implements Se
 	
 	@Override
 	public void onActivityCreated(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onActivityCreated(savedInstanceState);
-		
-//		setContentView(R.layout.searchpoilist);
-		
 		// ListActivity has a ListView, which you can get with:
 		ListView lv = getListView();
 
@@ -77,14 +74,6 @@ public class SearchPoiFilterActivity extends SherlockListFragment  implements Se
 	private void updateIntentToLaunch(Intent intentToLaunch){
 		LatLon loc = null;
 		boolean searchAround = false;
-		Intent intent = getSherlockActivity().getIntent();
-		if(intent != null){
-			double lat = intent.getDoubleExtra(SEARCH_LAT, 0);
-			double lon = intent.getDoubleExtra(SEARCH_LON, 0);
-			if(lat != 0 || lon != 0){
-				loc = new LatLon(lat, lon);
-			}
-		}
 		SherlockFragmentActivity parent = getSherlockActivity();
 		if (loc == null && parent instanceof SearchActivity) {
 			loc = ((SearchActivity) parent).getSearchPoint();
@@ -149,11 +138,13 @@ public class SearchPoiFilterActivity extends SherlockListFragment  implements Se
 			if(model.getFilterId().equals(PoiFilter.CUSTOM_FILTER_ID)) {
 				icon.setImageResource(android.R.drawable.ic_input_get);
 			} else if (model.getFilterId().equals(PoiFilter.BY_NAME_FILTER_ID)) {
-				//label.setTypeface(Typeface.DEFAULT, Typeface.ITALIC);
 				icon.setImageResource(android.R.drawable.ic_search_category_default);
 			} else {
-//				label.setTypeface(Typeface.DEFAULT);
-				icon.setImageResource(model.isStandardFilter() ? R.drawable.folder : R.drawable.list_activities_favorites);
+				if(RenderingIcons.containsBigIcon(model.getSimplifiedId())) {
+					icon.setImageDrawable(RenderingIcons.getBigIcon(getActivity(), model.getSimplifiedId()));
+				} else {
+					icon.setImageResource(R.drawable.mx_user_defined);
+				}
 			}
 			ImageView editIcon = (ImageView) row.findViewById(R.id.folder_edit_icon);
 			if (model.isStandardFilter()) {

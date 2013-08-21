@@ -25,6 +25,7 @@ public class SettingsNavigationActivity extends SettingsBaseActivity {
 	private Preference avoidRouting;
 	private Preference preferRouting;
 	private Preference showAlarms;
+	private Preference speakAlarms;
 	private ListPreference routerServicePreference;
 	public static final String MORE_VALUE = "MORE_VALUE";
 	
@@ -54,7 +55,7 @@ public class SettingsNavigationActivity extends SettingsBaseActivity {
 	
 		createUI();
     }
-
+	
 	private void createUI() {
 		addPreferencesFromResource(R.xml.navigation_settings);
 		PreferenceScreen screen = getPreferenceScreen();
@@ -91,9 +92,14 @@ public class SettingsNavigationActivity extends SettingsBaseActivity {
 		
 		showAlarms = (Preference) screen.findPreference("show_routing_alarms");
 		showAlarms.setOnPreferenceClickListener(this);
+		
+		speakAlarms = (Preference) screen.findPreference("speak_routing_alarms");
+		speakAlarms.setOnPreferenceClickListener(this);
+		
+		reloadVoiceListPreference(screen);
+		
+		profileDialog();
 	}
-	
-	
 
 
 	private void reloadVoiceListPreference(PreferenceScreen screen) {
@@ -123,7 +129,6 @@ public class SettingsNavigationActivity extends SettingsBaseActivity {
 		routerServicePreference.setSummary(getString(R.string.router_service_descr) + "  [" + settings.ROUTER_SERVICE.get() + "]");
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public boolean onPreferenceChange(Preference preference, Object newValue) {
 		String id = preference.getKey();
@@ -137,7 +142,7 @@ public class SettingsNavigationActivity extends SettingsBaseActivity {
 				super.onPreferenceChange(preference, newValue);
 				getMyApplication().showDialogInitializingCommandPlayer(this, false);
 			}
-			return false;
+			return true;
 		}
 		boolean changed = super.onPreferenceChange(preference, newValue);
 		
@@ -166,6 +171,11 @@ public class SettingsNavigationActivity extends SettingsBaseActivity {
 			showBooleanSettings(new String[] { getString(R.string.show_traffic_warnings), getString(R.string.show_cameras), 
 					getString(R.string.show_lanes) }, new OsmandPreference[] { settings.SHOW_TRAFFIC_WARNINGS, 
 					settings.SHOW_CAMERAS, settings.SHOW_LANES });
+			return true;
+		} else if (preference == speakAlarms) {
+			showBooleanSettings(new String[] { getString(R.string.speak_street_names),  getString(R.string.speak_traffic_warnings), getString(R.string.speak_cameras), 
+					getString(R.string.speak_speed_limit) }, new OsmandPreference[] { settings.SPEAK_STREET_NAMES, settings.SPEAK_TRAFFIC_WARNINGS, 
+					settings.SPEAK_SPEED_CAMERA , settings.SPEAK_SPEED_LIMIT});
 			return true;
 		}
 		return false;

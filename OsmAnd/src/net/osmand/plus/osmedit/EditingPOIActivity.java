@@ -24,7 +24,7 @@ import net.osmand.plus.activities.DialogProvider;
 import net.osmand.plus.activities.MapActivity;
 import net.osmand.plus.activities.OpeningHoursView;
 import net.osmand.util.OpeningHoursParser;
-import net.osmand.util.OpeningHoursParser.BasicDayOpeningHourRule;
+import net.osmand.util.OpeningHoursParser.BasicOpeningHourRule;
 import net.osmand.util.OpeningHoursParser.OpeningHours;
 import net.osmand.util.OpeningHoursParser.OpeningHoursRule;
 import android.app.AlertDialog;
@@ -104,13 +104,23 @@ public class EditingPOIActivity implements DialogProvider {
 		}
 	}
 	
-	public void showEditDialog(Amenity editA){
-		Node n = openstreetmapUtilToLoad.loadNode(editA);
-		if(n != null){
-			showPOIDialog(DIALOG_EDIT_POI, n, editA.getType(), editA.getSubType());
-		} else {
-			AccessibleToast.makeText(ctx, ctx.getString(R.string.poi_error_poi_not_found), Toast.LENGTH_SHORT).show();
-		}
+	public void showEditDialog(final Amenity editA){
+		new AsyncTask<Void, Void, Node>() {
+
+			@Override
+			protected Node doInBackground(Void... params) {
+				return openstreetmapUtilToLoad.loadNode(editA);
+			}
+			
+			protected void onPostExecute(Node n) {
+				if(n != null){
+					showPOIDialog(DIALOG_EDIT_POI, n, editA.getType(), editA.getSubType());
+				} else {
+					AccessibleToast.makeText(ctx, ctx.getString(R.string.poi_error_poi_not_found), Toast.LENGTH_SHORT).show();
+				}
+			};
+			
+		}.execute(new Void[0]);
 	}
 	
 	public void showCreateDialog(double latitude, double longitude){
@@ -126,15 +136,22 @@ public class EditingPOIActivity implements DialogProvider {
 		ctx.showDialog(dialogID);
 	}
 	
-	public void showDeleteDialog(Amenity a){
-		final Node n = openstreetmapUtil.loadNode(a);
-		if(n == null){
-			AccessibleToast.makeText(ctx, ctx.getResources().getString(R.string.poi_error_poi_not_found), Toast.LENGTH_LONG).show();
-			return;
-		}
-		dialogBundle.putSerializable(KEY_AMENITY, a);
-		dialogBundle.putSerializable(KEY_AMENITY_NODE, n);
-		ctx.showDialog(DIALOG_DELETE_POI); //TODO from android 2.0 use showDialog(id,bundle)
+	public void showDeleteDialog(final Amenity a){
+		new AsyncTask<Void, Void, Node>() {
+			protected Node doInBackground(Void[] params) {
+				return openstreetmapUtil.loadNode(a);
+			};
+			
+			protected void onPostExecute(Node n) {
+				if(n == null){
+					AccessibleToast.makeText(ctx, ctx.getResources().getString(R.string.poi_error_poi_not_found), Toast.LENGTH_LONG).show();
+					return;
+				}
+				dialogBundle.putSerializable(KEY_AMENITY, a);
+				dialogBundle.putSerializable(KEY_AMENITY_NODE, n);
+				ctx.showDialog(DIALOG_DELETE_POI); //TODO from android 2.0 use showDialog(id,bundle)
+			};
+		}.execute(new Void[0]);
 	}
 	
 	private void prepareDeleteDialog(Dialog dlg, Bundle args) {
@@ -427,27 +444,11 @@ public class EditingPOIActivity implements DialogProvider {
 				final String msg = n.getId() == -1 ? resources.getString(R.string.poi_action_add) : resources
 						.getString(R.string.poi_action_change);
 				OsmPoint.Action action = n.getId() == -1 ? OsmPoint.Action.CREATE : OsmPoint.Action.MODIFY;
-				Map<AmenityType, Map<String, String>> typeNameToTagVal = MapRenderingTypes.getDefault().getAmenityTypeNameToTagVal();
-				AmenityType type = a.getType();
-				String tag = type.getDefaultTag();
+				StringBuilder tag = new StringBuilder();
+				StringBuilder value = new StringBuilder();
 				String subType = typeText.getText().toString();
-				String val = subType;
-				if (typeNameToTagVal.containsKey(type)) {
-					Map<String, String> map = typeNameToTagVal.get(type);
-					if (map.containsKey(subType)) {
-						String res = map.get(subType);
-						if (res != null) {
-							int i = res.indexOf(' ');
-							if (i != -1) {
-								tag = res.substring(0, i);
-								val = res.substring(i + 1);
-							} else {
-								tag = res;
-							}
-						}
-					}
-				}
-				n.putTag(tag, val);
+				MapRenderingTypes.getDefault().getAmenityTagValue(a.getType(), subType, tag, value);
+				n.putTag(tag.toString(), value.toString());
 				String name = nameText.getText().toString();
 				if(name.length() > 0) {
 					n.putTag(OSMTagKey.NAME.getValue(), name);
@@ -521,12 +522,12 @@ public class EditingPOIActivity implements DialogProvider {
 			return null;
 		}
 		
-		List<BasicDayOpeningHourRule> simple = null;
+		List<BasicOpeningHourRule> simple = null;
 		if(time != null){
-			simple = new ArrayList<BasicDayOpeningHourRule>();
+			simple = new ArrayList<BasicOpeningHourRule>();
 			for(OpeningHoursRule r : time.getRules()){
-				if(r instanceof BasicDayOpeningHourRule){
-					simple.add((BasicDayOpeningHourRule) r);
+				if(r instanceof BasicOpeningHourRule){
+					simple.add((BasicOpeningHourRule) r);
 				} else {
 					time = null;
 					break;

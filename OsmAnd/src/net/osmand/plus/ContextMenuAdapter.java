@@ -27,6 +27,7 @@ public class ContextMenuAdapter {
 	final ArrayList<OnContextMenuClick> listeners = new ArrayList<ContextMenuAdapter.OnContextMenuClick>();
 	final TIntArrayList selectedList = new TIntArrayList();
 	final TIntArrayList iconList = new TIntArrayList();
+	final TIntArrayList iconListLight = new TIntArrayList();
 
 	public ContextMenuAdapter(Context ctx) {
 		this.ctx = ctx;
@@ -52,51 +53,93 @@ public class ContextMenuAdapter {
 		return selectedList.get(pos);
 	}
 	
-	public int getImageId(int pos) {
-		return iconList.get(pos);
+	public void setSelection(int pos, int s) {
+		selectedList.set(pos, s);
 	}
 	
-	public void registerItem(int stringResId, int icon, OnContextMenuClick listener, int pos) {
-		registerSelectedItem(stringResId, -1, icon, listener, pos);
-	}
-	
-	public void registerItem(int stringResId, int icon, OnContextMenuClick listener) {
-		registerSelectedItem(stringResId, -1, icon, listener, -1);
-	}
-	
-	public void registerItem(int stringResId, OnContextMenuClick listener) {
-		registerSelectedItem(stringResId, -1, 0, listener, -1);
-	}
-	
-	
-	public void registerSelectedItem(int stringResId, int selected, int icon, OnContextMenuClick listener, int pos) {
-		if(pos >= items.size() || pos < 0) {
-			pos = items.size();
+	public int getImageId(int pos, boolean light) {
+		if(!light || iconListLight.get(pos) == 0) {
+			return iconList.get(pos);
 		}
-		items.insert(pos, stringResId);
-		itemNames.add(pos, ctx.getString(stringResId));
-		selectedList.insert(pos, selected);
-		iconList.insert(pos, icon);
-		listeners.add(pos, listener);
+		return iconListLight.get(pos);
 	}
 	
-	public void registerSelectedItem(int stringResId, int selected, int icon) {
-		registerSelectedItem(stringResId, selected, icon, null, -1);
+	
+	public Item item(String name){
+		Item i = new Item();
+		i.id = (name.hashCode() << 4) | items.size();
+		i.name = name;
+		return i;
 	}
-
-	public void registerItem(int stringResId, int icon) {
-		registerSelectedItem(stringResId, -1, icon);
+	
+	public Item item(int resId){
+		Item i = new Item();
+		i.id = resId;
+		i.name = ctx.getString(resId);
+		return i;
 	}
+	
+	public class Item {
+		int icon = 0;
+		int lightIcon = 0;
+		int id;
+		String name;
+		int selected = -1;
+		int pos = -1;
+		private OnContextMenuClick listener;
 
-	public void registerItem(int stringResId) {
-		registerSelectedItem(stringResId, -1, 0);
+		private Item() {
+		}
+
+		public Item icon(int icon) {
+			this.icon = icon;
+			return this;
+		}
+
+		public Item icons(int icon, int lightIcon) {
+			this.icon = icon;
+			this.lightIcon = lightIcon;
+			return this;
+		}
+
+		public Item position(int pos) {
+			this.pos = pos;
+			return this;
+		}
+
+		public Item selected(int selected) {
+			this.selected = selected;
+			return this;
+		}
+
+		public Item listen(OnContextMenuClick l) {
+			this.listener = l;
+			return this;
+
+		}
+
+		public void reg() {
+			if (pos >= items.size() || pos < 0) {
+				pos = items.size();
+			}
+			items.insert(pos, id);
+			itemNames.add(pos, name);
+			selectedList.insert(pos, selected);
+			iconList.insert(pos, icon);
+			iconListLight.insert(pos, lightIcon);
+			listeners.add(pos, listener);
+
+		}
+
 	}
-
+	
 	public String[] getItemNames() {
 		return itemNames.toArray(new String[itemNames.size()]);
 	}
 
-	public ListAdapter createListAdapter(final Activity activity, final int layoutId) {
+	
+
+	public ListAdapter createListAdapter(final Activity activity, final int layoutId, final boolean holoLight) {
 		final int padding = (int) (12 * activity.getResources().getDisplayMetrics().density + 0.5f);
 		ListAdapter listadapter = new ArrayAdapter<String>(activity, layoutId, R.id.title,
 				getItemNames()) {
@@ -111,10 +154,10 @@ public class ContextMenuAdapter {
 				tv.setText(getItemName(position));
 
 				// Put the image on the TextView
-				if (getImageId(position) != 0) {
-					tv.setCompoundDrawablesWithIntrinsicBounds(getImageId(position), 0, 0, 0);
+				if (getImageId(position, holoLight) != 0) {
+					tv.setCompoundDrawablesWithIntrinsicBounds(getImageId(position, holoLight), 0, 0, 0);
 				} else {
-					tv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.list_activities_transparent, 0, 0, 0);
+					tv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_transparent, 0, 0, 0);
 				}
 				tv.setCompoundDrawablePadding(padding);
 

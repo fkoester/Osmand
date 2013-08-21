@@ -122,11 +122,14 @@ public class LocalIndexHelper {
 			info.setCorrupted(true);
 			info.setDescription(result.warning);
 		} else {
-			int totalDistance = 0;
+			float totalDistance = 0;
 			int totalTracks = 0;
 			long startTime = Long.MAX_VALUE;
 			long endTime = Long.MIN_VALUE;
-			
+			long timeSpan = 0;
+			long timeMoving = 0;
+			float totalDistanceMoving = 0;
+
 			double diffElevationUp = 0;
 			double diffElevationDown = 0;
 			double totalElevation = 0;
@@ -136,7 +139,9 @@ public class LocalIndexHelper {
 			float maxSpeed = 0;
 			int speedCount = 0;
 			double totalSpeedSum = 0;
-			
+
+			float[] calculations = new float[1];
+
 			int points = 0;
 			for(int i = 0; i< result.tracks.size() ; i++){
 				Track subtrack = result.tracks.get(i);
@@ -150,6 +155,14 @@ public class LocalIndexHelper {
 							startTime = Math.min(startTime, time);
 							endTime = Math.max(startTime, time);
 						}
+
+						double elevation = point.ele;
+						if (!Double.isNaN(elevation)) {
+							totalElevation += elevation;
+							minElevation = Math.min(elevation, minElevation);
+							maxElevation = Math.max(elevation, maxElevation);
+						}
+
 						float speed = (float) point.speed;
 						if(speed > 0){
 							totalSpeedSum += speed;
@@ -157,14 +170,9 @@ public class LocalIndexHelper {
 							speedCount ++;
 						}
 						
-						double elevation = point.ele;
-						if (!Double.isNaN(elevation)) {
-							totalElevation += elevation;
-							minElevation = Math.min(elevation, minElevation);
-							maxElevation = Math.max(elevation, maxElevation);
-						}
 						if (j > 0) {
 							WptPt prev = segment.points.get(j - 1);
+
 							if (!Double.isNaN(point.ele) && !Double.isNaN(prev.ele)) {
 								double diff = point.ele - prev.ele;
 								if (diff > 0) {
@@ -173,13 +181,20 @@ public class LocalIndexHelper {
 									diffElevationDown -= diff;
 								}
 							}
-							totalDistance += MapUtils.getDistance(prev.lat, prev.lon, point.lat, point.lon);
+
+							//totalDistance += MapUtils.getDistance(prev.lat, prev.lon, point.lat, point.lon);
+							// using ellipsoidal 'distanceBetween' instead of spherical haversine (MapUtils.getDistance) is a little more exact, also seems slightly faster:
+							net.osmand.Location.distanceBetween(prev.lat, prev.lon, point.lat, point.lon, calculations);
+							totalDistance += calculations[0];
+
+							// Averaging speed values is less exact than totalDistance/timeMoving
+							if(speed > 0 && point.time != 0 && prev.time != 0){
+								timeMoving = timeMoving + (point.time - prev.time);
+								totalDistanceMoving += calculations[0];
+							}
 						}
 					}
-					
 				}
-				
-				
 			}
 			if(startTime == Long.MAX_VALUE){
 				startTime = f.lastModified();
@@ -187,23 +202,52 @@ public class LocalIndexHelper {
 			if(endTime == Long.MIN_VALUE){
 				endTime = f.lastModified();
 			}
-			
+
+			// OUTPUT:
+			// 1. Total distance, Start time, End time
 			info.setDescription(app.getString(R.string.local_index_gpx_info, totalTracks, points,
 					result.points.size(), OsmAndFormatter.getFormattedDistance(totalDistance, app),
 					startTime, endTime));
+
+			// 2. Time span
+			timeSpan = endTime - startTime;
+			info.setDescription(info.getDescription() + app.getString(R.string.local_index_gpx_timespan, (int) ((timeSpan / 1000) / 3600), (int) (((timeSpan / 1000) / 60) % 60), (int) ((timeSpan / 1000) % 60)));
+
+			// 3. Time moving, if any
+			if(timeMoving > 0){
+				info.setDescription(info.getDescription() +
+					app.getString(R.string.local_index_gpx_timemoving, (int) ((timeMoving / 1000) / 3600), (int) (((timeMoving / 1000) / 60) % 60), (int) ((timeMoving / 1000) % 60)));
+			}
+
+			// 4. Elevation, eleUp, eleDown, if recorded
 			if(totalElevation != 0 || diffElevationUp != 0 || diffElevationDown != 0){
 				info.setDescription(info.getDescription() +  
 						app.getString(R.string.local_index_gpx_info_elevation,
-						totalElevation / points, minElevation, maxElevation, diffElevationUp, diffElevationDown));
+						OsmAndFormatter.getFormattedAlt(totalElevation / points, app),
+						OsmAndFormatter.getFormattedAlt(minElevation, app),
+						OsmAndFormatter.getFormattedAlt(maxElevation, app),
+						OsmAndFormatter.getFormattedAlt(diffElevationUp, app),
+						OsmAndFormatter.getFormattedAlt(diffElevationDown, app)));
 			}
+
+			// 5. Max speed and Average speed, if any. Average speed is NOT overall (effective) speed, but only calculated for "moving" periods.
 			if(speedCount > 0){
-				info.setDescription(info.getDescription() +  
+				if(timeMoving > 0){
+					info.setDescription(info.getDescription() +
+						app.getString(R.string.local_index_gpx_info_speed,
+						OsmAndFormatter.getFormattedSpeed((float) (totalDistanceMoving / timeMoving * 1000), app),
+						OsmAndFormatter.getFormattedSpeed(maxSpeed, app)));
+						// (Use totalDistanceMoving instead of totalDistance for av-speed to ignore effect of position fluctuations at rest)
+				} else {
+					// Averaging speed values is less exact than totalDistance/timeMoving
+					info.setDescription(info.getDescription() +
 						app.getString(R.string.local_index_gpx_info_speed,
 						OsmAndFormatter.getFormattedSpeed((float) (totalSpeedSum / speedCount), app),
 						OsmAndFormatter.getFormattedSpeed(maxSpeed, app)));
-				
+				}
 			}
-			
+
+			// 6. 'Long-press for options' message
 			info.setDescription(info.getDescription() +  
 						app.getString(R.string.local_index_gpx_info_show));
 		}

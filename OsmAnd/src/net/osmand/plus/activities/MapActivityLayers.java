@@ -3,7 +3,6 @@ package net.osmand.plus.activities;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
@@ -20,6 +19,7 @@ import net.osmand.data.AmenityType;
 import net.osmand.map.ITileSource;
 import net.osmand.map.TileSourceManager.TileSourceTemplate;
 import net.osmand.plus.ContextMenuAdapter;
+import net.osmand.plus.ContextMenuAdapter.Item;
 import net.osmand.plus.ContextMenuAdapter.OnContextMenuClick;
 import net.osmand.plus.GPXUtilities;
 import net.osmand.plus.GPXUtilities.GPXFile;
@@ -35,6 +35,7 @@ import net.osmand.plus.R;
 import net.osmand.plus.SQLiteTileSource;
 import net.osmand.plus.rastermaps.OsmandRasterMapsPlugin;
 import net.osmand.plus.render.MapVectorLayer;
+import net.osmand.plus.render.RenderingIcons;
 import net.osmand.plus.routing.RoutingHelper;
 import net.osmand.plus.views.ContextMenuLayer;
 import net.osmand.plus.views.FavoritesLayer;
@@ -56,8 +57,11 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
@@ -250,8 +254,7 @@ public class MapActivityLayers {
 				settings.SHOW_POI_OVER_MAP.set(isChecked);
 			} else if(itemId == R.string.layer_poi_label){
 				settings.SHOW_POI_LABEL.set(isChecked);
-			} else if(itemId == R.string.layer_map_appearance){
-				getMapInfoLayer().openViewConfigureDialog();
+			
 			} else if(itemId == R.string.layer_favorites){
 				settings.SHOW_FAVORITES.set(isChecked);
 			} else if(itemId == R.string.layer_gpx_layer){
@@ -275,20 +278,22 @@ public class MapActivityLayers {
 		final OsmandSettings settings = getApplication().getSettings();
 		final ContextMenuAdapter adapter = new ContextMenuAdapter(activity);
 		// String appMode = " [" + settings.getApplicationMode().toHumanString(view.getApplication()) +"] ";
-		adapter.registerItem(R.string.layer_map_appearance,
-				R.drawable.list_activities_config);
-		adapter.registerSelectedItem(R.string.layer_poi, settings.SHOW_POI_OVER_MAP.get() ? 1 : 0, 
-				R.drawable.list_activities_poi);
-		adapter.registerSelectedItem(R.string.layer_poi_label, settings.SHOW_POI_LABEL.get() ? 1 : 0, 
-				R.drawable.list_activities_poi_labels);
-		adapter.registerSelectedItem(R.string.layer_favorites, settings.SHOW_FAVORITES.get() ? 1 : 0, 
-				R.drawable.list_activities_favorites2);
-		adapter.registerSelectedItem(R.string.layer_gpx_layer, 
-				getApplication().getGpxFileToDisplay() != null ? 1 : 0,  R.drawable.list_activities_gpx_tracks);
-		adapter.registerSelectedItem(R.string.layer_transport, settings.SHOW_TRANSPORT_OVER_MAP.get() ? 1 : 0, 
-				R.drawable.list_activities_transport_stops);
+		adapter.item(R.string.layer_poi).selected(settings.SHOW_POI_OVER_MAP.get() ? 1 : 0)
+				.icons(R.drawable.ic_action_info_dark, R.drawable.ic_action_info_light).reg();
+		adapter.item(R.string.layer_poi_label).selected(settings.SHOW_POI_LABEL.get() ? 1 : 0) 
+				.icons(R.drawable.ic_action_text_dark, R.drawable.ic_action_text_light).reg();
+		adapter.item(R.string.layer_favorites).selected(settings.SHOW_FAVORITES.get() ? 1 : 0) 
+				.icons(R.drawable.ic_action_fav_dark, R.drawable.ic_action_fav_light).reg();
+		adapter.item(R.string.layer_gpx_layer).selected(
+				getApplication().getGpxFileToDisplay() != null ? 1 : 0)
+//				.icons(R.drawable.ic_action_foot_dark, R.drawable.ic_action_foot_light)
+				.icons(R.drawable.ic_action_polygom_dark, R.drawable.ic_action_polygom_light)
+				.reg();
+		adapter.item(R.string.layer_transport).selected( settings.SHOW_TRANSPORT_OVER_MAP.get() ? 1 : 0)
+				.icons(R.drawable.ic_action_bus_dark, R.drawable.ic_action_bus_light).reg(); 
 		if(TransportRouteHelper.getInstance().routeIsCalculated()){
-			adapter.registerSelectedItem(R.string.layer_transport_route, 1 , R.drawable.list_activities_transport_stops);
+			adapter.item(R.string.layer_transport_route).selected(1 )
+				.icons(R.drawable.ic_action_bus_dark, R.drawable.ic_action_bus_light).reg();
 		}
 		
 		
@@ -299,21 +304,28 @@ public class MapActivityLayers {
 		Builder b = new AlertDialog.Builder(activity);
 		
 		final int padding = (int) (12 * activity.getResources().getDisplayMetrics().density + 0.5f);
+		final boolean light = getApplication().getSettings().isLightContentMenu();
+		final int layout;
+		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB){
+			layout = R.layout.list_menu_item;
+		} else {
+			layout = R.layout.list_menu_item_native;
+		}
 
-		ListAdapter listAdapter = new ArrayAdapter<String>(
-			    activity, R.layout.list_menu_item, R.id.title, adapter.getItemNames()){
+		final ArrayAdapter<String> listAdapter = new ArrayAdapter<String>(
+			    activity, layout, R.id.title, adapter.getItemNames()){
 			        @Override
 					public View getView(final int position, View convertView, ViewGroup parent) {
 						// User super class to create the View
-						View v = activity.getLayoutInflater().inflate(R.layout.list_menu_item, null);
+						View v = activity.getLayoutInflater().inflate(layout, null);
 			            TextView tv = (TextView)v.findViewById(R.id.title);
 			            tv.setText(adapter.getItemName(position));			            
 
 			            //Put the image on the TextView
-			            if(adapter.getImageId(position) != 0) {
-			            	tv.setCompoundDrawablesWithIntrinsicBounds(adapter.getImageId(position), 0, 0, 0);
+			            if(adapter.getImageId(position, light) != 0) {
+			            	tv.setCompoundDrawablesWithIntrinsicBounds(adapter.getImageId(position, light), 0, 0, 0);
 			            } else {
-			            	tv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.list_activities_transparent, 0, 0, 0);
+			            	tv.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_action_transparent, 0, 0, 0);
 			            }
 			            tv.setCompoundDrawablePadding(padding);
 
@@ -334,20 +346,30 @@ public class MapActivityLayers {
 			        }
 			    };
 
-	    b.setAdapter(listAdapter, new OnClickListener() {
+	    OnClickListener onClickListener = new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int position) {
-				if(adapter.getSelection(position) >= 0) {
-					listener.onClick(position, !(adapter.getSelection(position) > 0));
-				} else {
-					listener.onClick(position, adapter.getSelection(position) > 0);
-				}
 			}
-		});
+		};
+		b.setAdapter(listAdapter, onClickListener);
+		b.setPositiveButton(R.string.default_buttons_ok, null);
 
 	    final AlertDialog dlg = b.create();
 	    listener.setDialog(dlg); 
 		dlg.setCanceledOnTouchOutside(true);
+		dlg.getListView().setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				if(adapter.getSelection(position) >= 0) {
+					listener.onClick(position, !(adapter.getSelection(position) > 0));
+					adapter.setSelection(position, adapter.getSelection(position) > 0 ? 0 : 1);
+					listAdapter.notifyDataSetInvalidated();
+				} else {
+					listener.onClick(position, adapter.getSelection(position) > 0);
+				}				
+			}
+		});
 		dlg.show();
 	}
 	
@@ -474,7 +496,7 @@ public class MapActivityLayers {
 			File[] files = dir.listFiles();
 			if (files != null) {
 				for (File f : files) {
-					if (f.getName().endsWith(".gpx")) { //$NON-NLS-1$
+					if (f.getName().toLowerCase().endsWith(".gpx")) { //$NON-NLS-1$
 						list.add(parent + f.getName());
 					} else if (f.isDirectory()) {
 						readGpxDirectory(f, list, parent + f.getName() + "/");
@@ -522,21 +544,45 @@ public class MapActivityLayers {
 	
 	private void selectPOIFilterLayer(final OsmandMapTileView mapView){
 		final List<PoiFilter> userDefined = new ArrayList<PoiFilter>();
-		List<String> list = new ArrayList<String>();
-		list.add(getString(R.string.any_poi));
+		OsmandApplication app = (OsmandApplication)getApplication();
+		final PoiFiltersHelper poiFilters = app.getPoiFilters();
+		final ContextMenuAdapter adapter = new ContextMenuAdapter(activity);
 		
-		final PoiFiltersHelper poiFilters = ((OsmandApplication)getApplication()).getPoiFilters();
+		Item is = adapter.item(getString(R.string.any_poi));
+		if(RenderingIcons.containsBigIcon("null")) {
+			is.icon(RenderingIcons.getBigIconResourceId("null"));
+		}
+		is.reg();
+		
 		for (PoiFilter f : poiFilters.getUserDefinedPoiFilters()) {
 			if(!f.getFilterId().equals(PoiFilter.BY_NAME_FILTER_ID)){
+				Item it = adapter.item(f.getName());
+				if(RenderingIcons.containsBigIcon(f.getSimplifiedId())) {
+					it.icon(RenderingIcons.getBigIconResourceId(f.getSimplifiedId()));
+				} else {
+					it.icon(RenderingIcons.getBigIconResourceId("user_defined"));
+				}
+				it.reg();
 				userDefined.add(f);
-				list.add(f.getName());
 			}
 		}
 		for(AmenityType t : AmenityType.values()){
-			list.add(OsmAndFormatter.toPublicString(t, activity.getMyApplication()));
+			Item it = adapter.item(OsmAndFormatter.toPublicString(t, activity.getMyApplication()));
+			if(RenderingIcons.containsBigIcon(t.toString().toLowerCase())) {
+				it.icon(RenderingIcons.getBigIconResourceId(t.toString().toLowerCase()));
+			}
+			it.reg();
 		}
 		Builder builder = new AlertDialog.Builder(activity);
-		builder.setItems(list.toArray(new String[list.size()]), new DialogInterface.OnClickListener(){
+		ListAdapter listAdapter ;
+		if(Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB){
+			listAdapter =
+				adapter.createListAdapter(activity, R.layout.list_menu_item, app.getSettings().isLightContentMenu());
+		} else {
+			listAdapter =
+				adapter.createListAdapter(activity, R.layout.list_menu_item_native, app.getSettings().isLightContentMenu());
+		}
+		builder.setAdapter(listAdapter, new DialogInterface.OnClickListener(){
 
 			@Override
 			public void onClick(DialogInterface dialog, int which) {

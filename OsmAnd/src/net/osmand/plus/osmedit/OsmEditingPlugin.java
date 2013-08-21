@@ -134,18 +134,22 @@ public class OsmEditingPlugin extends OsmandPlugin {
 			}
 		};
 		if(selectedObj instanceof Amenity) {
-			adapter.registerItem(R.string.poi_context_menu_modify, R.drawable.list_activities_poi_modify, listener, 1);
-			adapter.registerItem(R.string.poi_context_menu_delete, R.drawable.list_activities_poi_remove, listener, 2);
+			adapter.item(R.string.poi_context_menu_modify).icons(R.drawable.ic_action_edit_dark, 
+					R.drawable.ic_action_edit_light).listen(listener).position(1).reg();
+			adapter.item(R.string.poi_context_menu_delete).icons(R.drawable.ic_action_delete_dark, 
+					R.drawable.ic_action_delete_light).listen(listener).position(2).reg();
 		} else {
-			adapter.registerItem(R.string.context_menu_item_create_poi, R.drawable.list_activities_create_poi, listener, -1);
+			adapter.item(R.string.context_menu_item_create_poi).icons(R.drawable.ic_action_plus_dark, 
+					R.drawable.ic_action_plus_light).listen(listener).position(-1).reg();
 		}
-		adapter.registerItem(R.string.context_menu_item_open_bug, R.drawable.list_activities_osm_bugs, listener, -1);
+		adapter.item(R.string.context_menu_item_open_bug).icons(R.drawable.ic_action_bug_dark, 
+				R.drawable.ic_action_bug_light).listen(listener).reg();
 	}
 
 	@Override
 	public void registerLayerContextMenuActions(OsmandMapTileView mapView, ContextMenuAdapter adapter, MapActivity mapActivity) {
-		adapter.registerSelectedItem(R.string.layer_osm_bugs, settings.SHOW_OSM_BUGS.get() ? 1 : 0, R.drawable.list_activities_osm_bugs,
-				new OnContextMenuClick() {
+		adapter.item(R.string.layer_osm_bugs).selected(settings.SHOW_OSM_BUGS.get() ? 1 : 0)
+				.icons(R.drawable.ic_action_bug_dark, R.drawable.ic_action_bug_light).listen(new OnContextMenuClick() {
 
 					@Override
 					public void onContextMenuClick(int itemId, int pos, boolean isChecked, DialogInterface dialog) {
@@ -153,7 +157,7 @@ public class OsmEditingPlugin extends OsmandPlugin {
 							settings.SHOW_OSM_BUGS.set(isChecked);
 						}
 					}
-				}, 8);
+				}).position(7).reg();
 
 	}
 
@@ -165,31 +169,33 @@ public class OsmEditingPlugin extends OsmandPlugin {
 	@Override
 	public void contextMenuLocalIndexes(final LocalIndexesActivity la, final LocalIndexInfo info, ContextMenuAdapter adapter) {
 		if (info.getType() == LocalIndexType.GPX_DATA) {
-			adapter.registerItem(R.string.local_index_mi_upload_gpx, 0, new OnContextMenuClick() {
+			adapter.item(R.string.local_index_mi_upload_gpx).icons(R.drawable.ic_action_gup_dark, R.drawable.ic_action_gup_light)
+					.listen(new OnContextMenuClick() {
 
-				@Override
-				public void onContextMenuClick(int itemId, int pos, boolean isChecked, DialogInterface dialog) {
-					sendGPXFiles(la, info);
-				}
-			}, 0);
+						@Override
+						public void onContextMenuClick(int itemId, int pos, boolean isChecked, DialogInterface dialog) {
+							sendGPXFiles(la, info);
+						}
+					}).reg();
 		}
 	}
 	
 	@Override
 	public void optionsMenuLocalIndexes(final LocalIndexesActivity la, ContextMenuAdapter optionsMenuAdapter) {
-		optionsMenuAdapter.registerItem(R.string.local_index_mi_upload_gpx, 0, new OnContextMenuClick() {
+		optionsMenuAdapter.item(R.string.local_index_mi_upload_gpx)
+		.icons(R.drawable.ic_action_gup_dark, R.drawable.ic_action_gup_light).listen(new OnContextMenuClick() {
 
 			@Override
 			public void onContextMenuClick(int itemId, int pos, boolean isChecked, DialogInterface dialog) {
-				la.openSelectionMode(R.string.local_index_mi_upload_gpx, R.drawable.a_9_av_upload_dark, 
-						R.drawable.a_9_av_upload_light, new OnClickListener() {
+				la.openSelectionMode(R.string.local_index_mi_upload_gpx, R.drawable.ic_action_gup_dark, 
+						R.drawable.ic_action_gup_light, new OnClickListener() {
 							@Override
 							public void onClick(DialogInterface dialog, int which) {
 								sendGPXFiles(la, la.getSelectedItems().toArray(new LocalIndexInfo[la.getSelectedItems().size()]));								
 							}
 						}, null, LocalIndexType.GPX_DATA);
 			}
-		}, 5);
+		}).position(5).reg();
 	}
 	
 	public boolean sendGPXFiles(final LocalIndexesActivity la, final LocalIndexInfo... info){

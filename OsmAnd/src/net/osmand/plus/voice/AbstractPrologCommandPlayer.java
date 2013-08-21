@@ -76,7 +76,7 @@ public abstract class AbstractPrologCommandPlayer implements CommandPlayer {
 	
 	public String[] getLibraries(){
 		return new String[] { "alice.tuprolog.lib.BasicLibrary",
-					"alice.tuprolog.lib.ISOLibrary"};
+					"alice.tuprolog.lib.ISOLibrary"/*, "alice.tuprolog.lib.IOLibrary"*/};
 	}
 
 	private void init(String voiceProvider, OsmandSettings settings, String configFile) throws CommandPlayerException {
@@ -107,6 +107,7 @@ public abstract class AbstractPrologCommandPlayer implements CommandPlayer {
 				config = new FileInputStream(new File(voiceDir, configFile)); //$NON-NLS-1$
 				// }
 				MetricsConstants mc = settings.METRIC_SYSTEM.get();
+				prologSystem.addTheory(new Theory("appMode('"+settings.getApplicationMode().toString().toLowerCase()+"')."));
 				prologSystem.addTheory(new Theory("measure('"+mc.toTTSString()+"')."));
 				prologSystem.addTheory(new Theory(config));
 			} catch (InvalidTheoryException e) {
@@ -153,6 +154,9 @@ public abstract class AbstractPrologCommandPlayer implements CommandPlayer {
 		if(prologSystem == null) {
 			return files;
 		}
+		if (log.isInfoEnabled()) {
+			log.info("Query speak files " + listCmd);
+		}
 		SolveInfo res = prologSystem.solve(new Struct(P_RESOLVE, list, result));
 		
 		if (res.isSuccess()) {
@@ -170,6 +174,9 @@ public abstract class AbstractPrologCommandPlayer implements CommandPlayer {
 				
 			} catch (NoSolutionException e) {
 			}
+		}
+		if (log.isInfoEnabled()) {
+			log.info("Speak files " + files);
 		}
 		return files;
 	}

@@ -34,7 +34,7 @@ public class PoiFilter {
 	
 	protected int distanceInd = 1;
 	// in kilometers
-	protected double[] distanceToSearchValues = new double[] {1, 2, 3, 5, 10, 30, 100, 250 };
+	protected double[] distanceToSearchValues = new double[] {1, 2, 5, 10, 20, 50, 100, 200, 500 };
 	
 	
 	// constructor for standard filters
@@ -87,7 +87,7 @@ public class PoiFilter {
 		for(AmenityType t : AmenityType.values()){
 			acceptedTypes.put(t, null);
 		}
-		distanceToSearchValues = new double[] {0.5, 1, 2, 3, 5, 10, 15, 30, 100};
+		distanceToSearchValues = new double[] {0.5, 1, 2, 5, 10, 20, 50, 100};
 	}
 	
 	
@@ -295,6 +295,15 @@ public class PoiFilter {
 	}
 	
 	public String getFilterId(){
+		return filterId;
+	}
+	
+	public String getSimplifiedId(){
+		if(filterId.startsWith(STD_PREFIX)) {
+			return filterId.substring(STD_PREFIX.length()).toLowerCase();
+		} else if(filterId.startsWith(USER_PREFIX)) {
+			return filterId.substring(USER_PREFIX.length()).toLowerCase();
+		}
 		return filterId;
 	}
 	

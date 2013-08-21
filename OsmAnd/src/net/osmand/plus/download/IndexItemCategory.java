@@ -9,6 +9,7 @@ import java.util.TreeMap;
 
 import net.osmand.plus.ClientContext;
 import net.osmand.plus.R;
+import net.osmand.plus.Version;
 
 public class IndexItemCategory implements Comparable<IndexItemCategory> {
 	public final String name;
@@ -26,6 +27,7 @@ public class IndexItemCategory implements Comparable<IndexItemCategory> {
 	}
 
 	public static List<IndexItemCategory> categorizeIndexItems(ClientContext ctx, Collection<IndexItem> indexItems) {
+		boolean skipWiki = Version.isFreeVersion(ctx);
 		final Map<String, IndexItemCategory> cats = new TreeMap<String, IndexItemCategory>();
 		for (IndexItem i : indexItems) {
 			int nameId = R.string.index_name_other;
@@ -66,7 +68,7 @@ public class IndexItemCategory implements Comparable<IndexItemCategory> {
 			} else if (lc.contains("russia")) {
 				nameId = R.string.index_name_russia;
 				order = 18;
-			} else if (lc.contains("africa")) {
+			} else if (lc.contains("africa") && !lc.contains("_wiki_")) {
 				nameId = R.string.index_name_africa;
 				order = 80;
 			} else if (lc.contains("_asia")|| lc.startsWith("asia")) {
@@ -76,6 +78,9 @@ public class IndexItemCategory implements Comparable<IndexItemCategory> {
 				nameId = R.string.index_name_oceania;
 				order = 70;
 			} else if (lc.contains("_wiki_")) {
+				if(skipWiki) {
+					continue;
+				}
 				nameId = R.string.index_name_wiki;
 				order = 10;
 			}

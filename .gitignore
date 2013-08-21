@@ -1,1 +1,8 @@
-.metadata
+*.render.xml
+routing*.xml
+rendering_types.xml
+countries.reginfo
+h_*.png
+g_*.png
+mm_*.png
+mx_*.png

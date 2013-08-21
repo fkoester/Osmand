@@ -96,13 +96,13 @@ public class SRTMPlugin extends OsmandPlugin {
 			@Override
 			public void onContextMenuClick(int itemId, int pos, boolean isChecked, DialogInterface dialog) {
 				if (itemId == R.string.layer_hillshade) {
-					dialog.dismiss();
 					HILLSHADE.set(!HILLSHADE.get());
 					updateLayers(mapView, mapActivity);
 				}
 			}
 		};
-		adapter.registerSelectedItem(R.string.layer_hillshade, HILLSHADE.get()? 1 : 0, R.drawable.list_activities_overlay_map, listener, 9);
+		adapter.item(R.string.layer_hillshade).selected(HILLSHADE.get()? 1 : 0)
+			.icons( R.drawable.ic_action_hillshade_dark, R.drawable.ic_action_hillshade_light).listen(listener).position(9).reg();
 	}
 	
 	@Override

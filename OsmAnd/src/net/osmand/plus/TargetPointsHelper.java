@@ -79,12 +79,12 @@ public class TargetPointsHelper {
 	 * Clear the local and persistent waypoints list and destination.
 	 */
 	public void removeAllWayPoints(boolean updateRoute){
-		settings.clearPointToNavigate();
-		pointToNavigate = null;		
 		settings.clearIntermediatePoints();
-		settings.clearPointToNavigate(); 
+		settings.clearPointToNavigate();
+		pointToNavigate = null;
 		intermediatePoints.clear();
-		intermediatePointNames.clear();	
+		intermediatePointNames.clear();
+		readFromSettings(settings);
 		updateRouteAndReferesh(updateRoute);
 	}
 
@@ -142,6 +142,8 @@ public class TargetPointsHelper {
 	public void clearPointToNavigate(boolean updateRoute) {
 		settings.clearPointToNavigate();
 		settings.clearIntermediatePoints();
+		intermediatePoints.clear();
+		intermediatePointNames.clear();
 		readFromSettings(settings);
 		updateRouteAndReferesh(updateRoute);
 	}
@@ -163,12 +165,16 @@ public class TargetPointsHelper {
 	}
 	
 	public void navigateToPoint(LatLon point, boolean updateRoute, int intermediate){
+		navigateToPoint(point, updateRoute, intermediate, null);
+	}
+	
+	public void navigateToPoint(LatLon point, boolean updateRoute, int intermediate, String historyName){
 		if(point != null){
 			if(intermediate < 0) {
-				settings.setPointToNavigate(point.getLatitude(), point.getLongitude(), null);
+				settings.setPointToNavigate(point.getLatitude(), point.getLongitude(), historyName);
 			} else {
-				settings.insertIntermediatePoint(point.getLatitude(), point.getLongitude(), null, 
-						intermediate, false);
+				settings.insertIntermediatePoint(point.getLatitude(), point.getLongitude(), historyName, 
+						intermediate);
 			}
 		} else {
 			settings.clearPointToNavigate();
@@ -176,7 +182,6 @@ public class TargetPointsHelper {
 		}
 		readFromSettings(settings);
 		updateRouteAndReferesh(updateRoute);
-		
 	}
 	
 	public boolean checkPointToNavigate(ClientContext ctx ){
@@ -187,11 +192,5 @@ public class TargetPointsHelper {
     	return true;
     }
 	
-	
-
-	public void updatePointsFromSettings() {
-		readFromSettings(settings);		
-	}
-
 	
 }
