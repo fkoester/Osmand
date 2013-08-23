@@ -330,18 +330,17 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 		serviceConnection.addJobToQueue(throttlePos);
 		// serviceConnection.addJobToQueue(maf);
 	}
-
+	
 	/**
-	 * @see net.osmand.plus.OsmandPlugin#registerOptionsMenuItems(net.osmand.plus.activities.MapActivity,
-	 *      net.osmand.plus.OptionsMenuHelper)
+	 * @see net.osmand.plus.OsmandPlugin#registerMapContextMenuActions(net.osmand.plus.activities.MapActivity, double, double, net.osmand.plus.ContextMenuAdapter, java.lang.Object)
 	 */
 	@Override
-	public void registerOptionsMenuItems(final MapActivity mapActivity,
-			ContextMenuAdapter helper) {
+	public void registerMapContextMenuActions(final MapActivity mapActivity,
+			double latitude, double longitude, ContextMenuAdapter adapter,
+			Object selectedObj) {
 
-		helper.registerItem(
-				R.string.vehiclediagnostics_options_reset_tour,
-				android.R.drawable.ic_menu_mylocation,
+		adapter.item(R.string.vehiclediagnostics_options_reset_tour)
+		.icons( android.R.drawable.ic_menu_mylocation, R.drawable.ic_action_remove_light).listen(
 				new OnContextMenuClick() {
 
 					@Override
@@ -372,12 +371,10 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 										});
 						builder.show();
 					}
-				},
-				0);
+				}).position(0).reg();
 
-		helper.registerItem(
-				R.string.vehiclediagnostics_options_refuel,
-				android.R.drawable.ic_menu_mylocation,
+		adapter.item(R.string.vehiclediagnostics_options_refuel)
+		.icons( android.R.drawable.ic_menu_mylocation, R.drawable.ic_action_remove_light).listen(
 				new OnContextMenuClick() {
 
 					@Override
@@ -439,8 +436,7 @@ public class OsmandVehicleDiagnosticsPlugin extends OsmandPlugin {
 
 						builder.show();
 					}
-				},
-				1);
+				}).position(1).reg();
 	}
 
 	private void resumeTour(PermanentSampleStorage<Double> tourStorage) {
